@@ -5,6 +5,6 @@ module.exports = function setFlag(flagNameString, valueBool) {
 
     var flags = JSON.parse(fs.readFileSync(flagsPath));
     flags[flagNameString] = valueBool;
-    console.log(flags);
-    fs.writeFileSync(flagsPath, JSON.stringify(flags))
+
+    fs.writeFileSync(flagsPath, JSON.stringify(Object(flags)));
 }
