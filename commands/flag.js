@@ -25,7 +25,7 @@ class SayCommand extends Command {
                 setFlag(args.flagName, val);
             } catch (e) {};
 
-            message.reply(new Discord.RichEmbed()
+            message.channel.send(new Discord.RichEmbed()
                 .setTitle("Changed flag")
                 .setDescription(`\`${args.flagName}\` is set to \`${val}\``)
                 .setImage("https://emojipedia-us.s3.amazonaws.com/thumbs/160/twitter/103/white-heavy-check-mark_2705.png")
