@@ -5,7 +5,12 @@ module.exports = function(flagNameString, valueBool) {
 
     var flags = JSON.parse(fs.readFileSync(flagsPath));
     flags[flagNameString] = valueBool ? true : false;
-    fs.writeFile(flagsPath, JSON.stringify(flags), function(err) {
-        console.log(err)
-    })
+    try {
+        fs.writeFile(flagsPath, JSON.stringify(flags), function(err) {
+            console.log(err)
+        })
+    } catch (e) {
+        return;
+    }
+
 }
