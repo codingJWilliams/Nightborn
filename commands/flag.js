@@ -22,7 +22,7 @@ class SayCommand extends Command {
             message.reply(new Discord.RichEmbed()
                 .setTitle("Changed flag")
                 .setDescription(`\`${args.flagName}\` is set to \`${{y: true, yes: true, true: true, n: false, no: false, false: false}[args.val]}\``)
-                .setImage("https://emojipedia-us.s3.amazonaws.com/thumbs/160/twitter/103/white-heavy-check-mark_2705.png");
+                .setImage("https://emojipedia-us.s3.amazonaws.com/thumbs/160/twitter/103/white-heavy-check-mark_2705.png")
             )
         })
     }
