@@ -4,7 +4,9 @@ class PingCommand extends Command {
     constructor() {
         super('glocks', {
             aliases: ['glocks'],
-            prefix: ["2 "]
+            prefix: ["2 "],
+            cooldown: 7000,
+            ratelimit: 1
         });
     }
 
