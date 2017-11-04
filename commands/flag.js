@@ -21,6 +21,7 @@ class SayCommand extends Command {
             var val;
             if (["y", "yes", "true"].indexOf(args.val) !== -1) val = true;
             if (["n", "no", "false"].indexOf(args.val) !== -1) val = false;
+            console.log(val)
             setFlag(args.flagName, val);
             message.reply(new Discord.RichEmbed()
                 .setTitle("Changed flag")
