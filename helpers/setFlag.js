@@ -1,4 +1,4 @@
-exports = (flagNameString, valueBool) => {
+module.exports = function setFlag(flagNameString, valueBool) {
     var path = require("path");
     var flagsPath = path.join(".", "..", "..", "CheckUserBot", "storage", "flags.json");
     var fs = require("fs");
