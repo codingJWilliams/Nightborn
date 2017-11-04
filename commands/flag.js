@@ -28,6 +28,7 @@ class SayCommand extends Command {
                 .setDescription(`\`${args.flagName}\` is set to \`${val}\``)
                 .setImage("https://emojipedia-us.s3.amazonaws.com/thumbs/160/twitter/103/white-heavy-check-mark_2705.png")
             )
+            resolve()
         })
     }
 }
