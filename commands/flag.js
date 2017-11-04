@@ -18,10 +18,13 @@ class SayCommand extends Command {
 
     exec(message, args) {
         return new Promise((resolve, reject) => {
-            setFlag(args.flagName, { y: true, yes: true, true: true, n: false, no: false, false: false }[args.val]);
+            var val;
+            if (["y", "yes", "true"].indexOf(args.val) !== -1) val = true;
+            if (["n", "no", "false"].indexOf(args.val) !== -1) val = false;
+            setFlag(args.flagName, val);
             message.reply(new Discord.RichEmbed()
                 .setTitle("Changed flag")
-                .setDescription(`\`${args.flagName}\` is set to \`${{y: true, yes: true, true: true, n: false, no: false, false: false}[args.val]}\``)
+                .setDescription(`\`${args.flagName}\` is set to \`${val}\``)
                 .setImage("https://emojipedia-us.s3.amazonaws.com/thumbs/160/twitter/103/white-heavy-check-mark_2705.png")
             )
         })
