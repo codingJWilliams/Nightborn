@@ -15,6 +15,7 @@ class SayCommand extends Command {
         return new Promise((resolve, reject) => {
             message.delete().then(() => {
                 message.channel.send(args.a)
+                resolve()
             })
         })
     }
