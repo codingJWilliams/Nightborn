@@ -1,0 +1,24 @@
+{
+    "name": "checkuser2",
+    "version": "1.0.0",
+    "description": "Check User v2",
+    "main": "bot.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/codingJWilliams/CheckUser2.git"
+    },
+    "author": "Jay W",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/codingJWilliams/CheckUser2/issues"
+    },
+    "homepage": "https://github.com/codingJWilliams/CheckUser2#readme",
+    "dependencies": {
+        "discord-akairo": "^7.5.0",
+        "discord.js": "^11.2.1",
+        "request": "^2.83.0"
+    }
+}
