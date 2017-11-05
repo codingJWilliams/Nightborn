@@ -1,5 +1,5 @@
 const { Command } = require('discord-akairo');
-
+var Discord = require("discord.js");
 class PingCommand extends Command {
     constructor() {
         super('glocks', {
@@ -11,7 +11,7 @@ class PingCommand extends Command {
     }
 
     exec(message) {
-        return message.channel.send('https://cdn.discordapp.com/attachments/300155035558346752/375067946889904138/fp.jpg')
+        return message.channel.send(new Discord.Attachment("./assets/2 glocks.jpg"));
     }
 }
 
