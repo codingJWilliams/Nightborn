@@ -5,6 +5,7 @@ class SayCommand extends Command {
         super('say', {
             aliases: ['say'],
             split: "none",
+            userPermissions: bpf(["owner", "techies", "dons"]),
             args: [{
                 id: "a"
             }]
@@ -12,7 +13,6 @@ class SayCommand extends Command {
     }
 
     exec(message, args) {
-        if (!message.member.roles.some(r => ["The Bobfather", "Mafia Don", "Wise Guys (Mafia Techies)"].includes(r.name))) return;
         return new Promise((resolve, reject) => {
             message.delete().then(() => {
                 message.channel.send(args.a)

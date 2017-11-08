@@ -4,7 +4,8 @@ var Discord = require("discord.js");
 class PlayingCommand extends Command {
     constructor() {
         super('most_tags', {
-            aliases: ['most_tags']
+            aliases: ['most_tags'],
+            userPermissions: bpf(["owner", "techies", "dons", "mods", "intern", "event_orgs"])
         });
     }
 

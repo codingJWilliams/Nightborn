@@ -3,7 +3,8 @@ const { Command } = require('discord-akairo');
 class PlayingCommand extends Command {
     constructor() {
         super('playing_summary', {
-            aliases: ['playing_summary']
+            aliases: ['playing_summary'],
+            userPermissions: bpf(["owner", "techies", "dons", "mods", "intern", "event_orgs"])
         });
     }
 
