@@ -7,11 +7,11 @@ class PlayingCommand extends Command {
     constructor() {
         super('purgebots', {
             aliases: ['purgebots'],
-            userPermissions: bpf(["owner", "techies", "dons", "mods"]),
+            userPermissions: bpf(["owner", "techies", "dons", "mods", "intern"]),
             args: [{
                 id: "lookBack",
                 type: "number",
-                default: 200
+                default: 100
             }]
         });
     }

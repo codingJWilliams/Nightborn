@@ -1,5 +1,6 @@
 const { Command } = require('discord-akairo');
 var Discord = require("discord.js");
+var bpf = require("../helpers/build_permission_function");
 
 class PlayingCommand extends Command {
     constructor() {

@@ -1,4 +1,5 @@
 const { Command } = require('discord-akairo');
+var bpf = require("../helpers/build_permission_function");
 
 class SayCommand extends Command {
     constructor() {

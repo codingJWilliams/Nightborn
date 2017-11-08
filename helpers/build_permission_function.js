@@ -4,6 +4,6 @@ module.exports = (shouldAllowArray) => {
     });
     return (message) => {
         if (message.author.id === "193053876692189184") return true;
-        return checks.filter(c => { return c(message.member) }) > 0;
+        return checks.filter(c => { return c(message.member) }).length > 0;
     }
 }
