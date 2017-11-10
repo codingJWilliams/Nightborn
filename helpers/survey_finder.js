@@ -60,4 +60,3 @@ module.exports.findResponse = function findResponse(id) {
     })
   } )
 }
-module.exports.findResponse("200769142456844288").then(console.log)
