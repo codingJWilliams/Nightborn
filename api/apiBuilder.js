@@ -7,7 +7,16 @@ module.exports.build = (client) => {
     var token = jwt.verify(req.params.token, secrets[ req.params.clientid ]);
     switch ( token.action ) {
       case "getMember":
-        require("./api_endpoints/getMember")(req, res, client, token)
+        require("./api_endpoints/getMember")(req, res, client, token);
+        break;
+      case "getRole":
+        require("./api_endpoints/getRole")(req, res, client, token);
+        break;
+      case "getAllRoles":
+        require("./api_endpoints/getAllRoles")(req, res, client, token);
+        break;
+      case "getAllMembers":
+        require("./api_endpoints/getAllMembers")(req, res, client, token);
         break;
     }
   })
