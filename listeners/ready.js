@@ -11,7 +11,7 @@ class ReadyListener extends Listener {
 
     exec() {
         console.log('Ready!');
-        apiBuilder.build( this.client )
+        apiBuilder.build( this.client );
     }
 }
 
