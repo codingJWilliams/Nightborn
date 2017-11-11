@@ -18,10 +18,16 @@ module.exports.build = (client) => {
       case "getAllMembers":
         require("./api_endpoints/getAllMembers")(req, res, client, token);
         break;
+      case "getAllChannels":
+        require("./api_endpoints/getAllChannels")(req, res, client, token);
+        break;
+      case "sendChannelMessage":
+        require("./api_endpoints/getAllMembers")(req, res, client, token);
+        break;
     }
   })
-  
-  app.listen(8000, () => 
-  console.log('Listening on port 8000!')
-)
+  // Deprecated for now
+  //app.listen(8000, () => 
+  //console.log('Listening on port 8000!')
+  //)
 }
