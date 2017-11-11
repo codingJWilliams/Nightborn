@@ -7,7 +7,7 @@ var readFilePromise = require("../helpers/readFilePromise");
 var phonetic = require("phonetic");
 var rwc = require("random-weighted-choice");
 
-class SayCommand extends Command {
+class DuelAcceptCommand extends Command {
   constructor() {
     super("duelaccept", {
       aliases: ["duelaccept", "accept"],
@@ -87,4 +87,4 @@ class SayCommand extends Command {
   }
 }
 
-module.exports = SayCommand;
+module.exports = DuelAcceptCommand;
