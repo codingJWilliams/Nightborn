@@ -3,11 +3,14 @@ var bpf = require("../helpers/build_permission_function");
 var economy = require("../helpers/economy");
 var Discord = require("discord.js");
 var fs = require("fs");
+var readFilePromise = require("../helpers/readFilePromise");
+var phonetic = require('phonetic');
 
 class SayCommand extends Command {
     constructor() {
         super('duel', {
             aliases: ['duel'],
+            prefix: "$",
             args: [{
                 id: "otherPerson",
                 type: "member"
@@ -34,14 +37,24 @@ class SayCommand extends Command {
             )
             return;
         }
-
+        var fContent = await readFilePromise("./storage/duels.json", "utf-8");
+        fContent = JSON.parse(fContent.toString());
+        var d_id = phonetic.generate();
         message.channel.send(new Discord.RichEmbed()
         .setTitle("Duel Started")
-        .setDescription("I've setup a duel with <@" + args.otherPerson.id + ">.")
+        .setDescription("I've setup a duel with <@" + args.otherPerson.id + "> for "+ args.amnt +".")
         .addBlankField()
-        .addField("To accept the duel:", "Type $duelaccept " + d_id);
+        .setColor(0x00FF00)
+        .addField("To accept the duel:", "<@" + args.otherPerson.id + ">, type `$duelaccept " + d_id + "` to accept.")
         )
-
+        fContent.push({
+            id: d_id,
+            initiator: message.author.id,
+            reciever: args.otherPerson.id,
+            amount: args.amnt,
+            timeSetup: Date.now()
+        });
+        fs.writeFileSync("./storage/duels.json", JSON.stringify(fContent))
     }
 }
 
