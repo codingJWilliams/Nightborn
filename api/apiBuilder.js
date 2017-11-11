@@ -1,6 +1,6 @@
 module.exports.build = (client) => {
   var express = require("express");
-  const app = express()
+  const app = express();
   var jwt = require("jsonwebtoken");
   var secrets = require("./apiconfig.json").secrets;
 
