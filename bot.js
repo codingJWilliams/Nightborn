@@ -9,5 +9,4 @@ const client = new AkairoClient({
 }, {
     disableEveryone: true
 });
-
 client.login(config.token);

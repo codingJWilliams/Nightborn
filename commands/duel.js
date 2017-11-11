@@ -22,6 +22,10 @@ class SayCommand extends Command {
     }
 
     async exec(message, args) {
+        if (args.amnt < 50) {
+            message.channel.send( new Discord.RichEmbed().setDescription("EG: `$duel @VoidCrafted#2483 10`").setTitle("Invalid amount! Please use a positive number above 50").setColor(0xFF0000) )
+            return;
+        } 
         var senderBal = await economy.getBal(message.author.id.toString());
         var toBeDueledBal = await economy.getBal(args.otherPerson.id.toString());
         if (senderBal < args.amnt) {
