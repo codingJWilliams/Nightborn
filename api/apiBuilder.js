@@ -10,7 +10,6 @@ module.exports.build = (client) => {
       switch ( token.action ) {
         case "getMember":
           require("./api_endpoints/getMember")(req, res, client, token)
-
           break;
       }
     })
