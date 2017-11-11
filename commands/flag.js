@@ -7,6 +7,7 @@ class SayCommand extends Command {
     constructor() {
         super('flag', {
             aliases: ['flag'],
+            userPermissions: bpf(['dons', 'owner']),
             args: [{
                 id: "flagName",
                 type: "string"
@@ -18,7 +19,7 @@ class SayCommand extends Command {
     }
 
     exec(message, args) {
-        if (!message.author.roles.some(r => ["The Bobfather", "Mafia Don", "Wise Guys (Mafia Techies)"].includes(r.name))) return;
+        //if (!message.author.roles.some(r => ["The Bobfather", "Mafia Don", "Wise Guys (Mafia Techies)"].includes(r.name))) return;
         return new Promise((resolve, reject) => {
             var val;
             if (["y", "yes", "true"].indexOf(args.val) !== -1) val = true;
