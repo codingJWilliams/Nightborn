@@ -71,6 +71,7 @@ class PingCommand extends Command {
           lnk.mcUsername,
           mc.colorCode(  "&9&o[PM] &9BOT &8> &7Nightborn Bot &8>> &9Applying the &8" + roleNeeded + "&9 role to you now :D"  )
         ])
+    
         await mc.easyCall("server.run_command", [
           "pex user " + lnk.mcUsername + " group set " + roleNeeded
         ])

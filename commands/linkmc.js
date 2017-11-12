@@ -53,7 +53,7 @@ class PingCommand extends Command {
         );
         fs.writeFileSync("./storage/linkcodes.json", JSON.stringify(linkcodes));
 
-        mc.easyCall("players.name.send_message", [
+        await mc.easyCall("players.name.send_message", [
           args.mcName,
           mc.colorCode(  "&9&o[PM] &9BOT &8> &7Nightborn Bot &8>> &9Type &8nb.completelink " +  linkCode + "&9 in #bot-commands and I'll get your rank sorted out :)")
         ])
