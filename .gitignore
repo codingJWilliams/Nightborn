@@ -6,6 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 config.json
 google_api_key.json
+dump.txt
 
 # Runtime data
 pids
