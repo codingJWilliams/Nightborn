@@ -12,5 +12,5 @@ module.exports.easyCall = async function(method, args) {
   return res[0];
 }
 module.exports.colorCode = function(s) {
-  return s.replace("&", "§")
+  return s.replace(/\&/g, "§");
 }
