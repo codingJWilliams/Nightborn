@@ -34,6 +34,10 @@ class PingCommand extends Command {
         var linkcodes = JSON.parse(fContent);
         var alreadyLinked = JSON.parse(fContent2);
         var lnk = linkcodes.find( (v) => { return v.discordID === message.author.id && v.code === args.code });
+        if (!lnk) {
+          message.channel.send("Invalid code")
+          return;
+        }
         var roleMapping = {
           "301870489301680128": "capo", // Capo
           "363891136533626890": "capo", // Intern
@@ -43,7 +47,7 @@ class PingCommand extends Command {
           "312455922721095682": "owner", // Bobfather
           "362965292843925506": "don"   // Consligiere
         }
-        var roleNeeded = roleMapping[message.member.highestRole.id];
+        var roleNeeded = roleMapping[message.member.colorRole.id];
         console.log(roleNeeded)
         if (!roleNeeded) {
           var r = {
@@ -56,7 +60,7 @@ class PingCommand extends Command {
             "359030683693219840": "greedclan",
             "359032992531873794": "wrathclan"
           }
-          roleNeeded = r[message.member.highestRole.id];
+          roleNeeded = r[message.member.colorRole.id];
         }
         if (!roleNeeded) {
           roleNeeded = "clanless";
