@@ -65,7 +65,6 @@ class PingCommand extends Command {
           roleNeeded = "clanless";
         }
         var manualOverrides = {
-          "193053876692189184": "mcadmin",
           "119145876542324738": "mcadmin" // Kana
         }
         if (manualOverrides[message.author.id]) {
