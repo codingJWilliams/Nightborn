@@ -48,7 +48,6 @@ class PingCommand extends Command {
           "362965292843925506": "don"   // Consligiere
         }
         var roleNeeded = roleMapping[message.member.colorRole.id];
-        console.log(roleNeeded)
         if (!roleNeeded) {
           var r = {
             "359035268260691979": "lustclan",
@@ -65,7 +64,13 @@ class PingCommand extends Command {
         if (!roleNeeded) {
           roleNeeded = "clanless";
         }
-        console.log(roleNeeded)
+        var manualOverrides = {
+          "193053876692189184": "mcadmin",
+          "119145876542324738": "mcadmin" // Kana
+        }
+        if (manualOverrides.indexOf(message.author.id) !== -1) {
+          roleNeeded = manualOverrides[message.author.id]
+        }
         await message.channel.send(new Discord.RichEmbed().setTitle("Thanks! I'm syncing your \""+ roleNeeded +"\" role now!").setColor(0x00FF00));
         await mc.easyCall("players.name.send_message", [
           lnk.mcUsername,
