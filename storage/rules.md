@@ -12,8 +12,7 @@ The small print: *By joining this server you agree to the following rules, and a
 `[07]` \(*A*\) No [copypastas](https://www.urbandictionary.com/define.php?term=copypasta). Take them to #spam  
 `[08]` \(*A*\) Memes should go into #memes-and-media
 ### Voice chat
-`[09]` \(*A*\) No explicit songs should be played on the music bots  
-`[10]` \(*A*\) Don't excessively swear.  
+`[09]` \(*A*\) No explicit songs should be played on the music bots    
 `[11]` \(*A*\) Don't mic spam. This includes screeching sounds, playing sounds over your mic etc.
 ### Miscellaneous
 `[12]` \(*B*\) Don't excessively leave and rejoin for any reason. If you leave and rejoin more than twice in a week, you will be banned  
