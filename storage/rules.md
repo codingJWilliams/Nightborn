@@ -1,5 +1,5 @@
 # Nightborn Rules
-The small print: *By joining this server you agree to the following rules, and also that these rules are not exhaustive. Staff may decide to punish you at any point*
+The small print: *By joining this server you agree to the following rules, and also that these rules are not exhaustive. Staff may decide to punish you at any point for any reason which may or may not be on this list*
 
 ## Rules
 ### Chat
