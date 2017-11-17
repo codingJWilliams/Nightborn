@@ -10,7 +10,7 @@ var rwc = require("random-weighted-choice");
 class DuelAcceptCommand extends Command {
   constructor() {
     super("duelaccept", {
-      aliases: ["duelaccept", "accept"],
+      aliases: ["duelaccept"],
       prefix: "$",
       args: [
         {
