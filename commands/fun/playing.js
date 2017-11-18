@@ -1,10 +1,11 @@
 const { Command } = require('discord-akairo');
-var bpf = require("../helpers/build_permission_function");
+var bpf = require("../../helpers/build_permission_function");
 
 class PlayingCommand extends Command {
     constructor() {
         super('playing_summary', {
             aliases: ['playing_summary'],
+            category: "fun",
             userPermissions: bpf(["owner", "techies", "dons", "mods", "intern", "event_orgs"])
         });
     }

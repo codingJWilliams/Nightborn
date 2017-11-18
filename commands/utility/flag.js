@@ -1,13 +1,14 @@
 const { Command } = require('discord-akairo');
 var Discord = require("discord.js");
-var setFlag = require("../helpers/setFlag");
-var bpf = require("../helpers/build_permission_function");
+var setFlag = require("../../helpers/setFlag");
+var bpf = require("../../helpers/build_permission_function");
 
 class SayCommand extends Command {
     constructor() {
         super('flag', {
             aliases: ['flag'],
             userPermissions: bpf(['dons', 'owner']),
+            category: "utility",
             args: [{
                 id: "flagName",
                 type: "string"

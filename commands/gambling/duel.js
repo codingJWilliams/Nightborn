@@ -1,9 +1,9 @@
 const { Command } = require('discord-akairo');
-var bpf = require("../helpers/build_permission_function");
-var economy = require("../helpers/economy");
+var bpf = require("../../helpers/build_permission_function");
+var economy = require("../../helpers/economy");
 var Discord = require("discord.js");
 var fs = require("fs");
-var readFilePromise = require("../helpers/readFilePromise");
+var readFilePromise = require("../../helpers/readFilePromise");
 var phonetic = require('phonetic');
 
 class SayCommand extends Command {
@@ -11,6 +11,7 @@ class SayCommand extends Command {
         super('duel', {
             aliases: ['duel'],
             prefix: "$",
+            category: "gambling",
             args: [{
                 id: "otherPerson",
                 type: "member"
