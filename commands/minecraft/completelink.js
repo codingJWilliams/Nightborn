@@ -39,38 +39,43 @@ class PingCommand extends Command {
           message.channel.send("Invalid code")
           return;
         }
-        var roleMapping = {
-          "301870489301680128": "capo", // Capo
-          "363891136533626890": "capo", // Intern
-          "303672545335312396": "tech", // Wise guys
-          "303356068334010370": "eventorg",  // Event orgs
-          "301870138573979658": "don",  // Dons
-          "312455922721095682": "owner", // Bobfather
-          "362965292843925506": "don"   // Consligiere
-        }
-        var roleNeeded = roleMapping[message.member.colorRole.id];
-        if (!roleNeeded) {
-          var r = {
-            "359035268260691979": "lustclan",
-            "359036991993544714": "envyclan",
-            "359029884552609793": "gluttonyclan",
-            "359031525192237067": "despairclan",
-            "359037166128594965": "slothclan",
-            "359031142349012992": "prideclan",
-            "359030683693219840": "greedclan",
-            "359032992531873794": "wrathclan"
-          }
-          roleNeeded = r[message.member.colorRole.id];
-        }
-        if (!roleNeeded) {
+        if (!message.member.colorRole) {
           roleNeeded = "clanless";
+        } else {
+          var roleMapping = {
+            "301870489301680128": "capo", // Capo
+            "363891136533626890": "capo", // Intern
+            "303672545335312396": "tech", // Wise guys
+            "303356068334010370": "eventorg",  // Event orgs
+            "301870138573979658": "don",  // Dons
+            "312455922721095682": "owner", // Bobfather
+            "362965292843925506": "don"   // Consligiere
+          }
+          var roleNeeded = roleMapping[message.member.colorRole.id];
+          if (!roleNeeded) {
+            var r = {
+              "359035268260691979": "lustclan",
+              "359036991993544714": "envyclan",
+              "359029884552609793": "gluttonyclan",
+              "359031525192237067": "despairclan",
+              "359037166128594965": "slothclan",
+              "359031142349012992": "prideclan",
+              "359030683693219840": "greedclan",
+              "359032992531873794": "wrathclan"
+            }
+            roleNeeded = r[message.member.colorRole.id];
+          }
+          if (!roleNeeded) {
+            roleNeeded = "clanless";
+          }
+          var manualOverrides = {
+            "119145876542324738": "mcadmin" // Kana
+          }
+          if (manualOverrides[message.author.id]) {
+            roleNeeded = manualOverrides[message.author.id]
+          }
         }
-        var manualOverrides = {
-          "119145876542324738": "mcadmin" // Kana
-        }
-        if (manualOverrides[message.author.id]) {
-          roleNeeded = manualOverrides[message.author.id]
-        }
+        
         await message.channel.send(new Discord.RichEmbed().setTitle("Thanks! I'm syncing your \""+ roleNeeded +"\" role now!").setColor(0x00FF00));
         await mc.easyCall("players.name.send_message", [
           lnk.mcUsername,
