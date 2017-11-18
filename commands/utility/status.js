@@ -23,7 +23,7 @@ class SayCommand extends Command {
         }
         message.channel.send(new Discord.RichEmbed()
         .setTitle("Status Check")
-        .setTitle("Checking status of servers")
+        .setDescription("Checking status of servers")
         .setColor(0xFFFF00)
         .addField("Economy Server", EcoSuccess ? `:white_check_mark: Contacted economy server in ${EcoTime}ms` : `:skull_crossbones: Could not connect to ecoserver.`)
         )
