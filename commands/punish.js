@@ -78,7 +78,7 @@ class SayCommand extends Command {
             args.toPunish.send(
                 buildWarnDM(args.rulebroken, args.toPunish, message.author, "You were jailed in Nightborn Estate", "You were jailed for "+ args.lengthp +".")
             );
-            message.channel.send("**Muted :thumbsup: **");
+            message.channel.send("**Jailed :thumbsup: **");
             modlog.send(
                 new Discord.RichEmbed().setTitle(`${message.author.username}#${message.author.discriminator} jailed ${args.toPunish.user.username}#${args.toPunish.user.discriminator}.`).setDescription("Rule broken: " + args.rulebroken.toString() + ". Time jailed: " + args.lengthp).setColor(0xFF0000)
             )
