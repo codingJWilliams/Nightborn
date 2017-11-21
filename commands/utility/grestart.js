@@ -7,15 +7,17 @@ const exec = util.promisify(require('child_process').exec);
 
 class SayCommand extends Command {
     constructor() {
-        super('restart', {
-            aliases: ['restart', "rs"],
+        super('grestart', {
+            aliases: ['grestart', "grs"],
             category: "utility",
             userPermissions: bpf(["techies"])
         });
     }
 
     async exec(message) {
-      message.channel.send( new Discord.RichEmbed().setDescription(":alarm_clock: Restarting. Brb").setColor(0xFFFF00) );
+      var { stdout, stderr } = await exec("git pull");
+      message.channel.send( new Discord.RichEmbed().setDescription(":alarm_clock: Pulled, restarting now. Brb").setColor(0xFFFF00) );
+      message.channel.send("```" + stdout + "```")
       exec("pm2 restart NB");
       return;
     }
