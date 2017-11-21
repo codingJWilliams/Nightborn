@@ -16,7 +16,7 @@ class SayCommand extends Command {
 
     async exec(message) {
       var { stdout, stderr } = await exec("git pull");
-      message.channel.send("```\nGit output:" + stdout + "```");
+      message.channel.send("```\nGit output:\n" + stdout + "```");
       message.channel.send( new Discord.RichEmbed().setDescription(":alarm_clock: Pulled, restarting now. Brb").setColor(0xFFFF00) );
       
       exec("pm2 restart NB");
