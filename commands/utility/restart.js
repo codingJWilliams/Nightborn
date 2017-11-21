@@ -15,7 +15,7 @@ class SayCommand extends Command {
     }
 
     async exec(message) {
-      var { stdout, stderr } = await exec("ls");
+      var { stdout, stderr } = await exec("git pull");
       message.reply(stdout);
       return;
     }
