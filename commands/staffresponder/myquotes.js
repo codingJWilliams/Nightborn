@@ -6,8 +6,7 @@ class PlayingCommand extends Command {
     constructor() {
         super('myquotes', {
             aliases: ['myquotes'],
-            category: "staffresponder",
-            split: "none"
+            category: "staffresponder"
         });
     }
 
