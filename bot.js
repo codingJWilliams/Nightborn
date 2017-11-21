@@ -3,7 +3,7 @@ const config = require("./config.json");
 
 const client = new AkairoClient({
     ownerID: ['193053876692189184'],
-    prefix: 'nb.',
+    prefix: ['nb.', ','],
     commandDirectory: './commands/',
     listenerDirectory: "./listeners/"
 }, {
