@@ -39,7 +39,7 @@ CPU is currently running at ${cpuCurrentspeed.avg}ghz, on all cores
                         `)
                         .addField("Memory", `
 System has ${Math.round(mem.total / (1000 * 1000))}mb of memory total.
-Currently, ${Math.round((mem.total / mem.free) * 100)}% of the memory is used (${Math.round(mem.used / (1000 * 1000))}mb)
+Currently, ${Math.round((mem.used / mem.total) * 100)}% of the memory is used (${Math.round(mem.used / (1000 * 1000))}mb)
                         `);
                     message.channel.send(embed)
                 })
