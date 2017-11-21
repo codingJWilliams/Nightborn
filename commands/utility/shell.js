@@ -24,8 +24,8 @@ class SayCommand extends Command {
     async exec(message, args) {
       await message.channel.send("Executing! :zzz: ")
       var { stdout, stderr } = await exec(args.cmd);
-      await message.channel.send("STDout: ```" + stdout + "```");
-      await message.channel.send("STDerr: ```" + stderr + "```");
+      await message.channel.send("STDout: ```\n" + stdout + "```");
+      await message.channel.send("STDerr: ```\n" + stderr + "```");
       return;
     }
 }
