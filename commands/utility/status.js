@@ -50,7 +50,7 @@ class SayCommand extends Command {
                 .setDescription("Checking status of servers")
                 .setColor(0xFFFF00)
                 .addField("Running services", ":information_source: " + out.length + " services running!")
-                .addField("Disk Space", `:information_source: Out of a total ${disk[0].size / (1000 * 1000 * 1000)}gb, ${(disk[0].size - disk[0].used) / (1000 * 1000 * 1000)}gb are free!`)
+                .addField("Disk Space", `:information_source: Out of a total ${Math.round(disk[0].size / (1000 * 1000 * 1000))}gb, ${Math.round((disk[0].size - disk[0].used) / (1000 * 1000 * 1000))}gb are free!`)
                 .addField("CheckUser Bot", (checkuser.pm2_env.status === "online" ? `:white_check_mark: Checkuser online, consuming ${Math.round(checkuser.monit.memory / (1000*1000))}mb of ram.` : ":skull_crossbones: Checkuser dead. Status: " + checkuser.pm2_env.status))
                 .addField("Economy Server", EcoSuccess ? `:white_check_mark: Contacted economy server in ${EcoTime}ms` : `:skull_crossbones: Could not connect to ecoserver.`)
                 .addField()
