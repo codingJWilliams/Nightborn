@@ -3,6 +3,7 @@ var bpf = require("../../helpers/build_permission_function");
 var economy = require("../../helpers/economy");
 var Discord = require("discord.js");
 const util = require('util');
+const exec = util.promisify(require('child_process').exec);
 
 class SayCommand extends Command {
     constructor() {
