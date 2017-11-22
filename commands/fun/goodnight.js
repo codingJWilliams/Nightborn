@@ -4,9 +4,9 @@ var bpf = require("../../helpers/build_permission_function");
 
 class PingCommand extends Command {
     constructor() {
-        super('ms', {
-            aliases: ['ms'],
-            prefix: ["k"],
+        super('oodnight', {
+            aliases: ['oodnight'],
+            prefix: ["g"],
             category: "fun",
             cooldown: 7000,
             ratelimit: 1
@@ -14,7 +14,7 @@ class PingCommand extends Command {
     }
 
     exec(message) {
-        return message.channel.send(new Discord.Attachment("./assets/kms.jpg"));
+        return message.channel.send(new Discord.Attachment("./assets/goodnight.jpg"));
     }
 }
 
