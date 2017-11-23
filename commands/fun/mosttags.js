@@ -4,7 +4,7 @@ const {
 var Discord = require("discord.js");
 var bpf = require("../../helpers/build_permission_function");
 
-class PlayingCommand extends Command {
+class TagsCommand extends Command {
     constructor() {
         super('most_tags', {
             aliases: ['most_tags'],
@@ -35,4 +35,4 @@ class PlayingCommand extends Command {
     }
 }
 
-module.exports = PlayingCommand;
+module.exports = TagsCommand;

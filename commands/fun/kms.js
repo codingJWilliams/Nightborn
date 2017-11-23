@@ -4,7 +4,7 @@ const {
 var Discord = require("discord.js");
 var bpf = require("../../helpers/build_permission_function");
 
-class PingCommand extends Command {
+class KmsCommand extends Command {
     constructor() {
         super('ms', {
             aliases: ['ms'],
@@ -20,4 +20,4 @@ class PingCommand extends Command {
     }
 }
 
-module.exports = PingCommand;
+module.exports = KmsCommand;
