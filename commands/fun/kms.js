@@ -9,6 +9,7 @@ class KmsCommand extends Command {
         super('ms', {
             aliases: ['ms'],
             prefix: ["k"],
+
             category: "fun",
             cooldown: 7000,
             ratelimit: 1
@@ -16,6 +17,10 @@ class KmsCommand extends Command {
     }
 
     exec(message) {
+        if (message.channel.name === "general") {
+            message.react("❌");
+            return;
+        }
         return message.channel.send(new Discord.Attachment("./assets/kms.jpg"));
     }
 }

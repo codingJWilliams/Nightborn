@@ -16,6 +16,10 @@ class GoodnightCommand extends Command {
     }
 
     exec(message) {
+        if (message.channel.name === "general") {
+            message.react("❌");
+            return;
+        }
         return message.channel.send(new Discord.Attachment("./assets/goodnight.jpg"));
     }
 }
