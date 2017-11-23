@@ -7,7 +7,8 @@ const client = new AkairoClient({
     ownerID: ['193053876692189184'],
     prefix: ['nb.', ','],
     commandDirectory: './commands/',
-    listenerDirectory: "./listeners/"
+    listenerDirectory: "./listeners/",
+    allowMention: true
 }, {
     disableEveryone: true
 });
