@@ -39,17 +39,15 @@ function setBal(uid, amount) {
   })
 }
 
-function award(uid, amount) {
-  return new Promise((resolve, reject) => {
-    getBal(uid).then((bal) => {
-      bal += amount;
-      setBal(uid, bal).then(resolve)
-    })
-  })
+async function award(uid, amount) {
+  var bal = await getBal(uid);
+  await setBal(uid, bal + amount);
+  return;
 }
 
-function take(uid, amount) {
-  return award(uid, 0 - amount)
+async function take(uid, amount) {
+  await award(uid, 0 - amount);
+  return;
 }
 module.exports.getBal = getBal;
 module.exports.setBal = setBal;
