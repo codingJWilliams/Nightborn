@@ -1,4 +1,6 @@
-const { Command } = require('discord-akairo');
+const {
+    Command
+} = require('discord-akairo');
 var Discord = require("discord.js");
 var bpf = require("../../helpers/build_permission_function");
 
@@ -12,7 +14,7 @@ class PlayingCommand extends Command {
     }
 
     exec(message) {
-        return new Promise(function(resolve, reject) {
+        return new Promise(function (resolve, reject) {
             var most = [null, 0];
             message.guild.members.map((m) => {
                 if (m.roles.array().length > most[1]) {

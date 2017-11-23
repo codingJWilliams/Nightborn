@@ -4,9 +4,9 @@ var axios = require("axios");
 var crypto = require("crypto");
 
 function getKey(username, methodNameOrSourceName, password, salt) {
-	var shasum = crypto.createHash("sha256");
-	shasum.update(username + methodNameOrSourceName + password + salt);
-	return shasum.digest("hex");
+  var shasum = crypto.createHash("sha256");
+  shasum.update(username + methodNameOrSourceName + password + salt);
+  return shasum.digest("hex");
 }
 
 module.exports.call = async function call(obj) {

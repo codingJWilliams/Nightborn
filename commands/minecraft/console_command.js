@@ -1,4 +1,6 @@
-const { Command } = require('discord-akairo');
+const {
+    Command
+} = require('discord-akairo');
 var bpf = require("../../helpers/build_permission_function");
 var Discord = require("discord.js");
 var mc = require("../../helpers/minecraft");
@@ -15,12 +17,10 @@ class PingCommand extends Command {
             category: "minecraft",
             userPermissions: bpf([]),
             split: "none",
-            args: [
-              {
+            args: [{
                 id: "command",
                 type: "string"
-              }
-            ]
+            }]
         });
     }
 

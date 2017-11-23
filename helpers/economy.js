@@ -5,9 +5,12 @@ var config = require("../config.json");
 var baseURL = "http://" + config.ecoserver_ip + ":" + config.ecoserver_port;
 
 function getBal(uid) {
-  return new Promise( (resolve, reject) => {
-    var token = jwt.sign({ uid: uid, timeIssued: Date.now() }, config.ecoserver_key);
-    request(baseURL + "/getbal/" + token,  function (error, response, body) {
+  return new Promise((resolve, reject) => {
+    var token = jwt.sign({
+      uid: uid,
+      timeIssued: Date.now()
+    }, config.ecoserver_key);
+    request(baseURL + "/getbal/" + token, function (error, response, body) {
       var data = JSON.parse(body);
       if (data.balance !== undefined) {
         resolve(data.balance)
@@ -17,10 +20,15 @@ function getBal(uid) {
     })
   })
 }
+
 function setBal(uid, amount) {
-  return new Promise( (resolve, reject) => {
-    var token = jwt.sign({ uid: uid, amount: amount, timeIssued: Date.now() }, config.ecoserver_key);
-    request(baseURL + "/setbal/" + token,  function (error, response, body) {
+  return new Promise((resolve, reject) => {
+    var token = jwt.sign({
+      uid: uid,
+      amount: amount,
+      timeIssued: Date.now()
+    }, config.ecoserver_key);
+    request(baseURL + "/setbal/" + token, function (error, response, body) {
       var data = JSON.parse(body);
       if (data.success) {
         resolve()
@@ -30,14 +38,16 @@ function setBal(uid, amount) {
     })
   })
 }
+
 function award(uid, amount) {
   return new Promise((resolve, reject) => {
-    getBal(uid).then( (bal) => {
+    getBal(uid).then((bal) => {
       bal += amount;
-      setBal(uid, bal).then( resolve )
+      setBal(uid, bal).then(resolve)
     })
   })
 }
+
 function take(uid, amount) {
   return award(uid, 0 - amount)
 }

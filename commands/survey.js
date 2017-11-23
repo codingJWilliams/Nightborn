@@ -1,4 +1,6 @@
-const { Command } = require('discord-akairo');
+const {
+    Command
+} = require('discord-akairo');
 var Discord = require("discord.js");
 
 var bpf = require("../helpers/build_permission_function");
@@ -20,9 +22,9 @@ class SayCommand extends Command {
     exec(message, args) {
         return new Promise((resolve, reject) => {
             survey_finder.findResponse(args.mem.id).then((survey) => {
-              if (!survey) {
+                if (!survey) {
                     message.channel.send(new Discord.RichEmbed().setTitle("That user wasn't found").setColor(0xFF0000));
-              } else {
+                } else {
                     message.channel.send(
                         new Discord.RichEmbed()
                         .setTitle("Survey results for " + args.mem.user.username)
@@ -38,7 +40,7 @@ class SayCommand extends Command {
                         .setColor(0x00FFFF)
                         .setFooter("Bot by VoidCrafted#2483")
                     )
-              }
+                }
             })
         })
     }

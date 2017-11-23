@@ -1,4 +1,6 @@
-const { Command } = require('discord-akairo');
+const {
+    Command
+} = require('discord-akairo');
 var bpf = require("../../helpers/build_permission_function");
 
 class PingCommand extends Command {
@@ -10,7 +12,7 @@ class PingCommand extends Command {
     }
 
     exec(message) {
-        return message.reply(' your ID is: `'+ message.author.id +'`');
+        return message.reply(' your ID is: `' + message.author.id + '`');
     }
 }
 

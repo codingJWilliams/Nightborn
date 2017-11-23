@@ -1,5 +1,7 @@
 //nb.eval var q = [];  clanless.map( (m) => { q.push( () => { m.addRole(message.guild.roles.get( "name", " )) } ) } )
-const { Command } = require('discord-akairo');
+const {
+    Command
+} = require('discord-akairo');
 var Discord = require("discord.js");
 var bpf = require("../../helpers/build_permission_function");
 
@@ -18,17 +20,23 @@ class PlayingCommand extends Command {
     }
 
     exec(message, args) {
-        return new Promise(function(resolve, reject) {
+        return new Promise(function (resolve, reject) {
             var purgeAmount = args.lookBack;
             message.react("🕒");
-            message.channel.fetchMessages({ amount: purgeAmount }).then(fetched => {
+            message.channel.fetchMessages({
+                amount: purgeAmount
+            }).then(fetched => {
                 message.channel.bulkDelete(
-                        fetched.filter(m => { return m.author.bot })
+                        fetched.filter(m => {
+                            return m.author.bot
+                        })
                     )
                     .then(() => {
                         message.clearReactions().then(() => {
                             message.react("✅");
-                            setTimeout(() => { message.delete() }, 1000)
+                            setTimeout(() => {
+                                message.delete()
+                            }, 1000)
                         })
                     })
                     .catch(

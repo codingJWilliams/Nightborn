@@ -1,7 +1,7 @@
 var minecraft_raw = require("./minecraft_raw");
 var config = require("../config.json");
 
-module.exports.easyCall = async function(method, args) {
+module.exports.easyCall = async function (method, args) {
   var res = await minecraft_raw.call({
     username: config.mc.username,
     password: config.mc.password,
@@ -11,6 +11,6 @@ module.exports.easyCall = async function(method, args) {
   });
   return res[0];
 }
-module.exports.colorCode = function(s) {
+module.exports.colorCode = function (s) {
   return s.replace(/\&/g, "§");
 }

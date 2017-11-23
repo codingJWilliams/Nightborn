@@ -1,4 +1,6 @@
-const { Command } = require('discord-akairo');
+const {
+    Command
+} = require('discord-akairo');
 var bpf = require("../../helpers/build_permission_function");
 var economy = require("../../helpers/economy");
 var Discord = require("discord.js");
@@ -15,9 +17,9 @@ class SayCommand extends Command {
     }
 
     async exec(message) {
-      message.channel.send( new Discord.RichEmbed().setDescription("Byeeee").setColor(0xFFFF00) );
-      exec("pm2 stop NB");
-      return;
+        message.channel.send(new Discord.RichEmbed().setDescription("Byeeee").setColor(0xFFFF00));
+        exec("pm2 stop NB");
+        return;
     }
 }
 

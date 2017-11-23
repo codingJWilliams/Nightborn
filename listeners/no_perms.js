@@ -1,4 +1,6 @@
-const { Listener } = require('discord-akairo');
+const {
+    Listener
+} = require('discord-akairo');
 var Discord = require("discord.js");
 
 class CommandBlockedListener extends Listener {

@@ -1,4 +1,6 @@
-const { AkairoClient } = require('discord-akairo');
+const {
+    AkairoClient
+} = require('discord-akairo');
 const config = require("./config.json");
 
 const client = new AkairoClient({
@@ -21,24 +23,24 @@ client.addJob = (executor, epoch) => {
     });
 }
 
-setInterval( () => {
+setInterval(() => {
     if (client.jobs.length) {
         var coeff = 1000 * 5;
         var rounded = new Date(Math.floor(Date.now() / coeff) * coeff);
         rounded = rounded.getTime()
-        var filtered = client.jobs.filter( (el) => {
+        var filtered = client.jobs.filter((el) => {
             return el.when === rounded;
         });
-        client.jobs = client.jobs.filter( (el) => {
+        client.jobs = client.jobs.filter((el) => {
             return el.when !== rounded;
         });
-    
+
         while (filtered.length) {
             var job = filtered.pop();
             job.executor()
             console.log("Completed job!")
         }
     }
-}, 2 * 1000 )
+}, 2 * 1000)
 
 client.login(config.token);

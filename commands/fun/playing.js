@@ -1,4 +1,6 @@
-const { Command } = require('discord-akairo');
+const {
+    Command
+} = require('discord-akairo');
 var bpf = require("../../helpers/build_permission_function");
 
 class PlayingCommand extends Command {
@@ -11,7 +13,7 @@ class PlayingCommand extends Command {
     }
 
     exec(message) {
-        return new Promise(function(resolve, reject) {
+        return new Promise(function (resolve, reject) {
             var games = {};
             var cPlaying = 0;
             message.guild.members.map((m) => {
@@ -28,14 +30,17 @@ class PlayingCommand extends Command {
             for (var game in games) {
                 sortable.push([game, games[game]]);
             }
-            sortable.sort(function(a, b) {
+            sortable.sort(function (a, b) {
                 return 0 - (a[1] - b[1]);
             });
             var fields = [];
             var g = sortable.splice(0, 10);
             console.log(g)
             for (var i = 0; i < g.length; i++) {
-                fields.push({ name: g[i][0], value: g[i][1].toString() + " playing" })
+                fields.push({
+                    name: g[i][0],
+                    value: g[i][1].toString() + " playing"
+                })
             }
             console.log(fields)
             message.channel.send({

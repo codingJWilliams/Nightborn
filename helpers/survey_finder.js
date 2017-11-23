@@ -9,8 +9,8 @@ var jwtClient = new google.auth.JWT(
 );
 
 module.exports.getResponses = function getResponses() {
-    return new Promise(function(resolve, reject) {
-        jwtClient.authorize(function(err, tokens) {
+    return new Promise(function (resolve, reject) {
+        jwtClient.authorize(function (err, tokens) {
             var sheets = google.sheets('v4');
             if (err) {
                 console.log(err);
@@ -20,7 +20,7 @@ module.exports.getResponses = function getResponses() {
                 auth: jwtClient,
                 spreadsheetId: '1KZkDXb8ykRqFuMaUTWW57kWbRZMvEOr2OkDioxRS5cw',
                 range: 'Form Responses 1',
-            }, function(err, response) {
+            }, function (err, response) {
                 if (err) {
                     console.log('The API returned an error: ' + err);
                     return;
@@ -54,9 +54,13 @@ module.exports.getResponses = function getResponses() {
 
 }
 module.exports.findResponse = function findResponse(id) {
-  return new Promise( (resolve, reject) => {
-    module.exports.getResponses().then( (resp) => {
-      resolve(resp.filter( r => { return r.id === id } ).length > 0 ? resp.filter( r => { return r.id === id } )[0]: undefined);
+    return new Promise((resolve, reject) => {
+        module.exports.getResponses().then((resp) => {
+            resolve(resp.filter(r => {
+                return r.id === id
+            }).length > 0 ? resp.filter(r => {
+                return r.id === id
+            })[0] : undefined);
+        })
     })
-  } )
 }

@@ -1,4 +1,6 @@
-const { Command } = require('discord-akairo');
+const {
+    Command
+} = require('discord-akairo');
 var Discord = require("discord.js");
 var si = require("systeminformation");
 var bpf = require("../../helpers/build_permission_function");
@@ -13,7 +15,7 @@ class PlayingCommand extends Command {
     }
 
     exec(message) {
-        return new Promise(function(resolve, reject) {
+        return new Promise(function (resolve, reject) {
             Promise.all([
                     si.cpu(),
                     si.cpuCurrentspeed(),

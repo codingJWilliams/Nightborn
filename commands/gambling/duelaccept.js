@@ -1,4 +1,6 @@
-const { Command } = require("discord-akairo");
+const {
+  Command
+} = require("discord-akairo");
 var bpf = require("../../helpers/build_permission_function");
 var economy = require("../../helpers/economy");
 var Discord = require("discord.js");
@@ -13,11 +15,9 @@ class DuelAcceptCommand extends Command {
       aliases: ["duelaccept"],
       category: "gambling",
       prefix: "$",
-      args: [
-        {
-          id: "code"
-        }
-      ]
+      args: [{
+        id: "code"
+      }]
     });
   }
   async exec(message, args) {
@@ -34,8 +34,8 @@ class DuelAcceptCommand extends Command {
     if (row == undefined) {
       message.channel.send(
         new Discord.RichEmbed()
-          .setTitle("Could not find that duel!")
-          .setColor(0xff0000)
+        .setTitle("Could not find that duel!")
+        .setColor(0xff0000)
       );
       return;
     }
@@ -45,22 +45,27 @@ class DuelAcceptCommand extends Command {
     if (senderBal < row.amount) {
       message.channel.send(
         new Discord.RichEmbed()
-          .setTitle("They don't have enough :ghost: for that")
-          .setColor(0xff0000)
+        .setTitle("They don't have enough :ghost: for that")
+        .setColor(0xff0000)
       );
       return;
     } else if (toBeDueledBal < row.amount) {
       message.channel.send(
         new Discord.RichEmbed()
-          .setTitle("You don't have enough :ghost: for that")
-          .setColor(0xff0000)
+        .setTitle("You don't have enough :ghost: for that")
+        .setColor(0xff0000)
       );
       return;
     }
 
-    var chosenItem = rwc([
-      { weight: 1, id: "sender" },
-      { weight: 1, id: "reciever" }
+    var chosenItem = rwc([{
+        weight: 1,
+        id: "sender"
+      },
+      {
+        weight: 1,
+        id: "reciever"
+      }
     ]);
     fs.writeFileSync(
       "./storage/duels.json",
@@ -69,18 +74,18 @@ class DuelAcceptCommand extends Command {
     if (chosenItem === "sender") {
       message.channel.send(
         new Discord.RichEmbed()
-          .setTitle("Duel win")
-          .setDescription(`<@${row.initiator}> has won ${row.amount}!`)
-          .setColor(0x00ff00)
+        .setTitle("Duel win")
+        .setDescription(`<@${row.initiator}> has won ${row.amount}!`)
+        .setColor(0x00ff00)
       );
       economy.award(row.initiator, row.amount);
       economy.take(row.reciever, row.amount);
     } else if (chosenItem === "reciever") {
       message.channel.send(
         new Discord.RichEmbed()
-          .setTitle("Duel win")
-          .setDescription(`<@${row.reciever}> has won ${row.amount}!`)
-          .setColor(0x00ff00)
+        .setTitle("Duel win")
+        .setDescription(`<@${row.reciever}> has won ${row.amount}!`)
+        .setColor(0x00ff00)
       );
       economy.take(row.initiator, row.amount);
       economy.award(row.reciever, row.amount);
