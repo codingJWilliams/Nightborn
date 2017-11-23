@@ -1,4 +1,6 @@
-const { Listener } = require('discord-akairo');
+const {
+    Listener
+} = require('discord-akairo');
 var apiBuilder = require("../api/apiBuilder");
 
 class ReadyListener extends Listener {
@@ -11,14 +13,18 @@ class ReadyListener extends Listener {
 
     exec() {
         console.log('Ready!');
-        apiBuilder.build( this.client );
-        this.client.on("message", async (message) => {
+        apiBuilder.build(this.client);
+        this.client.on("message", async(message) => {
             var staffQuotes = JSON.parse(require("fs").readFileSync("./storage/staffQuotes.json").toString());
-            if (staffQuotes.filter( s => { return s.trigger.toLowerCase() === message.content.toLowerCase() } ).length > 0) {
-                var sObj = staffQuotes.filter( s => { return s.trigger === message.content } )[0];
+            if (staffQuotes.filter(s => {
+                    return s.trigger.toLowerCase() === message.content.toLowerCase()
+                }).length > 0 && message.channel.name !== "staff") {
+                var sObj = staffQuotes.filter(s => {
+                    return s.trigger === message.content
+                })[0];
                 var sMember = message.guild.members.find("id", sObj.staffid);
                 var webhook = await message.channel.createWebhook(sMember.displayName, sMember.user.avatarURL, "More quotes pls ty");
-                await webhook.send( sObj.quotes[ Math.floor(sObj.quotes.length * Math.random()) ] );
+                await webhook.send(sObj.quotes[Math.floor(sObj.quotes.length * Math.random())]);
                 webhook.delete();
                 return;
             }
