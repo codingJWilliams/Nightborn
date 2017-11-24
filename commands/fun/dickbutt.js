@@ -20,7 +20,7 @@ class DickbuttCommand extends Command {
         message.react("❌");
         return;
       }
-      return message.channel.send(new Discord.Attachment("./assets/dickbutt.jpg"));
+      return message.channel.send(new Discord.Attachment("./assets/dickbutt.png"));
   }
 }
 
