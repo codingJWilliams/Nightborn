@@ -7,7 +7,7 @@ var Discord = require("discord.js");
 var fs = require("fs");
 var readFilePromise = require("../../helpers/readFilePromise");
 var phonetic = require('phonetic');
-var utilities = require("../../helpers/utilities");
+var util = require("../../helpers/util");
 
 class SayCommand extends Command {
     constructor() {

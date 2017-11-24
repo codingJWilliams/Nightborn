@@ -3,7 +3,7 @@ const {
 } = require('discord-akairo');
 var bpf = require("../../helpers/build_permission_function");
 var Discord = require("discord.js");
-var utilities = require("../../helpers/utilities");
+var util = require("../../helpers/util");
 
 class PlayingCommand extends Command {
   constructor() {

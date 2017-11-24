@@ -2,7 +2,7 @@ const {
     Command
 } = require('discord-akairo');
 var bpf = require("../../helpers/build_permission_function");
-var utilities = require("../../helpers/utilities");
+var util = require("../../helpers/util");
 
 function clean(text) {
     if (typeof (text) === "string") {
