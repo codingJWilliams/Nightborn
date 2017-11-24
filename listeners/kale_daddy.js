@@ -14,6 +14,7 @@ class DaddyListener extends Listener {
     exec(message) {
         if ((message.content.indexOf("daddy") !== -1 ) && (message.author.id === "200769142456844288")) {
             // Kale has said Daddy
+            message.channel.send("stop kkplsty")
             this.client.addJob(() => {
                 message.member.removeRole("380441160771960832", "Kale pls no");
             }, Date.now() + (1000 * 60))
