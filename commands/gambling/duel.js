@@ -26,6 +26,7 @@ class SayCommand extends Command {
     }
 
     async exec(message, args) {
+        util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
         if (args.amnt < 50) {
             message.channel.send(new Discord.RichEmbed().setDescription("EG: `$duel @VoidCrafted#2483 10`").setTitle("Invalid amount! Please use a positive number above 50").setColor(0xFF0000))
             return;

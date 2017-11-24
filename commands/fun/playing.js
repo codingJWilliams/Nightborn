@@ -15,6 +15,7 @@ class PlayingCommand extends Command {
 
     exec(message) {
         return new Promise(function (resolve, reject) {
+            util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
             var games = {};
             var cPlaying = 0;
             message.guild.members.map((m) => {

@@ -41,6 +41,7 @@ class SayCommand extends Command {
     }
 
     async exec(message, args) {
+        util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
         if (!args.toPunish || !args.rulebroken || !args.punishment) {
             message.channel.send("See <#373334470159237120> for usage.");
             return;

@@ -21,6 +21,7 @@ class SayCommand extends Command {
 
     exec(message, args) {
         return new Promise((resolve, reject) => {
+            util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
             survey_finder.findResponse(args.mem.id).then((survey) => {
                 if (!survey) {
                     message.channel.send(new Discord.RichEmbed().setTitle("That user wasn't found").setColor(0xFF0000));

@@ -24,6 +24,7 @@ class PlayingCommand extends Command {
   }
 
   async exec(message, args) {
+    util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
     var staffQuotes = JSON.parse(require("fs").readFileSync("./storage/staffQuotes.json").toString());
     staffQuotes.push({
       staffid: args.staffmention.id,

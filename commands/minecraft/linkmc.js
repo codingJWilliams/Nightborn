@@ -29,6 +29,7 @@ class PingCommand extends Command {
   }
 
   async exec(message, args) {
+    util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
     var online = await mc.easyCall("players.online.names", []);
     if (online.success.indexOf(args.mcName) == -1) {
       message.channel.send(new Discord.RichEmbed().setTitle("Couldn't find that player").setDescription("Hey, it looks like you're not online! Make sure you've spelt your name right and you're currently logged in!").setColor(0xFF0000));

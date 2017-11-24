@@ -18,6 +18,7 @@ class KmsCommand extends Command {
     }
 
     exec(message) {
+        util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
         if (message.channel.name === "general") {
             message.react("❌");
             return;

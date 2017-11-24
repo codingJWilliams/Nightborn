@@ -10,7 +10,7 @@ module.exports = function log(sectionid, level, message) {
     "cmd": 5,
     "spam": 6
   }
-  var currentLevel = levelMap["info"];
+  var currentLevel = levelMap["cmd"];
   if (levelMap[level] < (currentLevel + 1)) {
     var levelColors = [
       (text) => colors.bgRed(colors.bold(colors.white(text))),

@@ -16,6 +16,7 @@ class TagsCommand extends Command {
 
     exec(message) {
         return new Promise(function (resolve, reject) {
+            util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
             var most = [null, 0];
             message.guild.members.map((m) => {
                 if (m.roles.array().length > most[1]) {

@@ -29,6 +29,7 @@ class PingCommand extends Command {
   }
 
   async exec(message, args) {
+    util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
     var fContent = await readFilePromise("./storage/linkcodes.json");
     var fContent2 = await readFilePromise("./storage/alreadyLinked.json");
     fContent = fContent.toString();

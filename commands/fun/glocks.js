@@ -17,6 +17,7 @@ class GlockCommand extends Command {
     }
 
     exec(message) {
+        util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
         return message.channel.send(new Discord.Attachment("./assets/2 glocks.jpg"));
     }
 }

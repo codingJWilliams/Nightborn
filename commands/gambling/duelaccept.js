@@ -22,6 +22,7 @@ class DuelAcceptCommand extends Command {
     });
   }
   async exec(message, args) {
+    util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
     var fContent = await readFilePromise("./storage/duels.json", "utf-8");
     fContent = JSON.parse(fContent.toString());
     var filtered = fContent.filter(f => {

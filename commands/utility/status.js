@@ -16,6 +16,7 @@ class SayCommand extends Command {
     }
 
     async exec(message) {
+        util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
         if (require("../../helpers/getPlatform").pc()) {
             var EcoTimeBefore = Date.now();
             var EcoSuccess = true;

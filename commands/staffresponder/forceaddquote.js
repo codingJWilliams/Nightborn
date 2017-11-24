@@ -25,6 +25,7 @@ class PlayingCommand extends Command {
   }
 
   async exec(message, args) {
+    util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
     var staffQuotes = JSON.parse(require("fs").readFileSync("./storage/staffQuotes.json").toString());
     if (staffQuotes.filter(sObj => sObj.staffid === args.person.id).length === 0) {
       message.channel.send(new Discord.RichEmbed().setDescription("**They don't have a responder! Ask <@193053876692189184>**").setColor(0xFF0000));
