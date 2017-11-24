@@ -6,9 +6,9 @@ var bpf = require("../../helpers/build_permission_function");
 
 class DickbuttCommand extends Command {
   constructor() {
-      super('butt', {
-          aliases: ['butt'],
-          prefix: ["dick"],
+      super('aloy', {
+          aliases: ['aloy'],
+          prefix: ["m"],
           category: "fun",
           cooldown: 7000,
           ratelimit: 1
