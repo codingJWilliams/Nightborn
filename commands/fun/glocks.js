@@ -3,7 +3,7 @@ const {
 } = require('discord-akairo');
 var Discord = require("discord.js");
 var bpf = require("../../helpers/build_permission_function");
-var util = require("../../helpers/util");
+var utilities = require("../../helpers/utilities");
 
 class GlockCommand extends Command {
     constructor() {

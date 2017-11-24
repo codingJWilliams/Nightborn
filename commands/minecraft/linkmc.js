@@ -9,7 +9,7 @@ var crypto = require("crypto");
 var config = require("../../config.json");
 var readFilePromise = require("../../helpers/readFilePromise");
 var fs = require("fs");
-var util = require("../../helpers/util");
+var utilities = require("../../helpers/utilities");
 
 function getHash(str) {
   var shasum = crypto.createHash("sha256");

@@ -4,8 +4,7 @@ const {
 var Discord = require("discord.js");
 var si = require("systeminformation");
 var bpf = require("../../helpers/build_permission_function");
-var util = require("../../helpers/util");
-
+var utilities = require("../../helpers/utilities");
 class PlayingCommand extends Command {
     constructor() {
         super('vpsinfo', {
