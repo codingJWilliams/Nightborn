@@ -3,7 +3,7 @@ const {
 } = require('discord-akairo');
 var apiBuilder = require("../api/apiBuilder");
 
-
+/*
 function isBad(str) {
     return [
         "egirl",
@@ -34,3 +34,6 @@ class DaddyListener extends Listener {
 }
 
 module.exports = DaddyListener;
+
+FUCK ARES
+*/
