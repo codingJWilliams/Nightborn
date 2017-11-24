@@ -2,6 +2,7 @@ var sha256 = require("sha256");
 var request = require("request");
 var axios = require("axios");
 var crypto = require("crypto");
+var cLog = require("../../helpers/log");
 
 function getKey(username, methodNameOrSourceName, password, salt) {
   var shasum = crypto.createHash("sha256");

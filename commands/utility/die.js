@@ -6,6 +6,7 @@ var economy = require("../../helpers/economy");
 var Discord = require("discord.js");
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
+var cLog = require("../../helpers/log");
 
 class SayCommand extends Command {
     constructor() {

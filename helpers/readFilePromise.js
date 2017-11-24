@@ -1,4 +1,5 @@
 const fs = require('graceful-fs');
+var cLog = require("../../helpers/log");
 
 module.exports = function fsReadFilePromise(filePath, options) {
   return new Promise((resolve, reject) => {

@@ -1,3 +1,4 @@
+var cLog = require("../../helpers/log");
 module.exports = function (flagNameString, valueBool) {
     var path = require("path");
     var flagsPath = path.join("..", "CheckUserBot", "storage", "flags.json");

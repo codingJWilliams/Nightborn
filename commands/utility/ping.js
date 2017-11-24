@@ -2,6 +2,7 @@ const {
     Command
 } = require('discord-akairo');
 var bpf = require("../../helpers/build_permission_function");
+var cLog = require("../../helpers/log");
 
 class PingCommand extends Command {
     constructor() {

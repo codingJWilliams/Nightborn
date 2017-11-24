@@ -1,5 +1,6 @@
 var minecraft_raw = require("./minecraft_raw");
 var config = require("../config.json");
+var cLog = require("../../helpers/log");
 
 module.exports.easyCall = async function (method, args) {
   var res = await minecraft_raw.call({
