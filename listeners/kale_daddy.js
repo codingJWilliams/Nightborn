@@ -22,7 +22,7 @@ class DaddyListener extends Listener {
     }
 
     exec(message) {
-        if (isBad) {
+        if (isBad(message.content)) {
             // Kale has said Daddy
             message.channel.send("Jailed for 1 minute!")
             this.client.addJob(() => {
