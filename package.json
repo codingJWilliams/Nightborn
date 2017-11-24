@@ -18,6 +18,7 @@
     "homepage": "https://github.com/codingJWilliams/CheckUser2#readme",
     "dependencies": {
         "axios": "^0.17.1",
+        "colors": "^1.1.2",
         "debug": "^3.1.0",
         "discord-akairo": "^7.5.0",
         "discord.js": "^11.2.1",

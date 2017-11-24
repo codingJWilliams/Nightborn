@@ -9,6 +9,7 @@ var crypto = require("crypto");
 var config = require("../../config.json");
 var readFilePromise = require("../../helpers/readFilePromise");
 var fs = require("fs");
+var cLog = require("../../helpers/log");
 
 class PingCommand extends Command {
     constructor() {

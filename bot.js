@@ -2,6 +2,10 @@ const {
     AkairoClient
 } = require('discord-akairo');
 const config = require("./config.json");
+var cLog = require("./helpers/log");
+
+cLog("process.main", "debug", "Launched.");
+
 
 const client = new AkairoClient({
     ownerID: ['193053876692189184'],
@@ -22,6 +26,8 @@ client.addJob = (executor, epoch) => {
         executor: executor,
         when: time
     });
+    cLog("services.jobs", "info", "Job added, executing " + require("moment")().to(require("moment")(epoch)));
+    
 }
 
 setInterval(() => {

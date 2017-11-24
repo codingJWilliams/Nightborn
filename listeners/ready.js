@@ -2,6 +2,7 @@ const {
     Listener
 } = require('discord-akairo');
 var apiBuilder = require("../api/apiBuilder");
+var cLog = require("../helpers/log");
 
 class ReadyListener extends Listener {
     constructor() {
@@ -12,7 +13,7 @@ class ReadyListener extends Listener {
     }
 
     exec() {
-        console.log('Ready!');
+        cLog("proccess.main", "info", "Connected to discord!")
         apiBuilder.build(this.client);
         this.client.on("message", async(message) => {
             var staffQuotes = JSON.parse(require("fs").readFileSync("./storage/staffQuotes.json").toString());

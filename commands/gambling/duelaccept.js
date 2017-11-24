@@ -8,6 +8,7 @@ var fs = require("fs");
 var readFilePromise = require("../../helpers/readFilePromise");
 var phonetic = require("phonetic");
 var rwc = require("random-weighted-choice");
+var cLog = require("../../helpers/log");
 
 class DuelAcceptCommand extends Command {
   constructor() {
