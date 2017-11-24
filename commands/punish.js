@@ -4,7 +4,7 @@ const {
 var bpf = require("../helpers/build_permission_function");
 var Discord = require("discord.js");
 var moment = require('relative-time-parser');
-var cLog = require("../../helpers/log");
+var util = require("../helpers/util");
 
 function buildWarnDM(rulebroken, member, moderator, actionmessage, punishmentdetail) {
     return new Discord.RichEmbed()

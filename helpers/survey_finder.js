@@ -7,7 +7,7 @@ var jwtClient = new google.auth.JWT(
     key.private_key, ['https://www.googleapis.com/auth/spreadsheets.readonly'], // an array of auth scopes
     null
 );
-var cLog = require("../../helpers/log");
+var util = require("../helpers/util");
 
 module.exports.getResponses = function getResponses() {
     return new Promise(function (resolve, reject) {

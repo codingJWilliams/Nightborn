@@ -24,10 +24,11 @@ client.addJob = (executor, epoch) => {
     time = time.getTime();
     client.jobs.push({
         executor: executor,
-        when: time
+        when: time,
+        id: require("phonetic").generate()
     });
     cLog("services.jobs", "info", "Job added, executing " + require("moment")().to(require("moment")(epoch)));
-    
+
 }
 
 setInterval(() => {
@@ -44,8 +45,8 @@ setInterval(() => {
 
         while (filtered.length) {
             var job = filtered.pop();
-            job.executor()
-            console.log("Completed job!")
+            job.executor();
+            cLog("services.jobs", "info", "Completed job ["+ job.id.toString() +"]")
         }
     }
 }, 2 * 1000)

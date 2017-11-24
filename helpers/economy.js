@@ -1,7 +1,7 @@
 var request = require("request");
 var jwt = require("jsonwebtoken");
 var config = require("../config.json");
-var cLog = require("../../helpers/log");
+var util = require("../helpers/util");
 
 var baseURL = "http://" + config.ecoserver_ip + ":" + config.ecoserver_port;
 

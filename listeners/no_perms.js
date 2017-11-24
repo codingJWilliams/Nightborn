@@ -2,7 +2,7 @@ const {
     Listener
 } = require('discord-akairo');
 var Discord = require("discord.js");
-var cLog = require("../../helpers/log");
+var util = require("../helpers/util");
 
 class CommandBlockedListener extends Listener {
     constructor() {
@@ -13,7 +13,7 @@ class CommandBlockedListener extends Listener {
     }
 
     exec(message, command, reason) {
-        console.log(`${message.author.username} was blocked from using ${command.id} because of ${reason}!`);
+        util.log("services.permissionsManager", "warn", `User ${message.author.username}#${message.author.discriminator} attempted to use ${command.id}`)
         if (reason === "userPermissions") {
             if (message.channel.id === "300155035558346752") {
                 message.author.createDM().then((dm) => {

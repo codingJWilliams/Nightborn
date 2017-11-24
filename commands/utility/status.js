@@ -4,7 +4,7 @@ const {
 var bpf = require("../../helpers/build_permission_function");
 var economy = require("../../helpers/economy");
 var Discord = require("discord.js");
-var cLog = require("../../helpers/log");
+var util = require("../../helpers/util");
 
 class SayCommand extends Command {
     constructor() {
