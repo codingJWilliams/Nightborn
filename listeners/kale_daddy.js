@@ -3,6 +3,16 @@ const {
 } = require('discord-akairo');
 var apiBuilder = require("../api/apiBuilder");
 
+
+function isBad(str) {
+    return [
+        "egirl",
+        "eboy",
+        "daddy"
+    ].some( (word) => str.indexOf(word) !== -1)
+}
+
+
 class DaddyListener extends Listener {
     constructor() {
         super('kale_daddy', {
@@ -12,9 +22,9 @@ class DaddyListener extends Listener {
     }
 
     exec(message) {
-        if ((message.content.indexOf("daddy") !== -1 ) && (message.author.id === "200769142456844288")) {
+        if (isBad) {
             // Kale has said Daddy
-            message.channel.send("stop kkplsty")
+            message.channel.send("Jailed for 1 minute!")
             this.client.addJob(() => {
                 message.member.removeRole("380441160771960832", "Kale pls no");
             }, Date.now() + (1000 * 60))
