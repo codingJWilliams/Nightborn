@@ -14,9 +14,11 @@ function getBal(uid) {
     request(baseURL + "/getbal/" + token, function (error, response, body) {
       var data = JSON.parse(body);
       if (data.balance !== undefined) {
+        util.log("economy.getbal", "info", "Retrieved balance of user: " + uid + " (" + data.balance + ")")
         resolve(data.balance)
       } else {
         reject(data.error)
+        util.log("economy.getbal", "error", "Failed: " + data.error)
       }
     })
   })
@@ -32,8 +34,10 @@ function setBal(uid, amount) {
     request(baseURL + "/setbal/" + token, function (error, response, body) {
       var data = JSON.parse(body);
       if (data.success) {
+        util.log("economy.setbal", "warn", "Set balance of user: " + uid + " (" + amount + ")")
         resolve()
       } else {
+        util.log("economy.setbal", "error", "Failed: " + data.error)
         reject(data.error)
       }
     })

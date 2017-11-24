@@ -13,9 +13,9 @@ module.exports = function log(sectionid, level, message) {
   var currentLevel = levelMap["cmd"];
   if (levelMap[level] < (currentLevel + 1)) {
     var levelColors = [
-      (text) => colors.bgRed(colors.bold(colors.white(text))),
+      (text) => { return colors.bgRed(colors.bold(colors.white(text))) },
       colors.red,
-      colors.orange,
+      colors.yellow,
       colors.blue,
       colors.magenta,
       colors.cyan,
