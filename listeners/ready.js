@@ -24,9 +24,10 @@ class ReadyListener extends Listener {
                     return s.trigger === message.content
                 })[0];
                 var sMember = message.guild.members.find("id", sObj.staffid);
-                var webhook = await message.channel.createWebhook(sMember.displayName, sMember.user.avatarURL, "More quotes pls ty");
-                await webhook.send(sObj.quotes[Math.floor(sObj.quotes.length * Math.random())]);
-                webhook.delete();
+                //var webhook = await message.channel.createWebhook(sMember.displayName, sMember.user.avatarURL, "More quotes pls ty");
+                await message.channel.send(sObj.quotes[Math.floor(sObj.quotes.length * Math.random())]);
+                cLog("services.staffQuotes", "info", "Triggered in #" + message.channel.name + " by " + message.author.username + "#" + message.author.discriminator)
+                //webhook.delete();
                 return;
             }
         })
