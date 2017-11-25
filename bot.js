@@ -63,5 +63,5 @@ setInterval(() => {
         }
     }
 }, 2 * 1000)
-
+require("./panelconnect/socketFunctionBuilder").build(global.logSocket, client)
 client.login(config.token);
