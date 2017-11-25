@@ -41,8 +41,7 @@ module.exports.build = (s, client) => {
   s.on("bot.find", (req) => {
     var matching = nightborn.members.filter( (m) => {
       return ((req.toFind === m.user.username) || (req.toFind === (m.user.username + "#" + m.user.discriminator)) || (req.toFind === m.id));
-    })
-    console.log(matching)
+    }).array()
     var found = matching[0];
     s.emit("bot.found", {
       replyId: req.replyId,
