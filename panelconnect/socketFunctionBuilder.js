@@ -1,4 +1,5 @@
 function makeRoleObj(role) {
+  if (!role) return undefined
   return role.name
 }
 
