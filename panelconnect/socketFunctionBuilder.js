@@ -42,7 +42,7 @@ module.exports.build = (s, client) => {
     var matching = nightborn.members.filter( (m) => {
       return ((req.toFind === m.user.username) || (req.toFind === (m.user.username + "#" + m.user.discriminator)) || (req.toFind === m.id));
     })
-    var found = matching[0] ? matching[0] : null;
+    var found = matching[0];
     s.emit("bot.found", {
       replyId: req.replyId,
       found: found
