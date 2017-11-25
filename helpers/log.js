@@ -1,5 +1,7 @@
 var colors = require("colors");
 
+
+
 module.exports = function log(sectionid, level, message) {
   var levelMap = {
     "critical": 0,
@@ -13,7 +15,7 @@ module.exports = function log(sectionid, level, message) {
   var currentLevel = levelMap["cmd"];
   if (levelMap[level] < (currentLevel + 1)) {
     var levelColors = [
-      (text) => { return colors.bgRed(colors.bold(colors.white(text))) },
+      colors.red,
       colors.red,
       colors.yellow,
       colors.blue,
@@ -25,4 +27,10 @@ module.exports = function log(sectionid, level, message) {
     console.log(lColor(level) + " > ".grey + sectionid.white + " >> ".grey + colors.grey(message));
 
   }
+  console.log(global.logSocket.connected)
+  global.logSocket.emit("log", {
+    proc: sectionid,
+    level: levelMap[level],
+    message: message
+  });
 }

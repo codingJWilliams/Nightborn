@@ -13,7 +13,6 @@ class ReadyListener extends Listener {
     }
 
     exec() {
-        
         cLog("proccess.main", "info", "Connected to discord!")
         apiBuilder.build(this.client);
         this.client.on("message", async(message) => {

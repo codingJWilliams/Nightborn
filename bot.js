@@ -2,6 +2,19 @@ const {
     AkairoClient
 } = require('discord-akairo');
 const config = require("./config.json");
+
+global.logSocket = require('socket.io-client')('http://localhost');
+global.logSocket.on("connect", () => {
+    global.logSocket.emit("sendLogsSoon <3");
+    console.log("connected")
+    global.logSocket.emit("log", {
+        proc: "bot.logger",
+        level: 3,
+        message: "Bot handshake with log server"
+      });
+})
+
+
 var cLog = require("./helpers/log");
 
 cLog("process.main", "debug", "Launched.");
@@ -17,8 +30,8 @@ const client = new AkairoClient({
     disableEveryone: true
 });
 
-client.jobs = [];
 
+client.jobs = [];
 client.addJob = (executor, epoch) => {
     var time = new Date(Math.floor(epoch / 5000) * 5000);
     time = time.getTime();
