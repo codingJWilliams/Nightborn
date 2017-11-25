@@ -1,3 +1,6 @@
+var util = require("../helpers/util");
+var economy = require("../helpers/economy");
+
 function makeRoleObj(role) {
   if (!role) return undefined
   return role.name
@@ -40,13 +43,20 @@ function makeObj(member) {
 module.exports.build = (s, client) => {
   var nightborn = client.guilds.find("id", "300155035558346752");
   s.on("bot.find", (req) => {
+
+    util.log("panel.connect", "info", "Requested member " + req.toFind)
     var matching = nightborn.members.filter( (m) => {
       return ((req.toFind === m.user.username) || (req.toFind === (m.user.username + "#" + m.user.discriminator)) || (req.toFind === m.id));
     }).array()
-    var found = matching[0];
-    s.emit("bot.found", {
-      replyId: req.replyId,
-      found: makeObj(found)
+
+    var found = makeObj(matching[0]);
+
+    economy.getBal(found.id).then( bal => {
+      found.balance = bal;
+      s.emit("bot.found", {
+        replyId: req.replyId,
+        found: found
+      })
     })
   })
 }
