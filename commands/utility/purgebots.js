@@ -23,7 +23,7 @@ class PlayingCommand extends Command {
     exec(message, args) {
         util.log("command.purgebots", "warn", "Executed")
         return new Promise(function (resolve, reject) {
-            util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
+            util.log("command.purgebots", "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
             var purgeAmount = args.lookBack;
             message.react("🕒");
             message.channel.fetchMessages({
