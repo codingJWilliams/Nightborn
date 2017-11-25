@@ -46,7 +46,7 @@ class DuelAcceptCommand extends Command {
     }
     var senderBal = await economy.getBal(row.initiator);
     var toBeDueledBal = await economy.getBal(row.reciever);
-    util.log("command." + this.id, "spam", `Gotten balances`)
+    util.log("command." + this.id, "spam", `Retrieved balances`)
     if (senderBal < row.amount) {
       util.log("command." + this.id, "info", `Original executor doesn't have enough souls`)
       message.channel.send(
