@@ -45,7 +45,7 @@ module.exports.build = (s, client) => {
     var found = matching[0];
     s.emit("bot.found", {
       replyId: req.replyId,
-      found: found
+      found: makeObj(found)
     })
   })
 }
