@@ -40,6 +40,7 @@ class PingCommand extends Command {
       return v.discordID === message.author.id && v.code === args.code
     });
     if (!lnk) {
+      util.log("command." + this.id, "info", `Invalid code`)
       message.channel.send("Invalid code")
       return;
     }
@@ -79,7 +80,7 @@ class PingCommand extends Command {
         roleNeeded = manualOverrides[message.author.id]
       }
     }
-
+    util.log("command." + this.id, "info", `Applying minecraft user ${lnk.mcUsername} [Discord: ${util.nameFormat(message.author)}] the pex role ${roleNeeded}`)
     await message.channel.send(new Discord.RichEmbed().setTitle("Thanks! I'm syncing your \"" + roleNeeded + "\" role now!").setColor(0x00FF00));
     await mc.easyCall("players.name.send_message", [
       lnk.mcUsername,
@@ -89,9 +90,6 @@ class PingCommand extends Command {
     await mc.easyCall("server.run_command", [
       "pex user " + lnk.mcUsername + " group set " + roleNeeded
     ])
-    return;
-
-
   }
 }
 

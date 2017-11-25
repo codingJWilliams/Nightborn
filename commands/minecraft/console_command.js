@@ -28,6 +28,7 @@ class PingCommand extends Command {
     async exec(message, args) {
         util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
         await mc.easyCall("server.run_command", [args.command]);
+        util.log("command." + this.id, "warn", `${util.nameFormat(message.author)} just executed Minecraft command '${args.command}'`);
         message.reply("console command sent!");
         return;
     }

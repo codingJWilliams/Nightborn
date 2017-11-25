@@ -24,7 +24,9 @@ class DuelAcceptCommand extends Command {
   async exec(message, args) {
     util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
     var fContent = await readFilePromise("./storage/duels.json", "utf-8");
+    util.log("command." + this.id, "spam", `Read file`);
     fContent = JSON.parse(fContent.toString());
+    util.log("command." + this.id, "spam", `Parsed json`)
     var filtered = fContent.filter(f => {
       return (
         f.id === args.code &&
@@ -32,6 +34,7 @@ class DuelAcceptCommand extends Command {
         f.timeSetup + 1000 * 120 > Date.now()
       );
     });
+    util.log("command." + this.id, "spam", `Found ${filtered.length} items`)
     var row = filtered.length ? filtered[0] : undefined;
     if (row == undefined) {
       message.channel.send(
@@ -43,8 +46,9 @@ class DuelAcceptCommand extends Command {
     }
     var senderBal = await economy.getBal(row.initiator);
     var toBeDueledBal = await economy.getBal(row.reciever);
-
+    util.log("command." + this.id, "spam", `Gotten balances`)
     if (senderBal < row.amount) {
+      util.log("command." + this.id, "info", `Original executor doesn't have enough souls`)
       message.channel.send(
         new Discord.RichEmbed()
         .setTitle("They don't have enough :ghost: for that")
@@ -52,6 +56,7 @@ class DuelAcceptCommand extends Command {
       );
       return;
     } else if (toBeDueledBal < row.amount) {
+      util.log("command." + this.id, "info", `To be dueled doesn't have enough souls`)
       message.channel.send(
         new Discord.RichEmbed()
         .setTitle("You don't have enough :ghost: for that")
@@ -69,6 +74,7 @@ class DuelAcceptCommand extends Command {
         id: "reciever"
       }
     ]);
+    util.log("command." + this.id, "spam", `Chosen ${chosenItem} to win`)
     fs.writeFileSync(
       "./storage/duels.json",
       JSON.stringify(fContent.filter(row => !(row.id === args.code)))

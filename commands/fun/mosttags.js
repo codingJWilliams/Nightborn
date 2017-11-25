@@ -14,26 +14,23 @@ class TagsCommand extends Command {
         });
     }
 
-    exec(message) {
-        return new Promise(function (resolve, reject) {
-            util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
-            var most = [null, 0];
-            message.guild.members.map((m) => {
-                if (m.roles.array().length > most[1]) {
-                    most[0] = m;
-                    most[1] = m.roles.array().length
-                };
-            })
-
-            message.channel.send(new Discord.RichEmbed()
-                .setTitle("Member with the most roles")
-                .setDescription(most[0].user.tag + " has " + most[1].toString() + " tags, the most on the server!")
-                .setColor(4359924)
-                .setFooter("Bot by @VoidCrafted#2483", "https://lh5.googleusercontent.com/-Z4wuSKQT0oI/AAAAAAAAAAI/AAAAAAAAAA8/oLWR08rF3WM/photo.jpg")
-            )
-
-            resolve();
+    async exec(message) {
+        util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
+        var most = [null, 0];
+        message.guild.members.map((m) => {
+            if (m.roles.array().length > most[1]) {
+                most[0] = m;
+                most[1] = m.roles.array().length
+            };
         })
+        util.log("command." + this.id, "spam", `Completed search. Output: ${JSON.stringify(most)}`)
+        await message.channel.send(new Discord.RichEmbed()
+            .setTitle("Member with the most roles")
+            .setDescription(most[0].user.tag + " has " + most[1].toString() + " tags, the most on the server!")
+            .setColor(4359924)
+            .setFooter("Bot by @VoidCrafted#2483", "https://lh5.googleusercontent.com/-Z4wuSKQT0oI/AAAAAAAAAAI/AAAAAAAAAA8/oLWR08rF3WM/photo.jpg")
+        );
+        return;
     }
 }
 

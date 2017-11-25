@@ -17,14 +17,11 @@ class SayCommand extends Command {
         });
     }
 
-    exec(message, args) {
-        return new Promise((resolve, reject) => {
-            util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
-            message.delete().then(() => {
-                message.channel.send(args.a)
-                resolve()
-            })
-        })
+    async exec(message, args) {
+        util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
+        await message.delete()
+        message.channel.send(args.a)
+        util.log("command." + this.id, "warn", `${util.nameFormat(message.author)} made bot say ${args.a}`)
     }
 }
 

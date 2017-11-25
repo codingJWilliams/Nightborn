@@ -19,6 +19,8 @@ class DickbuttCommand extends Command {
   exec(message) {
       util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
       if (message.channel.name === "general") {
+        util.log("command."+ this.id, "warn", `Blocked for ${message.author.username}#${message.author.discriminator} in ${message.channel.name}`)
+        
         message.react("❌");
         return;
       }

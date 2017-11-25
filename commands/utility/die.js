@@ -18,7 +18,8 @@ class SayCommand extends Command {
     }
 
     async exec(message) {
-        util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
+        util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`);
+        util.log("command." + this.id, "warn", `Quitting. Byeeeeeee`)
         message.channel.send(new Discord.RichEmbed().setDescription("Byeeee").setColor(0xFFFF00));
         exec("pm2 stop NB");
         return;
