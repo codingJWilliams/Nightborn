@@ -3,7 +3,7 @@ const {
 } = require('discord-akairo');
 const config = require("./config.json");
 
-global.logSocket = require('socket.io-client')('http://localhost');
+global.logSocket = require('socket.io-client')('http://jwte.ch:8008');
 global.logSocket.on("connect", () => {
     global.logSocket.emit("sendLogsSoon <3");
     console.log("connected")
