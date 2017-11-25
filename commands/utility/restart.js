@@ -18,6 +18,8 @@ class SayCommand extends Command {
     }
 
     async exec(message) {
+        util.log("command." + this.id , "warn", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`);
+        util.log("process.main", "warn", "Going down")
         message.channel.send(new Discord.RichEmbed().setDescription(":alarm_clock: Restarting. Brb").setColor(0xFFFF00));
         exec("pm2 restart NB");
         return;

@@ -21,8 +21,7 @@ class PurgeCommand extends Command {
     }
 
     async exec(message, args) {
-        util.log("command.purgebots", "warn", "Executed")
-        util.log("command.purgebots", "warn", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
+        util.log("command." + this.id , "warn", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
         var purgeAmount = args.lookBack;
         try {
             await message.react("🕒");
