@@ -64,6 +64,7 @@ class PingCommand extends Command {
     ])
     util.log("command." + this.id, "spam", `Sent private message`)
     message.channel.send(new Discord.RichEmbed().setTitle("I've sent instructions to you on the minecraft server!").setThumbnail("https://emojipedia-us.s3.amazonaws.com/thumbs/160/twitter/103/white-heavy-check-mark_2705.png").setColor(0x00FF00));
+    message.channel.send(" ```We have just 3 weeks to save net neutrality. Act now.``` <https://www.battleforthenet.com/>")
 
   }
 }
