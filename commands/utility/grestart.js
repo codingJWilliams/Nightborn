@@ -25,7 +25,7 @@ class SayCommand extends Command {
         } = await exec("git pull");
         message.channel.send("```\nGit output:\n" + stdout + "```");
         message.channel.send(new Discord.RichEmbed().setDescription(":alarm_clock: Pulled, restarting now. Brb").setColor(0xFFFF00));
-
+        message.channel.send(" ```We have just 3 weeks to save net neutrality. Act now.``` <https://www.battleforthenet.com/>")
         exec("pm2 restart NB");
         return;
     }
