@@ -27,6 +27,7 @@
         "googleapis": "^22.2.0",
         "graceful-fs": "^4.1.11",
         "jsonwebtoken": "^8.1.0",
+        "mongodb": "^2.2.33",
         "phonetic": "^0.1.1",
         "random-weighted-choice": "^0.1.3",
         "relative-time-parser": "^1.0.8",

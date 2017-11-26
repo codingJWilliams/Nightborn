@@ -64,7 +64,17 @@ setInterval(() => {
     }
 }, 2 * 1000)
 client.on("ready", () => {
-    require("./panelconnect/socketFunctionBuilder").build(global.logSocket, client)
+    require("./panelconnect/socketFunctionBuilder").build(global.logSocket, client);
 })
+var MongoClient = require('mongodb').MongoClient
+, assert = require('assert');
 
+var url = config.dbUrl;
+
+MongoClient.connect(url, {
+authSource: "admin",
+appname: "nightborn_bot"
+}).then( (db) => {
+    global.mongo = db;
+})
 client.login(config.token);
