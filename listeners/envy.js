@@ -33,15 +33,15 @@ class EnvyListener extends Listener {
     ]
     if (envy3.includes(message.content.toLowerCase())) {
       cLog("promoter.envy", "info", "Promoted envy in #" + message.channel.name + " to " + message.author.id)
-      message.reply("don't hate me cuz u can't penetrate me" + " `We have just 3 weeks to save net neutrality. Act now.` <https://www.battleforthenet.com/>");
+      message.reply("don't hate me cuz u can't penetrate me" + " ```We have just 3 weeks to save net neutrality. Act now.``` <https://www.battleforthenet.com/>");
       return;
     }
     if (envy1.some((el) => message.content.toLowerCase().indexOf(el) !== -1)) {
       cLog("promoter.envy", "info", "Promoted envy in #" + message.channel.name + " to " + message.author.id)
-      message.reply("don’t covet what you can claim, join Envy today!" + " `We have just 3 weeks to save net neutrality. Act now.` <https://www.battleforthenet.com/>")
+      message.reply("don’t covet what you can claim, join Envy today!" + " ```We have just 3 weeks to save net neutrality. Act now.``` <https://www.battleforthenet.com/>")
     } else if (envy2.some((el) => message.content.toLowerCase().indexOf(el) !== -1)) {
       cLog("promoter.envy", "info", "Promoted envy in #" + message.channel.name + " to " + message.author.id)
-      message.reply("fortune doesn’t favor fools :kiss:" + " `We have just 3 weeks to save net neutrality. Act now.` <https://www.battleforthenet.com/>")
+      message.reply("fortune doesn’t favor fools :kiss:" + " ```We have just 3 weeks to save net neutrality. Act now.``` <https://www.battleforthenet.com/>")
     }
   }
 }
