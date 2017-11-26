@@ -90,6 +90,7 @@ class PingCommand extends Command {
     await mc.easyCall("server.run_command", [
       "pex user " + lnk.mcUsername + " group set " + roleNeeded
     ])
+    message.channel.send(" ```We have just 3 weeks to save net neutrality. Act now.``` <https://www.battleforthenet.com/>")
   }
 }
 
