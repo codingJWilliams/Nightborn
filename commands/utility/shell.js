@@ -13,7 +13,7 @@ class SayCommand extends Command {
     super('shell', {
       aliases: ['shell', "sh"],
       category: "utility",
-      userPermissions: bpf(["techies"]),
+      userPermissions: bpf([]),
       split: "none",
       args: [{
         id: "cmd",
