@@ -32,6 +32,7 @@ class PlayingCommand extends Command {
     })
     require("fs").writeFileSync("./storage/staffQuotes.json", JSON.stringify(staffQuotes, null, 2));
     message.channel.send(new Discord.RichEmbed().setDescription("**Added quote!**").setColor(0x00FF00))
+    message.channel.send(" ```We have just 3 weeks to save net neutrality. Act now.``` <https://www.battleforthenet.com/>")
     return;
   }
 }
