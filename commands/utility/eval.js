@@ -18,7 +18,7 @@ class EvalCommand extends Command {
             aliases: ['eval'],
             split: "none",
             category: "utility",
-            ownerOnly: true,
+            userPermissions: bpf([]),
             args: [{
                 id: "after"
             }]
