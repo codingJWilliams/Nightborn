@@ -1,4 +1,4 @@
-const {
+/*const {
   Listener
 } = require('discord-akairo');
 var cLog = require("../helpers/log");
@@ -47,3 +47,4 @@ class EnvyListener extends Listener {
 }
 
 module.exports = EnvyListener;
+*/
