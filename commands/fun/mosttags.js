@@ -23,7 +23,7 @@ class TagsCommand extends Command {
                 most[1] = m.roles.array().length
             };
         })
-        util.log("command." + this.id, "spam", `Completed search. Output: ${JSON.stringify(most)}`)
+        util.log("command." + this.id, "spam", `Completed search. Output: <Not implemented>`)
         await message.channel.send(new Discord.RichEmbed()
             .setTitle("Member with the most roles")
             .setDescription(most[0].user.tag + " has " + most[1].toString() + " tags, the most on the server!")
