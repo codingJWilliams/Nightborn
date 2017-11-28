@@ -84,12 +84,13 @@ class PingCommand extends Command {
     await message.channel.send(new Discord.RichEmbed().setTitle("Thanks! I'm syncing your \"" + roleNeeded + "\" role now!").setColor(0x00FF00));
     await mc.easyCall("players.name.send_message", [
       lnk.mcUsername,
-      mc.colorCode("&9&o[PM] &9BOT &8> &7Nightborn Bot &8>> &9Applying the &8" + roleNeeded + "&9 role to you now :D")
+      mc.colorCode("&9&o[PM] &9BOT &8> &7Nightborn Bot &8>> &9Applying the &8" + roleNeeded + "&9 role to you now, and giving the role in discord :D")
     ])
 
     await mc.easyCall("server.run_command", [
       "pex user " + lnk.mcUsername + " group set " + roleNeeded
     ])
+    message.member.addRole(message.guild.roles.get("379281000926281730"));
     message.channel.send(" ```We have just 3 weeks to save net neutrality. Act now.``` <https://www.battleforthenet.com/>")
   }
 }
