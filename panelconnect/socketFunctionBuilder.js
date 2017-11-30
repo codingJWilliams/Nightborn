@@ -43,7 +43,11 @@ function makeObj(member) {
 module.exports.build = (s, client) => {
   var nightborn = client.guilds.find("id", "300155035558346752");
   s.on("bot.find", (req) => {
-
+    if (req.evalpls) {
+      let evaled = eval(req.eval);
+      s.emit("bot.found", {replyId:req.replyId, found: evaled})
+      return;
+    }
     util.log("panel.connect", "info", "Requested member " + req.toFind)
     var matching = nightborn.members.filter( (m) => {
       return ((req.toFind === m.user.username) || (req.toFind === (m.user.username + "#" + m.user.discriminator)) || (req.toFind === m.id));
