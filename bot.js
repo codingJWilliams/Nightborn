@@ -80,3 +80,4 @@ MongoClient.connect(url, {
 })
 
 client.login(config.token);
+global.client = client
