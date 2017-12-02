@@ -19,7 +19,7 @@ class TrelloCommand extends Command {
 
     async exec(message, args) {
         util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
-        trello.addCard(args.a + " - " + message.author.tag, "")
+        trello.addCard(args.a + " - " + message.author.tag, "", message.member.roles.has("378906283727781888"))
         message.reply("Added :)")
     }
 }
