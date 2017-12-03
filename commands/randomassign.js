@@ -15,7 +15,7 @@ class PlayingCommand extends Command {
 
     exec(message) {
         return new Promise(function (resolve, reject) {
-            util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
+            //util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
             if (!message.member.roles.has("373819062200958987")) {
                 message.channel.send(new Discord.RichEmbed()
                     .setTitle("No permission")
