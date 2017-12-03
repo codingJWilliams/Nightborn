@@ -16,7 +16,7 @@ class PlayingCommand extends Command {
     exec(message) {
         return new Promise(function (resolve, reject) {
             //util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
-            if (!message.member.roles.has("373819062200958987")) {
+            /*if (!message.member.roles.has("373819062200958987")) {
                 message.channel.send(new Discord.RichEmbed()
                     .setTitle("No permission")
                     .setDescription("You need to have the @Staff tag to do this")
@@ -24,7 +24,7 @@ class PlayingCommand extends Command {
                 )
                 resolve();
                 return;
-            }
+            }*/
             var clanless = message.guild.members.filter((m) => {
                 return (m.roles.has("320199117467025418"))
             });
