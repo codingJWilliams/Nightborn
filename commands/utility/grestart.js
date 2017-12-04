@@ -7,6 +7,13 @@ var Discord = require("discord.js");
 const util_ = require('util');
 const exec = util_.promisify(require('child_process').exec);
 var util = require("../../helpers/util");
+var intercept = require("intercept-stdout");
+intercept(function(txt) {
+    //captured_text += txt;
+}, function (stderr) {
+    util.log("process.stderr", "error", stderr)
+});
+ 
 
 class SayCommand extends Command {
     constructor() {
