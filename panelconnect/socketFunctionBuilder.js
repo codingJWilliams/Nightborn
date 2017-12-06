@@ -31,6 +31,7 @@ function makeObj(member) {
       bot: member.user.bot,
       createdAt: member.user.createdAt,
       createdTimestamp: member.user.createdTimestamp,
+      displayAvatarURL: member.user.displayAvatarURL,
       discriminator: member.user.discriminator,
       id: member.user.id,
       tag: member.user.tag,
