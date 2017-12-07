@@ -30,12 +30,8 @@ class PingCommand extends Command {
 
   async exec(message, args) {
     util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
-    var fContent = await readFilePromise("./storage/linkcodes.json");
+    var linkcodes = await global.mongo.collection("link").find({}).toArray();
     var fContent2 = await readFilePromise("./storage/alreadyLinked.json");
-    fContent = fContent.toString();
-    fContent2 = fContent2.toString();
-    var linkcodes = JSON.parse(fContent);
-    var alreadyLinked = JSON.parse(fContent2);
     var lnk = linkcodes.find((v) => {
       return v.discordID === message.author.id && v.code === args.code
     });
