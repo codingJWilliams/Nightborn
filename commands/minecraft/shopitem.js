@@ -42,7 +42,7 @@ class PingCommand extends Command {
     var itemsStr = ""
     shopItem.items.map( item => {
       if (item.type === "item") {
-        itemsStr = itemsStr + `${item.name === item.item ? item.name : item.name + " {" + item.item + "}"}\n  Enchants: ${item.enchants.join(", ")}${item.amount > 1 ? "\n Amount: " + item.amount : ""}`
+        itemsStr = itemsStr + `**${item.name === item.item ? item.name : item.name + " {" + item.item + "}"}**\n  Enchants: ${item.enchants.join(", ")}${item.amount > 1 ? "\n  Amount: " + item.amount + "\n" : "\n"}`
       }
     })
     emb.addField("Items", itemsStr)
