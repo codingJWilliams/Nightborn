@@ -18,8 +18,8 @@ function getHash(str) {
 }
 class PingCommand extends Command {
   constructor() {
-    super('shop', {
-      aliases: ["shop"],
+    super('shopitem', {
+      aliases: ["shopitem"],
       category: "minecraft",
       args: [
         {
@@ -32,17 +32,20 @@ class PingCommand extends Command {
 
   async exec(message, args) {
     util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
-    var shopItem = await global.mongo.collection("shop").find({id: args.item}).toArray();
+    var shopItem = await global.mongo.collection("shop").findOne({id: args.item});
+    if (!shopItem) return await message.channel.send({embed: {title: "I could not find that item", color: 0xFF0000}})
     var emb = new Discord.RichEmbed()
-    .setTitle("Shop")
-    .setDescription("Type `,shopitem <id>` to see more about it! Additionally, there are 2 prices for each item. The permanant price, if given, gives you permission to run the command as many times as you want. The cheaper one-time cost will deposit the items in your inventory. Make sure you are online and have space!")
+    .setTitle("Item: " + shopItem.name)
+    .setDescription(shopItem.description)
     .setColor(0x00FF00)
     .addBlankField()
-    shopItems.map( i => {
-      emb.addField(i.name, `Description: ${i.description}
-Permanant Cost: ${i.costPermanant == null ? "N/A" : i.costPermanant } :ghost:
-One-time Cost: ${i.costOnce == null ? "N/A" : i.costOnce } :ghost:`);
+    var itemsStr = ""
+    shopItems.map( item => {
+      if (item.type === "item") {
+        itemsStr = itemsStr + `${item.name === item.item ? item.name : item.name + " {" + item.item + "}"}\n  Enchants: ${item.enchants.join(", ")}${item.amount > 1 ? "\n Amount: " + item.amount : ""}`
+      }
     })
+    .addField("Items", itemsStr)
     message.channel.send(emb)
   }
 }
