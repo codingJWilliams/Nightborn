@@ -20,21 +20,26 @@ class PingCommand extends Command {
   constructor() {
     super('shop', {
       aliases: ["shop"],
-      category: "minecraft"
+      category: "minecraft",
+      args: [
+        {
+          id: "item",
+          type: "string"
+        }
+      ]
     });
   }
 
   async exec(message, args) {
     util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
-    var shopItems = await global.mongo.collection("shop").find({a: true}).toArray();
+    var shopItem = await global.mongo.collection("shop").find({id: args.item}).toArray();
     var emb = new Discord.RichEmbed()
-    .setTitle("Minecraft Shop")
+    .setTitle("Shop")
     .setDescription("Type `,shopitem <id>` to see more about it! Additionally, there are 2 prices for each item. The permanant price, if given, gives you permission to run the command as many times as you want. The cheaper one-time cost will deposit the items in your inventory. Make sure you are online and have space!")
     .setColor(0x00FF00)
     .addBlankField()
     shopItems.map( i => {
-      emb.addField(i.name, `ID: ${i.id}
-Description: ${i.description}
+      emb.addField(i.name, `Description: ${i.description}
 Permanant Cost: ${i.costPermanant == null ? "N/A" : i.costPermanant } :ghost:
 One-time Cost: ${i.costOnce == null ? "N/A" : i.costOnce } :ghost:`);
     })
