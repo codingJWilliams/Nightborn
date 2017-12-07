@@ -40,7 +40,7 @@ class PingCommand extends Command {
     .setColor(0x00FF00)
     .addBlankField()
     var itemsStr = ""
-    shopItems.map( item => {
+    shopItem.items.map( item => {
       if (item.type === "item") {
         itemsStr = itemsStr + `${item.name === item.item ? item.name : item.name + " {" + item.item + "}"}\n  Enchants: ${item.enchants.join(", ")}${item.amount > 1 ? "\n Amount: " + item.amount : ""}`
       }
