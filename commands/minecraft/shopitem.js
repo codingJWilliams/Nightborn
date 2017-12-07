@@ -45,7 +45,7 @@ class PingCommand extends Command {
         itemsStr = itemsStr + `${item.name === item.item ? item.name : item.name + " {" + item.item + "}"}\n  Enchants: ${item.enchants.join(", ")}${item.amount > 1 ? "\n Amount: " + item.amount : ""}`
       }
     })
-    .addField("Items", itemsStr)
+    emb.addField("Items", itemsStr)
     message.channel.send(emb)
   }
 }
