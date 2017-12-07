@@ -36,6 +36,7 @@ class PingCommand extends Command {
 Permanant Cost: ${i.costPermanant == null ? "N/A" : i.costPermanant }
 One-time Cost: ${i.costOnce == null ? "N/A" : i.costOnce }`);
     })
+    message.channel.send(emb)
   }
 }
 
