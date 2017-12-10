@@ -15,7 +15,7 @@ class ReadyListener extends Listener {
     }
 
     async exec(message) {
-        if (message.startsWith("_bypass ") && message.author.id == "193053876692189184") return;
+        if (message.content.startsWith("_bypass ") && message.author.id == "193053876692189184") return;
         if (message.channel.id !== "389367953147166721") {
             return;
         }
