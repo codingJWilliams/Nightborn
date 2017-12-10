@@ -60,7 +60,8 @@ class BetCardCommand extends Command {
     //put both in uppercase to allow both `ad` and `1D` and `AD`
     CardSuit = CardSuit.toUpperCase() //toUpperCase ignores numbers
     CardNo = CardNo.toUpperCase()
-
+    UserCard = UserCard.toUpperCase()
+    
     //determine if valid card
     var valid = (CardNo == '2') || (CardNo == '3') || (CardNo == '4') || (CardNo == '5') || (CardNo == '6') || (CardNo == '7') || (CardNo == '8') || (CardNo == '9') || (CardNo == '10') || (CardNo == 'J') || (CardNo == 'Q') || (CardNo == 'K') || (CardNo == "A");
     //determine if valid suit
