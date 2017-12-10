@@ -27,7 +27,7 @@ class BetCardCommand extends Command {
 
     if (args.amnt < 50) {
       util.log("command." + this.id, "info", `${util.nameFormat} used command incorrectly, passing ${args.amnt}`)
-      message.channel.send(new Discord.RichEmbed().setDescription("EG: `$bc 10000 10H`").setTitle("Invalid amount! Please use a positive number above 50").setColor(0xFF0000))
+      message.channel.send(new Discord.RichEmbed().setDescription("EG: `$bc 10000 10H`").setTitle("Invalid amount! Please use a positive number above 50").setColor(0x71cd40))
       return;
     }
     var BetterBal = await economy.getBal(message.author.id.toString());
@@ -36,7 +36,7 @@ class BetCardCommand extends Command {
       util.log("command." + this.id, "info", `Executor doesn't have enough souls`)
       message.channel.send(new Discord.RichEmbed()
         .setTitle("You don't have enough :ghost: for this")
-        .setColor(0xFF0000)
+        .setColor(0x71cd40)
       )
       return;
     }
