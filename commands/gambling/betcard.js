@@ -48,7 +48,6 @@ class BetCardCommand extends Command {
     var CardSuit = UserCard.charAt(1); //get user card suit
     var SelCardNo = SelCard.charAt(0); //get random card number
     var SelCardSuit = SelCard.charAt(1); //get random card suit
-    console.log(SelCard, UserCard, CardNo, CardSuit, SelCardNo, SelCardSuit)
     //Cover situation where user picks 10 as it is one more char than the other options
     if ((CardNo == '1') && (CardSuit == '0')) {
       CardNo = '10';
@@ -58,15 +57,16 @@ class BetCardCommand extends Command {
       SelCardNo = '10';
       SelCardSuit = UserCard.charAt(2);
     }
-    //
+    //put both in uppercase to allow both `ad` and `1D` and `AD`
+    CardSuit = CardSuit.toUpperCase() //toUpperCase ignores numbers
+    CardNo = CardNo.toUpperCase()
+
     //determine if valid card
     var valid = (CardNo == '2') || (CardNo == '3') || (CardNo == '4') || (CardNo == '5') || (CardNo == '6') || (CardNo == '7') || (CardNo == '8') || (CardNo == '9') || (CardNo == '10') || (CardNo == 'J') || (CardNo == 'Q') || (CardNo == 'K') || (CardNo == "A");
+    //determine if valid suit
     var valid1 = (CardSuit == 'S') || (CardSuit == 'C') || (CardSuit == 'D') || (CardSuit == 'H')
-    if(valid && valid1) {
-      economy.take(message.author.id, args.amnt);
-    }
-    if (!(valid && valid1)) {
-      message.channel.send(
+    if (!(valid && valid1)) { //if not valid card and suit
+      message.channel.send( //error
         new Discord.RichEmbed()
         .setTitle("Invalid Card")
         .setDescription(`Enter a valid card. EG: KH for King of Hearts or 5C for 5 of Clubs.`)
@@ -79,7 +79,7 @@ class BetCardCommand extends Command {
         .setDescription(`You have won ${(args.amnt * 9)}!`)
         .setColor(0x71cd40)
       )
-      economy.award(message.author.id, (args.amnt * 10));
+      economy.award(message.author.id, (args.amnt * 9));
     } else if (SelCardNo == CardNo) {
       message.channel.send(
         new Discord.RichEmbed()
@@ -87,7 +87,7 @@ class BetCardCommand extends Command {
         .setDescription(`You have won ${(args.amnt * 3)}!`)
         .setColor(0x71cd40)
       )
-      economy.award(message.author.id, (args.amnt * 4));
+      economy.award(message.author.id, (args.amnt * 3));
     } else if (SelCardSuit == CardSuit) {
       message.channel.send(
         new Discord.RichEmbed()
@@ -95,8 +95,9 @@ class BetCardCommand extends Command {
         .setDescription(`You have won ${(args.amnt * 1)}!`)
         .setColor(0x71cd40)
       )
-      economy.award(message.author.id, args.amnt * 2);
+      economy.award(message.author.id, args.amnt * 1);
     } else {
+      economy.take(message.author.id, args.amnt);
       message.channel.send(
         new Discord.RichEmbed()
         .setTitle(`Card drawn: ${SelCard}`)
