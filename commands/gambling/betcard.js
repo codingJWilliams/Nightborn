@@ -27,7 +27,7 @@ class BetCardCommand extends Command {
 
     if (args.amnt < 50) {
       util.log("command." + this.id, "info", `${util.nameFormat} used command incorrectly, passing ${args.amnt}`)
-      message.channel.send(new Discord.RichEmbed().setDescription("EG: `$bc 10000 10H`").setTitle("Invalid amount! Please use a positive number above 50").setColor(0x71cd40))
+      message.channel.send(new Discord.RichEmbed().setDescription("EG: `$bc 10000 10H`").setTitle("Invalid amount! Please use a positive number above 50").setColor(0xFF0000))
       return;
     }
     var BetterBal = await economy.getBal(message.author.id.toString());
@@ -36,7 +36,7 @@ class BetCardCommand extends Command {
       util.log("command." + this.id, "info", `Executor doesn't have enough souls`)
       message.channel.send(new Discord.RichEmbed()
         .setTitle("You don't have enough :ghost: for this")
-        .setColor(0x71cd40)
+        .setColor(0xFF0000)
       )
       return;
     }
@@ -70,14 +70,14 @@ class BetCardCommand extends Command {
         new Discord.RichEmbed()
         .setTitle("Invalid Card")
         .setDescription(`Enter a valid card. EG: KH for King of Hearts or 5C for 5 of Clubs.`)
-        .setColor(0x00ff00)
+        .setColor(0x71cd40)
       )
     } else if (UserCard == SelCard) {
       message.channel.send(
         new Discord.RichEmbed()
         .setTitle(`Card drawn: ${SelCard}`)
         .setDescription(`You have won ${(args.amnt * 10)}!`)
-        .setColor(0x00ff00)
+        .setColor(0x71cd40)
       )
       economy.award(message.author.id, (args.amnt * 10));
     } else if (SelCardNo == CardNo) {
@@ -85,7 +85,7 @@ class BetCardCommand extends Command {
         new Discord.RichEmbed()
         .setTitle(`Card drawn: ${SelCard}`)
         .setDescription(`You have won ${(args.amnt * 4)}!`)
-        .setColor(0x00ff00)
+        .setColor(0x71cd40)
       )
       economy.award(message.author.id, (args.amnt * 4));
     } else if (SelCardSuit == CardSuit) {
@@ -93,7 +93,7 @@ class BetCardCommand extends Command {
         new Discord.RichEmbed()
         .setTitle(`Card drawn: ${SelCard}`)
         .setDescription(`You have won ${(args.amnt * 2)}!`)
-        .setColor(0x00ff00)
+        .setColor(0x71cd40)
       )
       economy.award(message.author.id, args.amnt * 2);
     } else {
@@ -101,7 +101,7 @@ class BetCardCommand extends Command {
         new Discord.RichEmbed()
         .setTitle(`Card drawn: ${SelCard}`)
         .setDescription(`Better luck next time :(`)
-        .setColor(0x00ff00)
+        .setColor(0x71cd40)
       )
     }
   }
