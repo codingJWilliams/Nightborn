@@ -26,7 +26,7 @@ class PlayingCommand extends Command {
     }
     var staffQuotes = staffQuotes.map(sObj => {
       if (sObj.staffid !== message.author.id) return sObj;
-      delete sObj.quotes[args.quote];
+      sObj.quotes = sObj.quotes.filter((val, i) => i != args.quote)
       return sObj;
     })
     require("fs").writeFileSync("./storage/staffQuotes.json", JSON.stringify(staffQuotes, null, 2));
