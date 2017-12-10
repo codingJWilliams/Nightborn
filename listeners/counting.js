@@ -25,7 +25,7 @@ class ReadyListener extends Listener {
         await global.mongo.collection("currentCount").findOneAndUpdate({}, {$inc: { count: 1 }});
         if (!(await global.mongo.collection("counters").findOne({ id: message.author.id }))) await global.mongo.collection("counters").insertOne({ counts: 0, id: message.author.id });
         await global.mongo.collection("counters").findOneAndUpdate({id: message.author.id}, {$inc: { counts: 1 }});
-        setTimeout( ()=>{canGo=true}, 6000)
+        setTimeout( ()=>{canGo=true}, 2000)
         canGo=false;
     }
 }
