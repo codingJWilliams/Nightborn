@@ -76,7 +76,7 @@ class BetCardCommand extends Command {
       message.channel.send(
         new Discord.RichEmbed()
         .setTitle(`Card drawn: ${SelCard}`)
-        .setDescription(`You have won ${(args.amnt * 10)}!`)
+        .setDescription(`You have won ${(args.amnt * 9)}!`)
         .setColor(0x71cd40)
       )
       economy.award(message.author.id, (args.amnt * 10));
@@ -84,7 +84,7 @@ class BetCardCommand extends Command {
       message.channel.send(
         new Discord.RichEmbed()
         .setTitle(`Card drawn: ${SelCard}`)
-        .setDescription(`You have won ${(args.amnt * 4)}!`)
+        .setDescription(`You have won ${(args.amnt * 3)}!`)
         .setColor(0x71cd40)
       )
       economy.award(message.author.id, (args.amnt * 4));
@@ -92,7 +92,7 @@ class BetCardCommand extends Command {
       message.channel.send(
         new Discord.RichEmbed()
         .setTitle(`Card drawn: ${SelCard}`)
-        .setDescription(`You have won ${(args.amnt * 2)}!`)
+        .setDescription(`You have won ${(args.amnt * 1)}!`)
         .setColor(0x71cd40)
       )
       economy.award(message.author.id, args.amnt * 2);
