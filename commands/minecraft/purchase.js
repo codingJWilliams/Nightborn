@@ -21,7 +21,7 @@ function getHash(str) {
 class PingCommand extends Command {
   constructor() {
     super('purchase', {
-      aliases: ["shopitem"],
+      aliases: ["purchase", "buy"],
       category: "minecraft",
       args: [{
           id: "item",
