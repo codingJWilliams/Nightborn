@@ -80,7 +80,7 @@ class PingCommand extends Command {
     await message.channel.send(
       new Discord.RichEmbed()
       .setTitle("Thanks! I'm syncing your \"" + roleNeeded + "\" role now!")
-      .setThumbnail("https://crafatar.com/renders/body/" + lnk.mcUsername + ".png")
+      .setThumbnail("https://crafatar.com/renders/avatar/" + lnk.mcUsername + ".png")
       .setColor(0x00FF00));
     await mc.easyCall("players.name.send_message", [
       lnk.mcUsername,
