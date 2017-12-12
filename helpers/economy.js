@@ -5,6 +5,11 @@ var util = require("../helpers/util");
 
 var baseURL = "http://" + config.ecoserver_ip + ":" + config.ecoserver_port;
 
+/**
+ * @description Returns a user's balance, in the form of a promise
+ * @param {string} uid
+ * @returns {Promise.<int>} balance
+ */
 function getBal(uid) {
   return new Promise((resolve, reject) => {
     var token = jwt.sign({
