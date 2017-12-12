@@ -27,7 +27,7 @@ const client = new AkairoClient({
     listenerDirectory: "./listeners/",
     allowMention: true
 }, {
-    disableEveryone: true
+    disableEveryone: false
 });
 
 
