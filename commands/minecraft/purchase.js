@@ -67,9 +67,9 @@ class PingCommand extends Command {
     var theirBal = await economy.getBal(message.author.id);
     var cost = shopItem[args.type === "once" ? "costOnce" : "costPermanant"]
     var command = shopItem[args.type === "once" ? "commandOnce" : "commandPermanant"].replace("$(player)", mcName);
-    if (cost < theirBal) return await message.channel.send({
+    if (cost > theirBal) return await message.channel.send({
       embed: {
-        title: "<@" + message.author.id + "> You do not have enough souls for that",
+        description: "**<@" + message.author.id + "> You do not have enough souls for that**",
         color: 0xFF0000
       }
     });
