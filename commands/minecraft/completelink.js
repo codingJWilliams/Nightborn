@@ -91,7 +91,6 @@ class PingCommand extends Command {
       "pex user " + lnk.mcUsername + " group set " + roleNeeded
     ])
     message.member.addRole(message.guild.roles.get("379281000926281730"));
-    message.channel.send(" ```We have just 3 weeks to save net neutrality. Act now.``` <https://www.battleforthenet.com/>")
   }
 }
 

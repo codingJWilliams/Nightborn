@@ -88,7 +88,7 @@ class PingCommand extends Command {
     ])
     await message.channel.send(new Discord.RichEmbed()
       .setTitle("Successfully purchased!")
-      .setThumbnail("https://emojipedia-us.s3.amazonaws.com/thumbs/160/twitter/103/white-heavy-check-mark_2705.png")
+      .setThumbnail("https://crafatar.com/avatars/" + mcName + ".png")
       .setColor(0x00FF00)
       .setFooter("" + cost, "https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/118/ghost_1f47b.png")
     )
