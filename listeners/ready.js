@@ -26,13 +26,22 @@ class ReadyListener extends Listener {
                     return s.trigger === message.content
                 })[0];
                 var sMember = message.guild.members.find("id", sObj.staffid);
+                if (sObj.trigger === "bob") {
+                    var quote = await global.mongo.collection("bobquotes").aggregate([{
+                        $sample: {
+                            size: 1
+                        }
+                    }]).toArray()
+                    await message.channel.send(quote[0].quote + " - " + sMember.displayName)
+                    return
+                }
                 //var webhook = await message.channel.createWebhook(sMember.displayName, sMember.user.avatarURL, "More quotes pls ty");
                 await message.channel.send(sObj.quotes[Math.floor(sObj.quotes.length * Math.random())] + " - " + sMember.displayName);
                 cLog("services.staffQuotes", "info", "Triggered in #" + message.channel.name + " by " + message.author.username + "#" + message.author.discriminator)
                 //webhook.delete();
                 return;
             }
-            
+
         })
     }
 }
