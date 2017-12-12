@@ -74,6 +74,8 @@ class PingCommand extends Command {
       }
     });
     var online = await mc.easyCall("players.online.names", []);
+    online = online.success;
+    
     if (!online.includes(mcName)) return message.channel.send(new Discord.RichEmbed().setTitle("Couldn't find that player").setDescription("Hey, it looks like you're not online! Make sure you've spelt your name right and you're currently logged in!").setColor(0xFF0000));
     await economy.take(message.author.id, cost);
     await mc.easyCall("server.run_command", [
