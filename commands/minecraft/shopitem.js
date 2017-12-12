@@ -51,7 +51,7 @@ class PingCommand extends Command {
     emb.addField("Items", itemsStr)
     emb.addBlankField()
     emb.addField("One-time cost", shopItem.costOnce + " :ghost:")
-    emb.addField("Permanant cost", shopItem.costPermanant + " :ghost:")
+    if (shopItem.costPermanant) emb.addField("Permanant cost", shopItem.costPermanant + " :ghost:")
     message.channel.send(emb)
   }
 }
