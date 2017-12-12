@@ -77,7 +77,11 @@ class PingCommand extends Command {
       }
     }
     util.log("command." + this.id, "info", `Applying minecraft user ${lnk.mcUsername} [Discord: ${util.nameFormat(message.author)}] the pex role ${roleNeeded}`)
-    await message.channel.send(new Discord.RichEmbed().setTitle("Thanks! I'm syncing your \"" + roleNeeded + "\" role now!").setColor(0x00FF00));
+    await message.channel.send(
+      new Discord.RichEmbed()
+      .setTitle("Thanks! I'm syncing your \"" + roleNeeded + "\" role now!")
+      .setThumbnail("https://crafatar.com/renders/body/" + lnk.mcUsername + ".png")
+      .setColor(0x00FF00));
     await mc.easyCall("players.name.send_message", [
       lnk.mcUsername,
       mc.colorCode("&9&o[PM] &9BOT &8> &7Nightborn Bot &8>> &9Applying the &8" + roleNeeded + "&9 role to you now, and giving the role in discord :D")
