@@ -32,7 +32,11 @@ class ReadyListener extends Listener {
                             size: 1
                         }
                     }]).toArray()
-                    await message.channel.send(quote[0].quote + " - " + sMember.displayName)
+                    quote = quote[0].quote
+
+                    quote = quote.replace("@everyone", "@everywun")
+                    quote = quote.replace("@here", "@hear")
+                    await message.channel.send(quote + " - " + sMember.displayName)
                     return
                 }
                 //var webhook = await message.channel.createWebhook(sMember.displayName, sMember.user.avatarURL, "More quotes pls ty");
