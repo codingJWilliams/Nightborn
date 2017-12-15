@@ -35,4 +35,4 @@ class SimpleWikipediaCommand extends Command {
   }
 }
 
-module.exports = BetCardCommand;
+module.exports = SimpleWikipediaCommand;
