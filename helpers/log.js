@@ -1,5 +1,4 @@
 var colors = require("colors");
-
 /**
  * Multi transport logging
  * @param {string} sectionid Human name of section of code logging from, eg: process.main, command.grestart
@@ -29,7 +28,6 @@ module.exports = function log(sectionid, level, message) {
     ];
     var lColor = levelColors[levelMap[level]];
     console.log(lColor(level) + " > ".grey + sectionid.white + " >> ".grey + colors.grey(message));
-
   }
   console.log(global.logSocket.connected)
   global.logSocket.emit("log", {

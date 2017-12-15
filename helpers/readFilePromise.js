@@ -8,7 +8,6 @@ module.exports = function fsReadFilePromise(filePath, options) {
         reject(err);
         return;
       }
-
       resolve(data);
     });
   });

@@ -3,9 +3,7 @@ var jwt = require("jsonwebtoken");
 var config = require("../config.json");
 var util = require("../helpers/util");
 var axios = require("axios");
-
 var baseURL = "http://" + config.ecoserver_ip + ":" + config.ecoserver_port;
-
 /**
  * @description Returns a user's balance, in the form of a promise
  * @param {string} uid
@@ -16,11 +14,13 @@ async function getBal(uid) {
     uid: uid,
     timeIssued: Date.now()
   }, config.ecoserver_key);
-  try { var resp = await axios.get(baseURL + "/getbal/" + token); }
-  catch (e) { throw Error("That user ID could not be found") }
+  try {
+    var resp = await axios.get(baseURL + "/getbal/" + token);
+  } catch (e) {
+    throw Error("That user ID could not be found")
+  }
   return resp.data.balance
 }
-
 /**
  * @description Sets the balance of a user     
  * @param {string} uid The user ID to set balance of
@@ -32,10 +32,12 @@ async function setBal(uid, amount) {
     amount: amount,
     timeIssued: Date.now()
   }, config.ecoserver_key);
-  try { var resp = await axios.get(baseURL + "/setbal/" + token); }
-  catch (e) { throw Error("That didn't work D: (Economy.setBal(), axios promise rejected)") }
+  try {
+    var resp = await axios.get(baseURL + "/setbal/" + token);
+  } catch (e) {
+    throw Error("That didn't work D: (Economy.setBal(), axios promise rejected)")
+  }
 }
-
 /**
  * Awards souls to a user.
  * @param {string} uid The user ID to modify balance of
@@ -46,7 +48,6 @@ async function award(uid, amount) {
   var bal = await getBal(uid);
   await setBal(uid, bal + amount);
 }
-
 /**
  * Takes souls from a user.
  * @param {string} uid The user ID to modify balance of
@@ -57,7 +58,6 @@ async function take(uid, amount) {
   await award(uid, 0 - amount);
   return;
 }
-
 // Export all functions
 module.exports.getBal = getBal;
 module.exports.setBal = setBal;
