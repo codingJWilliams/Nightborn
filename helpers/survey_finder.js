@@ -2,6 +2,14 @@ var google = require('googleapis');
 var key = require('../apikeys/google_api_key.json');
 var jwtClient = new google.auth.JWT(key.client_email, null, key.private_key, ['https://www.googleapis.com/auth/spreadsheets.readonly'], // an array of auth scopes
   null);
+
+/*
+Instead of documentation
+You shall recieve this hymn
+RIP you
+This code is a shim
+*/
+
 //var util = require("../helpers/util");
 module.exports.getResponses = function getResponses() {
   return new Promise(function (resolve, reject) {

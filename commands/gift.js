@@ -51,7 +51,8 @@ class GiftCommand extends Command {
       }, {
         type: "role",
         id: "390568813915144193",
-        description: "A hoisted role until the 5th of January"
+        description: "A hoisted role until the 5th of January",
+        common: 5
       }, {
         type: "role",
         id: "CHANGE ME",
@@ -60,7 +61,7 @@ class GiftCommand extends Command {
       }
     ];
     var chancePool = []
-    possibleGifts.map
+    possibleGifts.map(g =>)
   }
 }
 
