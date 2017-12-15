@@ -30,7 +30,7 @@ class SimpleWikipediaCommand extends Command {
       return
     }
     console.log(resp.data.query)
-    message.channel.send(resp.data.query.values()[0].extract)
+    message.channel.send(Object.values(resp.data.query.pages)[0].extract)
 
 
   }
