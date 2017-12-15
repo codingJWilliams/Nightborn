@@ -38,7 +38,7 @@ async function setBal(uid, amount) {
 
 /**
  * Awards souls to a user.
- * @param {string} uid The user ID to set balance of
+ * @param {string} uid The user ID to modify balance of
  * @param {number} amount How much to award
  * @returns {Promise} Promise is of type null
  */
@@ -47,10 +47,18 @@ async function award(uid, amount) {
   await setBal(uid, bal + amount);
 }
 
+/**
+ * Takes souls from a user.
+ * @param {string} uid The user ID to modify balance of
+ * @param {number} amount How much to take
+ * @returns {Promise} Promise is of type null
+ */
 async function take(uid, amount) {
   await award(uid, 0 - amount);
   return;
 }
+
+// Export all functions
 module.exports.getBal = getBal;
 module.exports.setBal = setBal;
 module.exports.award = award;
