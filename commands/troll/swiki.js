@@ -29,6 +29,7 @@ class SimpleWikipediaCommand extends Command {
       // Pass
       return
     }
+    console.log(resp.data.query)
     message.channel.send(resp.data.query.values()[0].extract)
 
 
