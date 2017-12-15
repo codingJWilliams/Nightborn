@@ -2,6 +2,7 @@ var request = require("request");
 var jwt = require("jsonwebtoken");
 var config = require("../config.json");
 var util = require("../helpers/util");
+var axios = require("axios");
 
 var baseURL = "http://" + config.ecoserver_ip + ":" + config.ecoserver_port;
 
@@ -10,49 +11,40 @@ var baseURL = "http://" + config.ecoserver_ip + ":" + config.ecoserver_port;
  * @param {string} uid
  * @returns {Promise.<int>} balance
  */
-function getBal(uid) {
-  return new Promise((resolve, reject) => {
-    var token = jwt.sign({
-      uid: uid,
-      timeIssued: Date.now()
-    }, config.ecoserver_key);
-    request(baseURL + "/getbal/" + token, function (error, response, body) {
-      var data = JSON.parse(body);
-      if (data.balance !== undefined) {
-        util.log("economy.getbal", "info", "Retrieved balance of user: " + uid + " (" + data.balance + ")")
-        resolve(data.balance)
-      } else {
-        reject(data.error)
-        util.log("economy.getbal", "error", "Failed: " + data.error)
-      }
-    })
-  })
+async function getBal(uid) {
+  var token = jwt.sign({
+    uid: uid,
+    timeIssued: Date.now()
+  }, config.ecoserver_key);
+  try { var resp = await axios.get(baseURL + "/getbal/" + token); }
+  catch (e) { throw Error("That user ID could not be found") }
+  return resp.data.balance
 }
 
-function setBal(uid, amount) {
-  return new Promise((resolve, reject) => {
-    var token = jwt.sign({
-      uid: uid,
-      amount: amount,
-      timeIssued: Date.now()
-    }, config.ecoserver_key);
-    request(baseURL + "/setbal/" + token, function (error, response, body) {
-      var data = JSON.parse(body);
-      if (data.success) {
-        util.log("economy.setbal", "warn", "Set balance of user: " + uid + " (" + amount + ")")
-        resolve()
-      } else {
-        util.log("economy.setbal", "error", "Failed: " + data.error)
-        reject(data.error)
-      }
-    })
-  })
+/**
+ * @description Sets the balance of a user     
+ * @param {string} uid The user ID to set balance of
+ * @param {number} amount What to set the balance to
+ */
+async function setBal(uid, amount) {
+  var token = jwt.sign({
+    uid: uid,
+    amount: amount,
+    timeIssued: Date.now()
+  }, config.ecoserver_key);
+  try { var resp = await axios.get(baseURL + "/setbal/" + token); }
+  catch (e) { throw Error("That didn't work D: (Economy.setBal(), axios promise rejected)") }
 }
 
+/**
+ * Awards souls to a user.
+ * @param {string} uid The user ID to set balance of
+ * @param {number} amount How much to award
+ * @returns {Promise} Promise is of type null
+ */
 async function award(uid, amount) {
   var bal = await getBal(uid);
   await setBal(uid, bal + amount);
-  return;
 }
 
 async function take(uid, amount) {
