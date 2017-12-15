@@ -5,10 +5,10 @@ var Discord = require("discord.js");
 var util = require("../../helpers/util");
 var axios = require("axios");
 var bpf = require("../../helpers/build_permission_function");
-class SimpleWikipediaCommand extends Command {
+class WikipediaCommand extends Command {
   constructor() {
-    super('swikipedia', {
-      aliases: ['swiki', 'sw'],
+    super('wikipedia', {
+      aliases: ['wiki', 'w'],
       userPermissions: bpf(["owner", "dons", "techies", "mods", "intern"]),
       category: "troll",
       args: [{
@@ -22,7 +22,7 @@ class SimpleWikipediaCommand extends Command {
     util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
     await message.delete();
     try {
-      var resp = await axios.get("https://simple.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=" + encodeURIComponent(args.word))
+      var resp = await axios.get("https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=" + encodeURIComponent(args.word))
     } catch (e) {
       // Pass
       return
