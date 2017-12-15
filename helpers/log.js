@@ -1,7 +1,11 @@
 var colors = require("colors");
 
-
-
+/**
+ * Multi transport logging
+ * @param {string} sectionid Human name of section of code logging from, eg: process.main, command.grestart
+ * @param {string} level One of: ["critical", "error", "warn", "debug", "info", "cmd", "spam"]
+ * @param {string} message What to log
+ */
 module.exports = function log(sectionid, level, message) {
   var levelMap = {
     "critical": 0,
