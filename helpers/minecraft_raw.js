@@ -14,6 +14,8 @@ module.exports.call = async function call(obj) {
   obj.key = getKey(obj.username, obj.name, obj.password, obj.salt);
   delete obj.password;
   delete obj.salt
-  var res = await axios.get("http://mc.nightborn.estate:25565/api/2/call?json=" + encodeURIComponent(JSON.stringify(obj)));
+  try { var res = await axios.get("http://mc.nightborn.estate:25565/api/2/call?json=" + encodeURIComponent(JSON.stringify(obj))); }
+  catch (e) { throw e }
+  
   return res.data;
 }
