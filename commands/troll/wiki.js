@@ -28,7 +28,7 @@ class WikipediaCommand extends Command {
       return
     }
     console.log(resp.data.query)
-    message.channel.send(Object.values(resp.data.query.pages)[0].extract)
+    message.channel.send(Object.values(resp.data.query.pages)[0].extract.substring(0, 1999))
   }
 }
 module.exports = WikipediaCommand;
