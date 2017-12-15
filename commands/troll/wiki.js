@@ -31,4 +31,4 @@ class WikipediaCommand extends Command {
     message.channel.send(Object.values(resp.data.query.pages)[0].extract)
   }
 }
-module.exports = SimpleWikipediaCommand;
+module.exports = WikipediaCommand;
