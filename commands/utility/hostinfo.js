@@ -6,7 +6,7 @@ var si = require("systeminformation");
 var bpf = require("../../helpers/build_permission_function");
 var util = require("../../helpers/util");
 
-class PlayingCommand extends Command {
+class VPSInfoCommand extends Command {
     constructor() {
         super('vpsinfo', {
             aliases: ['vpsinfo', 'vps', "host"],
@@ -52,4 +52,4 @@ Currently, ${Math.round((mem.used / mem.total) * 100)}% of the memory is used ($
     }
 }
 
-module.exports = PlayingCommand;
+module.exports = VPSInfoCommand;
