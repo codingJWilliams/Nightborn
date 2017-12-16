@@ -61,4 +61,4 @@ class StatusCommand extends Command {
     }
   }
 }
-module.exports = StatussCommand;
+module.exports = StatusCommand;
