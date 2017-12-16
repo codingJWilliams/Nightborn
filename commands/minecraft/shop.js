@@ -27,7 +27,7 @@ class PingCommand extends Command {
   async exec(message, args) {
     util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
     var shopItems = await global.mongo.collection("shop").find({a: true}).toArray();
-    shopItems = shopItems.sort(i => i.id.startsWith("economy") ? -1 : 0)
+    shopItems = shopItems.sort(i => i.id.startsWith("eco") ? -1 : 1)
     var emb = new Discord.RichEmbed()
     .setTitle("Minecraft Shop")
     .setDescription("Type `,shopitem <id>` to see more about it! Additionally, there are 2 prices for each item. The permanant price, if given, gives you permission to run the command as many times as you want. The cheaper one-time cost will deposit the items in your inventory. Make sure you are online and have space!")
