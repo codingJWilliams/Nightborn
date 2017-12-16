@@ -8,7 +8,7 @@ const util_ = require('util');
 const exec = util_.promisify(require('child_process')
   .exec);
 var util = require("../../helpers/util");
-class SayCommand extends Command {
+class RestartCommand extends Command {
   constructor() {
     super('restart', {
       aliases: ['restart', "rs"],
@@ -26,4 +26,4 @@ class SayCommand extends Command {
     return;
   }
 }
-module.exports = SayCommand;
+module.exports = RestartCommand;
