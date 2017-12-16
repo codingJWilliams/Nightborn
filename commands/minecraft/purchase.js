@@ -76,7 +76,7 @@ class PurchaseCommand extends Command {
     online = online.success;
     if (!online.includes(mcName)) return message.channel.send(new Discord.RichEmbed()
       .setTitle("Cannot find you!")
-      .setDescription("Huh, I couldn't see you on the server. You can try:\n - Re-linking your Minecraft\n - Making sure your name is still `"+ player +"`\n - DMing VoidCrafted")
+      .setDescription("Huh, I couldn't see you on the server. You can try:\n - Re-linking your Minecraft\n - Making sure your name is still `"+ mcName +"`\n - DMing VoidCrafted")
       .setColor(util.red));
     await economy.take(message.author.id, cost);
     await mc.easyCall("server.run_command", [
