@@ -36,8 +36,8 @@ class PingCommand extends Command {
     shopItems.map( i => {
       emb.addField(i.name, `ID: ${i.id}
 Description: ${i.description}
-${i.costPermanant ? `Permanant Cost: ${ i.costPermanant } :ghost:` : ""}
-One-time Cost: ${i.costOnce == null ? "N/A" : i.costOnce } :ghost:`);
+${i.costPermanant ? `Permanant cost: ${ i.costPermanant } :ghost:` : ""}
+${i.costOnce ? `One-time cost: ${ i.costOnce } :ghost:` : ""}`);
     })
     message.channel.send(emb)
   }
