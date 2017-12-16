@@ -1,4 +1,5 @@
-/*const {
+/*
+const {
   Command
 } = require('discord-akairo');
 var Discord = require("discord.js");
@@ -65,5 +66,5 @@ class GiftCommand extends Command {
   }
 }
 
-module.exports = GoCommand;
+module.exports = GiftCommand;
 */
