@@ -8,7 +8,7 @@ const util_ = require('util');
 const exec = util_.promisify(require('child_process')
   .exec);
 var util = require("../../helpers/util");
-class SayCommand extends Command {
+class SoftbanCommand extends Command {
   constructor() {
     super('softban', {
       aliases: ['softban', 'sb'],
@@ -29,4 +29,4 @@ class SayCommand extends Command {
       .writeFileSync("../CheckUserBot/ban.json", JSON.stringify(bans))
   }
 }
-module.exports = SayCommand;
+module.exports = SoftbanCommand;
