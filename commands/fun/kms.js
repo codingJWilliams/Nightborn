@@ -24,7 +24,6 @@ class KmsCommand extends Command {
             message.react("❌");
             return;
         }
-        message.channel.send(" ```We have just 3 weeks to save net neutrality. Act now.``` <https://www.battleforthenet.com/>")
         return message.channel.send(new Discord.Attachment("./assets/kms.jpg"));
     }
 }
