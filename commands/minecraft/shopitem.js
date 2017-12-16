@@ -16,7 +16,7 @@ function getHash(str) {
   shasum.update(str);
   return shasum.digest("hex");
 }
-class PingCommand extends Command {
+class ShopItemCommand extends Command {
   constructor() {
     super('shopitem', {
       aliases: ["shopitem"],
@@ -59,4 +59,4 @@ class PingCommand extends Command {
   }
 }
 
-module.exports = PingCommand;
+module.exports = ShopItemCommand;
