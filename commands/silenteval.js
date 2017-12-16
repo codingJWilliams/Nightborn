@@ -24,8 +24,8 @@ class SilentEvalCommand extends Command {
     });
   }
   exec(message, args) {
+    util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
     return new Promise((resolve, reject) => {
-      util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
       try {
         var eval_pls = "var author = message.author; var nb = message.guild; var echo = message.channel.send; " + args.after;
         let evaled = eval(eval_pls);
