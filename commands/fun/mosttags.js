@@ -25,12 +25,11 @@ class TagsCommand extends Command {
         })
         util.log("command." + this.id, "spam", `Completed search. Output: <Not implemented>`)
         await message.channel.send(new Discord.RichEmbed()
-            .setTitle("Member with the most roles")
+            .setTitle(":book: Member with the most roles")
             .setDescription(most[0].user.tag + " has " + most[1].toString() + " tags, the most on the server!")
-            .setColor(4359924)
+            .setColor(util.blue)
             .setFooter("Bot by @VoidCrafted#2483", "https://lh5.googleusercontent.com/-Z4wuSKQT0oI/AAAAAAAAAAI/AAAAAAAAAA8/oLWR08rF3WM/photo.jpg")
         );
-        return;
     }
 }
 
