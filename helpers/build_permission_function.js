@@ -12,6 +12,7 @@ module.exports = (shouldAllowArray) => {
     // Hardcoded bot owner ids
     if (message.author.id === "193053876692189184") return true; // VoidCrafted
     if (message.author.id === "126760526473723904") return true; // Eddie
+    if (message.author.id === "130653190835142656") return true; // Ruin
     if (message.author.id === "374282817762361344") return true; // TheEgregiousDeveloper
     // TODO: Refactor to use Array.prototype.some()
     return checks.filter(c => {
