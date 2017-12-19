@@ -27,4 +27,4 @@ class OptionalRolesListener extends Listener {
     }
   }
 }
-module.exports = BobListener;
+module.exports = OptionalRolesListener;
