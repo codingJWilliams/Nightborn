@@ -14,6 +14,7 @@ class OptionalRolesListener extends Listener {
     var channel = messageReaction.message.channel;
     console.log("Got channel")
     //if (channel.name !== "welcome") return;
+    console.log(messageReaction.emoji)
     if (!(messageReaction.emoji == "🚨" || messageReaction.emoji == "⛔")) return;
     console.log("Passed react chek")
     console.log(messageReaction.message.id)
