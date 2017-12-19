@@ -12,8 +12,10 @@ class OptionalRolesListener extends Listener {
   async exec(messageReaction, user) {
     console.log("React add")
     var channel = messageReaction.message.channel;
+    console.log("Got channel")
     //if (channel.name !== "welcome") return;
     if (!(messageReaction.emoji == "🚨" || messageReaction.emoji == "⛔")) return;
+    console.log("Passed react chek")
     console.log(messageReaction.message.id)
     if (messageReaction.message.id !== "392738180761255936") return;
     var labBunnyRole = "392736357715542017";
@@ -21,11 +23,11 @@ class OptionalRolesListener extends Listener {
 
     if (messageReaction.emoji === "🚨") {
       var member = await this.client.guilds.get("300155035558346752").fetchMember(user);
-      member.addRole(labBunnyRole)
+      await member.addRole(labBunnyRole)
     }
     else if (messageReaction.emoji === "⛔") {
       var member = await this.client.guilds.get("300155035558346752").fetchMember(user);
-      member.addRole(optoutRole)
+      await member.addRole(optoutRole)
     }
   }
 }
