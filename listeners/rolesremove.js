@@ -10,6 +10,7 @@ class OptionalRolesListener extends Listener {
     });
   }
   async exec(messageReaction, user) {
+    console.log("React remove")
     var channel = messageReaction.message.channel;
     //if (channel.name !== "welcome") return;
     if (!(messageReaction.emoji == "🚨" || messageReaction.emoji == "⛔")) return;

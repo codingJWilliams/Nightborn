@@ -10,9 +10,11 @@ class OptionalRolesListener extends Listener {
     });
   }
   async exec(messageReaction, user) {
+    console.log("React add")
     var channel = messageReaction.message.channel;
     //if (channel.name !== "welcome") return;
-    if (messageReaction.emoji !== "🚨" && messageReaction.emoji !== "⛔") return;
+    if (!(messageReaction.emoji == "🚨" || messageReaction.emoji == "⛔")) return;
+    console.log(messageReaction.message.id)
     if (messageReaction.message.id !== "392738180761255936") return;
     var labBunnyRole = "392736357715542017";
     var optoutRole = "392736650498932739";
