@@ -17,7 +17,7 @@ class OptionalRolesListener extends Listener {
     if (!(messageReaction.emoji == "🚨" || messageReaction.emoji == "⛔")) return;
     console.log("Passed react chek")
     console.log(messageReaction.message.id)
-    if (messageReaction.message.id !== "392738180761255936") return;
+    if (messageReaction.message.id !== "392741489890820099") return;
     var labBunnyRole = "392736357715542017";
     var optoutRole = "392736650498932739";
 
