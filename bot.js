@@ -24,6 +24,7 @@ const client = new AkairoClient({
     ownerID: ['193053876692189184'],
     prefix: ['nb.', ','],
     commandDirectory: './commands/',
+    inhibitorDirectory: "./inhibitors/",
     listenerDirectory: "./listeners/",
     allowMention: true
 }, {
@@ -78,6 +79,5 @@ MongoClient.connect(url, {
 }).then( (db) => {
     global.mongo = db;
 })
-
 client.login(config.token);
 global.client = client
