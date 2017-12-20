@@ -2,6 +2,6 @@ install:
   - npm install
   - npm i -g mocha
 before_script:
-  - npm runscript beautify
+  - npm run-script beautify
 script:
   - mocha
