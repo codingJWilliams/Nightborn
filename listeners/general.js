@@ -3,7 +3,7 @@ const {
 } = require('discord-akairo');
 class GeneralListener extends Listener {
   constructor() {
-    super('commandBlocked', {
+    super('commandBlockedingen', {
       emitter: 'commandHandler',
       eventName: 'commandBlocked'
     });
