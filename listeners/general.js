@@ -13,7 +13,7 @@ class GeneralListener extends Listener {
     if (reason !== "commandInGeneral") return
     var m = await message.channel.send("No motherfuckin commands in general, have a motherfuckin warning you worthless cunt");
     message.delete();
-    setTimeout(m => m.delete(), 2500);
+    setTimeout(() => m.delete(), 2500);
     
   }
 }
