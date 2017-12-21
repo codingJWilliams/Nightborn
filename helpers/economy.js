@@ -19,6 +19,9 @@ async function getBal(uid) {
   } catch (e) {
     throw Error("That user ID could not be found")
   }
+  /**
+   * @type {Number}
+   */
   return resp.data.balance
 }
 /**
