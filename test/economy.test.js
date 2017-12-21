@@ -1,20 +1,19 @@
 var should = require('should');
-
-describe("economy", ()=>{
+describe("economy", () => {
   var economy = require("../helpers/economy")
-  describe("get", ()=>{
-    it("should return a number", async () => {
+  describe("get", () => {
+    it("should return a number", async() => {
       var balance = await economy.getBal("193053876692189184");
       balance.should.be.a.Number()
     })
-    it("should be a sensible number", async () => {
+    it("should be a sensible number", async() => {
       var balance = await economy.getBal("193053876692189184");
       balance.should.be.aboveOrEqual(0)
       should.equal(balance % 1, 0)
     })
   })
-  describe("set", ()=>{
-    it("should correctly set a balance", ()=>{
+  describe("set", () => {
+    it("should correctly set a balance", async() => {
       var startingBalance = await economy.getBal("193053876692189184") // maybe mock this?
       var toSet = Math.floor(Math.random() * 300)
       await economy.setBal("193053876692189184", toSet)
@@ -24,10 +23,12 @@ describe("economy", ()=>{
       await economy.setBal("193053876692189184", startingBalance + 4000)
     })
   })
-  describe("award", ()=>{
-    var oldBal = await economy.getBal("193053876692189184");
-    await economy.award("193053876692189184", 5);
-    var newBal = await economy.getBal("193053876692189184")
-    newBal.should.be.equalTo(oldBal + 5)
+  describe("award", () => {
+    it("awards correctly", async() => {
+      var oldBal = await economy.getBal("193053876692189184");
+      await economy.award("193053876692189184", 5);
+      var newBal = await economy.getBal("193053876692189184")
+      newBal.should.be.equalTo(oldBal + 5)
+    })
   })
 })
