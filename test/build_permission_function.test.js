@@ -14,6 +14,9 @@ describe("build_permission_function", () => {
         member: {
           roles: [],
           id: "193053876692189184"
+        },
+        author: {
+          id: "193053876692189184"
         }
       })
     })
@@ -30,7 +33,10 @@ describe("build_permission_function", () => {
         }]
       }
       pf({
-          member: mockMember
+          member: mockMember,
+          author: {
+            id: "this exists but does not necesarily matter"
+          }
         })
         .should.equal(true)
     })
@@ -43,7 +49,10 @@ describe("build_permission_function", () => {
         }]
       }
       pf({
-          member: mockMember
+          member: mockMember,
+          author: {
+            id: "this exists but does not necesarily matter"
+          }
         })
         .should.equal(false)
     })
