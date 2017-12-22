@@ -16,7 +16,7 @@ describe("minecraft", ()=>{
   describe("function caller", ()=>{
     it("server should be online", async ()=>{
       var version = await minecraft.easyCall("server.version");
-      version.success.should.equal("1.12")
+      version.success.should.equal("git-Spigot-596221b-b1b9ab0 (MC: 1.12)")
     })
   })
 })
