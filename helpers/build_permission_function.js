@@ -1,6 +1,6 @@
 /**
  * Returns a function that takes a message, 
- * and checks if its author is in the roles given in shouldAllowArryat
+ * and checks if its author is in the roles given in shouldAllowArray
  * @param {Array} shouldAllowArray 
  */
 module.exports = (shouldAllowArray) => {
