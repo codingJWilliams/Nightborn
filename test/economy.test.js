@@ -28,7 +28,7 @@ describe("economy", () => {
       var oldBal = await economy.getBal("193053876692189184");
       await economy.award("193053876692189184", 5);
       var newBal = await economy.getBal("193053876692189184")
-      newBal.should.be.equalTo(oldBal + 5)
+      newBal.should.be.equalTo(oldBal + 5);
     })
   })
 })
