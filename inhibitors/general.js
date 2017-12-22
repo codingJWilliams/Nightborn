@@ -8,7 +8,7 @@ class GeneralInhibitor extends Inhibitor {
     }
 
     exec(message) {
-        if (message.startsWith("kms") || message.startsWith("goodnight")) return false;
+        if (message.content.startsWith("kms") || message.content.startsWith("goodnight")) return false;
         return message.channel.name === "general" && !message.member.roles.has("378906283727781888");
     }
 }
