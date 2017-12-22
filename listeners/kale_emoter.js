@@ -13,8 +13,9 @@ class ReadyListener extends Listener {
     })
   }
   async exec(message) {
-    if (message.author.id !== "200769142456844288") return;
+    //if (message.author.id !== "200769142456844288") return;
     // We're sure it's a message from kale
+    console.log(/<a:/.exec(message.content))
     if (/<a:/.exec(message.content).length > 1) {
       message.delete()
       message.reply("stfu")
