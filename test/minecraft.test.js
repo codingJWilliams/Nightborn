@@ -13,4 +13,10 @@ describe("minecraft", ()=>{
       minecraft.colorCode.should.exist()
     })
   })
+  describe("function caller", ()=>{
+    it("server should be online", async ()=>{
+      var version = await minecraft.easyCall("server.version");
+      version.result.should.equal("1.12")
+    })
+  })
 })
