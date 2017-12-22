@@ -5,8 +5,9 @@ describe("build_permission_function", () => {
   it("exists", () => {
     bpf.should.not.equal(undefined);
   })
-  it("returns a function")
-  should.equal(typeof bpf([]), "function")
+  it("returns a function", () => {
+    should.equal(typeof bpf([]), "function")
+  })
   describe("permissions work as intended", () => {
     it("owners should have all permissions", () => {
       var pf = bpf([]) // Permission function that only owners should be able to access
