@@ -1,6 +1,8 @@
 var should = require('should');
+var rewire = require("rewire")
+
 describe("economy", () => {
-  var economy = require("../helpers/economy")
+  var economy = rewire("../helpers/economy")
   describe("get", () => {
     it("should return a number", async() => {
       var balance = await economy.getBal("193053876692189184");
