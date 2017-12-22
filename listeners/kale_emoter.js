@@ -18,7 +18,8 @@ class ReadyListener extends Listener {
     console.log(/<a:/.exec(message.content))
     if (/<a:/.exec(message.content)) {
       message.delete()
-      message.reply("stfu")
+      var dm = await message.author.createDM();
+      dm.send("stfu kale")
     } 
   }
 }
