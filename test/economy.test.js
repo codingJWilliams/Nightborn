@@ -13,7 +13,7 @@ describe("economy", () => {
     })
   })
   describe("set", () => {
-    it("should correctly set a balance", async() => {
+    it("should correctly set a balance to a normal number", async() => {
       var startingBalance = await economy.getBal("193053876692189184") // maybe mock this?
       var toSet = Math.floor(Math.random() * 300)
       await economy.setBal("193053876692189184", toSet)
@@ -22,6 +22,21 @@ describe("economy", () => {
       // clean up
       await economy.setBal("193053876692189184", startingBalance + 4000)
     })
+    it("should correctly set a balance to 0", async() => {
+      var startingBalance = await economy.getBal("193053876692189184") // maybe mock this?
+      var toSet = 0;
+      await economy.setBal("193053876692189184", toSet)
+      var afterSet = await economy.getBal("193053876692189184");
+      afterSet.should.equal(toSet);
+      // clean up
+      await economy.setBal("193053876692189184", startingBalance + 4000)
+    })
+    it("should throw an exception if a negative number is given", async()=>{
+      await economy.setBal("193053876692189184", -23).should.finally.throw(RangeError)
+    })
+    it("should throw an exception if a decimal number is given", async()=>{
+      await economy.setBal("193053876692189184", 12.2).should.finally.throw(RangeError)
+    })
   })
   describe("award", () => {
     it("awards correctly", async() => {
@@ -29,6 +44,14 @@ describe("economy", () => {
       await economy.award("193053876692189184", 5);
       var newBal = await economy.getBal("193053876692189184")
       newBal.should.equal(oldBal + 5);
+    })
+  })
+  describe("take", () => {
+    it("takes correctly", async() => {
+      var oldBal = await economy.getBal("193053876692189184");
+      await economy.take("193053876692189184", 5);
+      var newBal = await economy.getBal("193053876692189184")
+      newBal.should.equal(oldBal - 5);
     })
   })
 })

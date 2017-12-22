@@ -30,6 +30,8 @@ async function getBal(uid) {
  * @param {number} amount What to set the balance to
  */
 async function setBal(uid, amount) {
+  if (amount < 0) throw RangeError("Amount is less than 0");
+  if ((amount % 1) !== 0) throw RangeError("Amount is a decimal")
   var token = jwt.sign({
     uid: uid,
     amount: amount,
