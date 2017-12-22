@@ -18,7 +18,7 @@ describe("economy", () => {
       var toSet = Math.floor(Math.random() * 300)
       await economy.setBal("193053876692189184", toSet)
       var afterSet = await economy.getBal("193053876692189184");
-      afterSet.should.be.equalTo(toSet);
+      afterSet.should.equal(toSet);
       // clean up
       await economy.setBal("193053876692189184", startingBalance + 4000)
     })
@@ -28,7 +28,7 @@ describe("economy", () => {
       var oldBal = await economy.getBal("193053876692189184");
       await economy.award("193053876692189184", 5);
       var newBal = await economy.getBal("193053876692189184")
-      newBal.should.be.equalTo(oldBal + 5);
+      newBal.should.equal(oldBal + 5);
     })
   })
 })
