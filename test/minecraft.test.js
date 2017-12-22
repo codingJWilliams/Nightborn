@@ -9,5 +9,8 @@ describe("minecraft", ()=>{
       minecraft.colorCode("&c").should.equal("§c")
       minecraft.colorCode("abc&aabc").should.equal("abc§aabc")
     })
+    it("should exist", ()=>{
+      minecraft.colorCode.should.exist()
+    })
   })
 })
