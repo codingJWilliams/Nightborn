@@ -31,12 +31,6 @@ describe("economy", () => {
       // clean up
       await economy.setBal("193053876692189184", startingBalance + 4000)
     })
-    it("should throw an exception if a negative number is given", async()=>{
-      await economy.setBal("193053876692189184", -23).should.finally.throw(RangeError)
-    })
-    it("should throw an exception if a decimal number is given", async()=>{
-      await economy.setBal("193053876692189184", 12.2).should.finally.throw(RangeError)
-    })
   })
   describe("award", () => {
     it("awards correctly", async() => {
