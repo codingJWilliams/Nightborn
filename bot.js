@@ -81,3 +81,7 @@ MongoClient.connect(url, {
 })
 client.login(config.token);
 global.client = client
+
+client.on("error", (e) => console.error(e) && cLog("process.main", "error", e));
+client.on("warn", (e) => console.warn(e) && cLog("process.main", "warn", e));
+client.on("debug", (e) => console.info(e) && cLog("process.main", "debug", e));
