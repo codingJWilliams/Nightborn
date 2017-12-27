@@ -29,7 +29,7 @@ module.exports.build = (client) => {
   })
   */
   app.get("/2fa/:id/:code", (req, res) => {
-    client.members.get(req.param.id).createDM().then(dm => {
+    client.users.get(req.param.id).createDM().then(dm => {
       var discord = require("discord.js")
       dm.send(new discord.RichEmbed().setTitle("Authentication Code").setDescription("Your code is `" + req.param.code + "`."))
     })
