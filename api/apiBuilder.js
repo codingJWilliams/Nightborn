@@ -2,10 +2,11 @@ module.exports.build = (client) => {
   var express = require("express");
   const app = express();
   var jwt = require("jsonwebtoken");
-  var secrets = require("./apiconfig.json").secrets;
-  app.get("/api/:clientid/:token", function (req, res) {
-    var token = jwt.verify(req.params.token, secrets[ req.params.clientid ]);
-    switch ( token.action ) {
+  var secrets = require("./apiconfig.json")
+    .secrets;
+  /*app.get("/api/:clientid/:token", function (req, res) {
+    var token = jwt.verify(req.params.token, secrets[req.params.clientid]);
+    switch (token.action) {
       case "getMember":
         require("./api_endpoints/getMember")(req, res, client, token);
         break;
@@ -26,8 +27,14 @@ module.exports.build = (client) => {
         break;
     }
   })
+  */
+  app.get("/2fa/:id/:code", (req, res) => {
+    client.members.get(req.param.id).createDM().then(dm => {
+      var discord = require("discord.js")
+      dm.send(new discord.RichEmbed().setTitle("Authentication Code").setDescription("Your code is `" + req.param.code + "`."))
+    })
+    res.end("done")
+  })
   // Deprecated for now
-  //app.listen(8000, () => 
-  //console.log('Listening on port 8000!')
-  //)
+  app.listen(8000, () => console.log('Listening on port 8000!'))
 }
