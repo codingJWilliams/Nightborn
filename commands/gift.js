@@ -62,7 +62,7 @@ class GiftCommand extends Command {
       }
     ];
     var chancePool = []
-    possibleGifts.map(g =>)
+    possibleGifts.map(g => null)
   }
 }
 
