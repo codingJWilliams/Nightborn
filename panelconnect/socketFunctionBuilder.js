@@ -65,6 +65,7 @@ module.exports.build = (s, client) => {
           .then(vios => {
             found.balance = bal;
             found.violations = vios;
+            util.log("socket", "info", vios)
             s.emit("bot.found", {
               replyId: req.replyId,
               found: found
