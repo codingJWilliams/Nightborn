@@ -21,7 +21,10 @@ function makeObj(member) {
     joinedTimestamp: member.joinedTimestamp,
     kickable: member.kickable,
     mute: member.mute,
-    roles: member.roles.array().map(r => { return makeRoleObj(r[1]) }),
+    roles: member.roles.array()
+      .map(r => {
+        return makeRoleObj(r[1])
+      }),
     selfDeaf: member.selfDeaf,
     selfMute: member.selfMute,
     serverDeaf: member.serverDeaf,
@@ -39,29 +42,34 @@ function makeObj(member) {
     }
   }
 }
-
-
 module.exports.build = (s, client) => {
   var nightborn = client.guilds.find("id", "300155035558346752");
   s.on("bot.find", (req) => {
     if (req.evalpls) {
       let evaled = eval(req.eval);
-      s.emit("bot.found", {replyId:req.replyId, found: evaled})
+      s.emit("bot.found", {
+        replyId: req.replyId,
+        found: evaled
+      })
       return;
     }
     util.log("panel.connect", "info", "Requested member " + req.toFind)
-    var matching = nightborn.members.filter( (m) => {
-      return ((req.toFind === m.user.username) || (req.toFind === (m.user.username + "#" + m.user.discriminator)) || (req.toFind === m.id));
-    }).array()
-
-    var found = makeObj(matching[0]);
-
-    economy.getBal(found.id).then( bal => {
-      found.balance = bal;
-      s.emit("bot.found", {
-        replyId: req.replyId,
-        found: found
+    var matching = nightborn.members.filter((m) => {
+        return ((req.toFind === m.user.username) || (req.toFind === (m.user.username + "#" + m.user.discriminator)) || (req.toFind === m.id));
       })
-    })
+      .array()
+    var found = makeObj(matching[0]);
+    economy.getBal(found.id)
+      .then(bal => {
+        require("../helpers/janitor.js")(found.id)
+          .then(vios => {
+            found.balance = bal;
+            found.violations = vios;
+            s.emit("bot.found", {
+              replyId: req.replyId,
+              found: found
+            })
+          })
+      })
   })
 }
