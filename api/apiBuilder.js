@@ -36,5 +36,5 @@ module.exports.build = (client) => {
     res.end("done")
   })
   // Deprecated for now
-  app.listen(8000, () => console.log('Listening on port 8000!'))
+  app.listen(8000, () => require("../helpers/log")("api", "info", "Now listening on port 8000"))
 }

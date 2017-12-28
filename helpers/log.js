@@ -29,10 +29,11 @@ module.exports = function log(sectionid, level, message) {
     var lColor = levelColors[levelMap[level]];
     console.log(lColor(level) + " > ".grey + sectionid.white + " >> ".grey + colors.grey(message));
   }
-  console.log(global.logSocket.connected)
-  global.logSocket.emit("log", {
-    proc: sectionid,
-    level: levelMap[level],
-    message: message
-  });
+  try {
+    global.logSocket.emit("log", {
+      proc: sectionid,
+      level: levelMap[level],
+      message: message
+    });
+  } catch (e) {}
 }
