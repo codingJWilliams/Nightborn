@@ -1,4 +1,4 @@
-const {
+/*const {
   Listener
 } = require('discord-akairo');
 var apiBuilder = require("../api/apiBuilder");
@@ -23,4 +23,4 @@ class ReadyListener extends Listener {
     } 
   }
 }
-module.exports = ReadyListener;
+module.exports = ReadyListener;*/
