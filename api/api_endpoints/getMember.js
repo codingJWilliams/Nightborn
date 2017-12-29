@@ -1,7 +1,7 @@
 var getGuild = require("../api_helpers/getGuild");
-
 module.exports = (req, res, client, token) => {
-  var m = getGuild(client).members.find("id", token.id);
+  var m = getGuild(client)
+    .members.find("id", token.id);
   var mO = {
     deaf: m.deaf,
     displayColor: m.displayColor,

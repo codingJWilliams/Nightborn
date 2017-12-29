@@ -14,7 +14,6 @@ class GeneralListener extends Listener {
     var m = await message.channel.send("No motherfuckin commands in general, have a motherfuckin warning you worthless cunt");
     message.delete();
     setTimeout(() => m.delete(), 2500);
-    
   }
 }
 module.exports = GeneralListener;

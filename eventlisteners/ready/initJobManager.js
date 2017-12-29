@@ -1,5 +1,4 @@
 var cLog = require("../../helpers/log");
-
 module.exports = () => {
   client.jobs = [];
   client.addJob = (executor, epoch) => {

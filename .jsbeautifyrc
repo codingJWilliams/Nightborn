@@ -1,18 +1,18 @@
 {
   "js": {
     "allowed_file_extensions": ["js", "json", "jshintrc", "jsbeautifyrc"],
-    "brace_style": "collapse", // [collapse|expand|end-expand|none] Put braces on the same line as control statements (default), or put braces on own line (Allman / ANSI style), or just put end braces on own line, or attempt to keep them where they are
-    "break_chained_methods": true, // Break chained method calls across subsequent lines
-    "e4x": false, // Pass E4X xml literals through untouched
-    "end_with_newline": true, // End output with newline
-    "indent_char": " ", // Indentation character
-    "indent_level": 0, // Initial indentation level
-    "indent_size": 2, // Indentation size
-    "indent_with_tabs": false, // Indent with tabs, overrides `indent_size` and `indent_char`
-    "jslint_happy": false, // If true, then jslint-stricter mode is enforced
-    "keep_array_indentation": false, // Preserve array indentation
-    "keep_function_indentation": false, // Preserve function indentation
-    "max_preserve_newlines": 0, // Maximum number of line breaks to be preserved in one chunk (0 disables)
+    "brace_style": "collapse", 
+    "break_chained_methods": true,
+    "e4x": false, 
+    "end_with_newline": true, 
+    "indent_char": " ", 
+    "indent_level": 0,
+    "indent_size": 2,
+    "indent_with_tabs": false, 
+    "jslint_happy": false, 
+    "keep_array_indentation": false, 
+    "keep_function_indentation": false,
+    "max_preserve_newlines": 0, 
     "preserve_newlines": false, // Whether existing line breaks should be preserved
     "space_after_anon_function": true, // Should the space before an anonymous function's parens be added, "function()" vs "function ()"
     "space_before_conditional": true, // Should the space before conditional statement be added, "if(true)" vs "if (true)"

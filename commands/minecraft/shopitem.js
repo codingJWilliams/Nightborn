@@ -21,31 +21,36 @@ class ShopItemCommand extends Command {
     super('shopitem', {
       aliases: ["shopitem"],
       category: "minecraft",
-      args: [
-        {
-          id: "item",
-          type: "string"
-        }
-      ]
+      args: [{
+        id: "item",
+        type: "string"
+      }]
     });
   }
-
   async exec(message, args) {
     util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
-    var shopItem = await global.mongo.collection("shop").findOne({id: args.item});
-    if (!shopItem) return await message.channel.send({embed: {title: "I could not find that item", color: 0xFF0000}})
+    var shopItem = await global.mongo.collection("shop")
+      .findOne({
+        id: args.item
+      });
+    if (!shopItem) return await message.channel.send({
+      embed: {
+        title: "I could not find that item",
+        color: 0xFF0000
+      }
+    })
     var emb = new Discord.RichEmbed()
-    .setTitle("Item: " + shopItem.name)
-    .setDescription(shopItem.description)
-    .setColor(0x00FF00)
-    .addBlankField()
+      .setTitle("Item: " + shopItem.name)
+      .setDescription(shopItem.description)
+      .setColor(0x00FF00)
+      .addBlankField()
     var itemsStr = ""
-    shopItem.items.map( item => {
+    shopItem.items.map(item => {
       if (item.type === "item") {
         itemsStr = itemsStr + `**${item.name === item.item ? item.name : item.name + " {" + item.item + "}"}**${item.enchants.length ? `\n  Enchants: ${item.enchants.join(", ")}` : ""}${item.amount > 1 ? "\n  Amount: " + item.amount + "\n" : "\n"}`
       }
       if (item.type === "eco") {
-        itemsStr = itemsStr + "**"+ item.name +"**\n"
+        itemsStr = itemsStr + "**" + item.name + "**\n"
       }
       if (item.type === "permission") {
         itemsStr = itemsStr + `**${item.display}**\n - \`${item.permission}\`` + "\n"
@@ -58,5 +63,4 @@ class ShopItemCommand extends Command {
     message.channel.send(emb)
   }
 }
-
 module.exports = ShopItemCommand;

@@ -20,10 +20,8 @@ exports.addCard = (name, desc, staff) => {
       }
     }, function (err, resp, body) {
       if (err) return reject(err)
-
       resolve()
       //console.log(body)
     })
   })
-  
 }

@@ -13,8 +13,7 @@ class ReadyListener extends Listener {
   exec() {
     cLog("proccess.main", "info", "Connected to discord!")
     apiBuilder.build(this.client);
-    
-    this.client.on("message", async(message) => {
+    this.client.on("message", async (message) => {
       if (message.author.bot) return;
       if (message.channel.id === "359445403747483658") return;
       var staffQuotes = JSON.parse(require("fs")

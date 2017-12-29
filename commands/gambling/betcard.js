@@ -21,13 +21,14 @@ class BetCardCommand extends Command {
       }]
     });
   }
-
   async exec(message, args) {
     util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
-
     if (args.amnt < 50) {
       util.log("command." + this.id, "info", `${util.nameFormat} used command incorrectly, passing ${args.amnt}`)
-      message.channel.send(new Discord.RichEmbed().setDescription("EG: `$bc 10000 10H`").setTitle("Invalid amount! Please use a positive number above 50").setColor(0xFF0000))
+      message.channel.send(new Discord.RichEmbed()
+        .setDescription("EG: `$bc 10000 10H`")
+        .setTitle("Invalid amount! Please use a positive number above 50")
+        .setColor(0xFF0000))
       return;
     }
     var BetterBal = await economy.getBal(message.author.id.toString());
@@ -36,11 +37,9 @@ class BetCardCommand extends Command {
       util.log("command." + this.id, "info", `Executor doesn't have enough souls`)
       message.channel.send(new Discord.RichEmbed()
         .setTitle("You don't have enough :ghost: for this")
-        .setColor(0xFF0000)
-      )
+        .setColor(0xFF0000))
       return;
     }
-
     myDeck.shuffle(); //shuffle deck
     var SelCard = myDeck.random(1); //select random card
     var UserCard = args.card;
@@ -61,7 +60,6 @@ class BetCardCommand extends Command {
     CardSuit = CardSuit.toUpperCase() //toUpperCase ignores numbers
     CardNo = CardNo.toUpperCase()
     UserCard = UserCard.toUpperCase()
-    
     //determine if valid card
     var valid = (CardNo == '2') || (CardNo == '3') || (CardNo == '4') || (CardNo == '5') || (CardNo == '6') || (CardNo == '7') || (CardNo == '8') || (CardNo == '9') || (CardNo == '10') || (CardNo == 'J') || (CardNo == 'Q') || (CardNo == 'K') || (CardNo == "A");
     //determine if valid suit
@@ -71,42 +69,32 @@ class BetCardCommand extends Command {
         new Discord.RichEmbed()
         .setTitle("Invalid Card")
         .setDescription(`Enter a valid card. EG: KH for King of Hearts or 5C for 5 of Clubs.`)
-        .setColor(0x71cd40)
-      )
+        .setColor(0x71cd40))
     } else if (UserCard == SelCard) {
-      message.channel.send(
-        new Discord.RichEmbed()
+      message.channel.send(new Discord.RichEmbed()
         .setTitle(`Card drawn: ${SelCard}`)
         .setDescription(`You have won ${(args.amnt * 9)}!`)
-        .setColor(0x71cd40)
-      )
+        .setColor(0x71cd40))
       economy.award(message.author.id, (args.amnt * 9));
     } else if (SelCardNo == CardNo) {
-      message.channel.send(
-        new Discord.RichEmbed()
+      message.channel.send(new Discord.RichEmbed()
         .setTitle(`Card drawn: ${SelCard}`)
         .setDescription(`You have won ${(args.amnt * 3)}!`)
-        .setColor(0x71cd40)
-      )
+        .setColor(0x71cd40))
       economy.award(message.author.id, (args.amnt * 3));
     } else if (SelCardSuit == CardSuit) {
-      message.channel.send(
-        new Discord.RichEmbed()
+      message.channel.send(new Discord.RichEmbed()
         .setTitle(`Card drawn: ${SelCard}`)
         .setDescription(`You have won ${(args.amnt * 1)}!`)
-        .setColor(0x71cd40)
-      )
+        .setColor(0x71cd40))
       economy.award(message.author.id, args.amnt * 1);
     } else {
       economy.take(message.author.id, args.amnt);
-      message.channel.send(
-        new Discord.RichEmbed()
+      message.channel.send(new Discord.RichEmbed()
         .setTitle(`Card drawn: ${SelCard}`)
         .setDescription(`Better luck next time :(`)
-        .setColor(0x71cd40)
-      )
+        .setColor(0x71cd40))
     }
   }
 }
-
 module.exports = BetCardCommand;

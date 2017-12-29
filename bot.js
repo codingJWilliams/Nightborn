@@ -8,7 +8,6 @@ const {
   readdirSync
 } = require('fs')
 const path = require('path')
-
 var cLog = require("./helpers/log");
 cLog("process.main", "debug", "Launched.");
 const client = new AkairoClient({
@@ -21,8 +20,6 @@ const client = new AkairoClient({
 }, {
   disableEveryone: false
 });
-
-
 global.client = client
 const isDirectory = source => lstatSync(source)
   .isDirectory()
@@ -36,4 +33,4 @@ getDirectories("./eventlisteners/")
         client.on(e, require(path.join(__dirname, "eventlisteners", e, fileName)))
       })
   })
-  client.login(config.token);
+client.login(config.token);

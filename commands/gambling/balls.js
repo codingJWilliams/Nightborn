@@ -21,13 +21,10 @@ class BetCardCommand extends Command {
       }]
     });
   }
-
   async exec(message, args) {
     util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
     if (args.amnt < 50) return message.channel.send("")
     if (!args.amnt || !args.other) think()
-
   }
 }
-
 module.exports = BetCardCommand;

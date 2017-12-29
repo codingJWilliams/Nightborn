@@ -27,10 +27,11 @@ class PingCommand extends Command {
       }]
     });
   }
-
   async exec(message, args) {
     util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
-    var linkcodes = await global.mongo.collection("link").find({}).toArray();
+    var linkcodes = await global.mongo.collection("link")
+      .find({})
+      .toArray();
     var fContent2 = await readFilePromise("./storage/alreadyLinked.json");
     var lnk = linkcodes.find((v) => {
       return v.discordID === message.author.id && v.code === args.code
@@ -77,8 +78,7 @@ class PingCommand extends Command {
       }
     }
     util.log("command." + this.id, "info", `Applying minecraft user ${lnk.mcUsername} [Discord: ${util.nameFormat(message.author)}] the pex role ${roleNeeded}`)
-    await message.channel.send(
-      new Discord.RichEmbed()
+    await message.channel.send(new Discord.RichEmbed()
       .setTitle("Thanks! I'm syncing your \"" + roleNeeded + "\" role now!")
       .setThumbnail("https://crafatar.com/avatars/" + lnk.mcUsername + ".png")
       .setColor(0x00FF00));
@@ -86,12 +86,8 @@ class PingCommand extends Command {
       lnk.mcUsername,
       mc.colorCode("&9&o[PM] &9BOT &8> &7Nightborn Bot &8>> &9Applying the &8" + roleNeeded + "&9 role to you now, and giving the role in discord :D")
     ])
-
-    await mc.easyCall("server.run_command", [
-      "pex user " + lnk.mcUsername + " group set " + roleNeeded
-    ])
+    await mc.easyCall("server.run_command", ["pex user " + lnk.mcUsername + " group set " + roleNeeded])
     message.member.addRole(message.guild.roles.get("379281000926281730"));
   }
 }
-
 module.exports = PingCommand;
