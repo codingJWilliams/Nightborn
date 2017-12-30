@@ -30,4 +30,4 @@ class WelcomeCommand extends Command {
     message.channel.send(embed)
   }
 }
-module.exports = GoCommand;
+module.exports = WelcomeCommand;
