@@ -58,6 +58,7 @@ module.exports.build = (s, client) => {
         return ((req.toFind === m.user.username) || (req.toFind === (m.user.username + "#" + m.user.discriminator)) || (req.toFind === m.id));
       })
       .array()
+    if (!matching[0]) return
     var found = makeObj(matching[0]);
     economy.getBal(found.id)
       .then(bal => {
