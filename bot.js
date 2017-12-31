@@ -7,7 +7,11 @@ const {
   lstatSync,
   readdirSync
 } = require('fs')
-const path = require('path')
+const path = require('path');
+var StatsD = require("hot-shots");
+global.dogstatsd = new StatsD();
+global.dogstatsd.increment("bot.restart");
+
 var cLog = require("./helpers/log");
 cLog("process.main", "debug", "Launched.");
 const client = new AkairoClient({
@@ -33,8 +37,6 @@ getDirectories("./eventlisteners/")
         client.on(e, require(path.join(__dirname, "eventlisteners", e, fileName)))
       })
   });
-var StatsD = require("hot-shots");
-var dogstatsd = new StatsD();
-dogstatsd.increment("my_c")
+
 
 client.login(config.token);
