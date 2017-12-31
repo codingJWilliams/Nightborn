@@ -32,5 +32,9 @@ getDirectories("./eventlisteners/")
       .map(fileName => {
         client.on(e, require(path.join(__dirname, "eventlisteners", e, fileName)))
       })
-  })
+  });
+var StatsD = require("hot-shots");
+var dogstatsd = new StatsD();
+dogstatsd.increment("my_c")
+
 client.login(config.token);

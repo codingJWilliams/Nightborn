@@ -29,6 +29,7 @@
         "google-auth-library": "^0.11.0",
         "googleapis": "^22.2.0",
         "graceful-fs": "^4.1.11",
+        "hot-shots": "^5.0.0",
         "huh": "^2.0.1",
         "intercept-stdout": "^0.1.2",
         "jsonwebtoken": "^8.1.0",
