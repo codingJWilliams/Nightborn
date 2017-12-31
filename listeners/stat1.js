@@ -10,7 +10,7 @@ class StatListener extends Listener {
     });
   }
   exec(message) {
-    global.datadog.increment("bot.messages.seen");
+    global.dogstatsd.increment("bot.messages.seen");
     console.log("Seen messgae")
   }
 }
