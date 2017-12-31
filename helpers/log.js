@@ -27,6 +27,7 @@ module.exports = function log(sectionid, level, message) {
       colors.grey
     ];
     var lColor = levelColors[levelMap[level]];
+    global.dogstatsd.increment("bot.logfrom." + sectionid);
     console.log(lColor(level) + " > ".grey + sectionid.white + " >> ".grey + colors.grey(message));
   }
   try {

@@ -7,6 +7,7 @@ var util = require("../helpers/util");
  * @param {Array|undefined} args The arguments, if any.
  */
 module.exports.easyCall = async function (method, args) {
+  global.dogstatsd.increment("bot.minecraft.called." + method);
   if (args == undefined) args = [];
   args = args ? args : []
   var res = await minecraft_raw.call({
