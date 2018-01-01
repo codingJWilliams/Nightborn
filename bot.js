@@ -8,26 +8,26 @@ const {
   readdirSync
 } = require('fs')
 const path = require('path');
-
 var dogapi = require("dogapi");
-
 var options = {
- api_key: config.datadog.apikey,
- app_key: config.datadog.appkey,
+  api_key: config.datadog.apikey,
+  app_key: config.datadog.appkey,
 };
-
 dogapi.initialize(options);
-dogapi.metric.send("my.counter", 5, {type: "count"}, function(err, results){
-  console.dir(results);
-});
-
-setInterval(()=>{
-  dogapi.metric.send("server.members", [[Date.now(), client.guilds.get("")]], {type: "count"}, function(err, results){
-    //
-  });
+setInterval(() => {
+  try {
+    dogapi.metric.send("server.members", [
+      [Date.now(), client.guilds.get("300155035558346752")
+        .memberCount
+      ]
+    ], {
+      type: "count"
+    }, function (err, results) {
+      //
+    });
+  } catch (e) {}
 }, 10000)
 global.dogapi = dogapi;
-
 var cLog = require("./helpers/log");
 cLog("process.main", "debug", "Launched.");
 const client = new AkairoClient({
@@ -53,6 +53,4 @@ getDirectories("./eventlisteners/")
         client.on(e, require(path.join(__dirname, "eventlisteners", e, fileName)))
       })
   });
-
-
 client.login(config.token);
