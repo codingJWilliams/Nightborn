@@ -17,9 +17,8 @@ dogapi.initialize(options);
 setInterval(() => {
   try {
     dogapi.metric.send("server.members", [
-      [Date.now(), client.guilds.get("300155035558346752")
+      client.guilds.get("300155035558346752")
         .memberCount
-      ]
     ], {
       type: "count"
     }, function (err, results) {
