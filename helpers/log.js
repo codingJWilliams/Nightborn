@@ -39,6 +39,16 @@ module.exports = function log(sectionid, level, message) {
         });
       } catch (e) {}
     }
+    try {
+      dogapi.metric.send("bot.log", [
+        1
+      ], {
+        type: "count",
+        tags: ["from:" + sectionid]
+      }, function (err, results) {
+        //
+      });
+    } catch (e) {}
     //global.dogstatsd.increment("bot.logfrom." + sectionid);
     console.log(lColor(level) + " > ".grey + sectionid.white + " >> ".grey + colors.grey(message));
   }
