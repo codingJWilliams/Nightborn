@@ -8,9 +8,25 @@ const {
   readdirSync
 } = require('fs')
 const path = require('path');
-var StatsD = require("hot-shots");
-global.dogstatsd = new StatsD();
-global.dogstatsd.increment("bot.restart");
+
+var dogapi = require("dogapi");
+
+var options = {
+ api_key: config.datadog.apikey,
+ app_key: config.datadog.appkey,
+};
+
+dogapi.initialize(options);
+dogapi.metric.send("my.counter", 5, {type: "count"}, function(err, results){
+  console.dir(results);
+});
+
+setInterval(()=>{
+  dogapi.metric.send("server.members", [[Date.now(), client.guilds.get("")]], {type: "count"}, function(err, results){
+    //
+  });
+}, 10000)
+global.dogapi = dogapi;
 
 var cLog = require("./helpers/log");
 cLog("process.main", "debug", "Launched.");

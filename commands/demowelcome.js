@@ -42,7 +42,14 @@ class WelcomeCommand extends Command {
       .addField("How you can spend souls", `So, you've racked up souls! What to spend them on :ghost:
  + Sharable Roles - At 5,000,000:ghost: per role, these are expensive! You get a tag of your choosing which you can give to others. Say "tell me about tags" to learn more.
  + Private VCs. For 1,000,000:ghost: a week you can own a private voice chat that you can allow people to access!`)
-    message.channel.send(embed)
+    message.channel.send(embed);
+    // Create a reaction collector
+    const collector = message.createReactionCollector(
+      (reaction, user) => reaction.emoji.name === '👌' && user.id === 'someID', {
+        time: 15000
+      });
+    collector.on('collect', r => console.log(`Collected ${r.emoji.name}`));
+    collector.on('end', collected => console.log(`Collected ${collected.size} items`));
   }
 }
 module.exports = WelcomeCommand;

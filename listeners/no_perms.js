@@ -12,7 +12,7 @@ class CommandBlockedListener extends Listener {
   }
   exec(message, command, reason) {
     util.log("services.permissionsManager", "warn", `User ${message.author.username}#${message.author.discriminator} attempted to use ${command.id}`);
-    global.dogstatsd.increment("bot.commandblocked.permission");
+    //global.dogstatsd.increment("bot.commandblocked.permission");
     if (reason === "userPermissions") {
       if (message.channel.id === "300155035558346752") {
         message.author.createDM()
