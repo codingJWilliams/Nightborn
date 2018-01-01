@@ -20,7 +20,7 @@ setInterval(() => {
       client.guilds.get("300155035558346752")
         .memberCount
     ], {
-      type: "count"
+      type: "gauge"
     }, function (err, results) {
       //
     });
