@@ -31,7 +31,7 @@ module.exports = function log(sectionid, level, message) {
       1
     ], {
       type: "count",
-      tags: ["command:" + process.split(".")[1]]
+      tags: ["command:" + sectionid.split(".")[1]]
     }, function (err, results) {
       //
     });
