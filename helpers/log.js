@@ -27,14 +27,18 @@ module.exports = function log(sectionid, level, message) {
       colors.grey
     ];
     var lColor = levelColors[levelMap[level]];
-    dogapi.metric.send("bot.commandDispatch", [
-      1
-    ], {
-      type: "count",
-      tags: ["command:" + sectionid.split(".")[1]]
-    }, function (err, results) {
-      //
-    });
+    if (level === "cmd") {
+      try {
+        dogapi.metric.send("bot.commandDispatch", [
+          1
+        ], {
+          type: "count",
+          tags: ["command:" + sectionid.split(".")[1]]
+        }, function (err, results) {
+          //
+        });
+      } catch (e) {}
+    }
     //global.dogstatsd.increment("bot.logfrom." + sectionid);
     console.log(lColor(level) + " > ".grey + sectionid.white + " >> ".grey + colors.grey(message));
   }
