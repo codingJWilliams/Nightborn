@@ -8,6 +8,7 @@ const {
   readdirSync
 } = require('fs')
 const path = require('path');
+var Discord = require("discord.js")
 var dogapi = require("dogapi");
 var options = {
   api_key: config.datadog.apikey,
@@ -16,9 +17,19 @@ var options = {
 dogapi.initialize(options);
 setInterval(() => {
   try {
+    /**
+     * @type {Discord.Guild}
+     */
+    var nb = client.guilds.get("300155035558346752");
     dogapi.metric.send("server.members", [
-      client.guilds.get("300155035558346752")
-        .memberCount
+      nb.memberCount
+    ], {
+      type: "gauge"
+    }, function (err, results) {
+      //
+    });
+    dogapi.metric.send("server.roles", [
+      nb.roles.size
     ], {
       type: "gauge"
     }, function (err, results) {
