@@ -15,7 +15,7 @@ class StreamerCommand extends Command {
           id: "action",
           type: "string" }, {
           id: "person",
-          type: "member" } ]
+          type: "memberMention" } ]
     });
   }
   async exec(message, args) {
