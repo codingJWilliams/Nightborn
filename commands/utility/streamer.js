@@ -22,7 +22,7 @@ class StreamerCommand extends Command {
     util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`);
     var streamerRole = "361591270759596043";
     await (args.action === "add" ? args.person.addRole : args.person.removeRole)(streamerRole);
-    message.channel.send(new Discord.RichEmbed().setColor(0x4286f4).setDescription("**:white_check_mark: Added the Streamer role to <@" + args.person.id + ">**"));
+    message.channel.send(new Discord.RichEmbed().setColor(0x4286f4).setDescription("**:white_check_mark: Successfully modified Streamer role of <@" + args.person.id + ">**"));
   }
 }
 module.exports = StreamerCommand;
