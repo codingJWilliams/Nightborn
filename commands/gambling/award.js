@@ -51,6 +51,7 @@ class AwardCommand extends Command {
         .setColor(0x71cd40)
       )
     } catch (e) {
+      message.channel.send(e.toString());
       return message.channel.send(new Discord.RichEmbed().setColor(0xee281f).setTitle("Error: cannot find that user"))
     }
   }
