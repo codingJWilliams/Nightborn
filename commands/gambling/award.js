@@ -43,12 +43,10 @@ class AwardCommand extends Command {
     util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
     if (args.reciever.startsWith("<@&")) return message.channel.send(new Discord.RichEmbed().setTitle("Awarding to roles is not supported yet D:").setDescription("Sorry! It's coming soonTM").setColor(0xFF0000));
     try {
-      this.client.fetchUser(args.reciever.replace("<@", "").replace(">", ""))
-      var user = await message.guild.fetchMember(args.reciever.replace("<@", "").replace(">", ""));
-      await economy.award(user.id, args.amnt);
+      await economy.award(args.reciever.replace("<@", "").replace(">", ""), args.amnt);
       message.channel.send(
         new Discord.RichEmbed()
-        .setDescription(`<@${message.author.id}> has awarded ${args.amnt}:ghost: to <@${user.id}>`)
+        .setDescription(`<@${message.author.id}> has awarded ${args.amnt}:ghost: to <@${args.reciever.replace("<@", "").replace(">", "")}>`)
         .setColor(0x71cd40)
       )
     } catch (e) {
