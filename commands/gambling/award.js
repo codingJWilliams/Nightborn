@@ -7,7 +7,7 @@ var util = require("../../helpers/util");
 
 class AwardCommand extends Command {
   constructor() {
-    super('goldenballs', {
+    super('award', {
       aliases: ['award'],
       prefix: ["$", ",", "nb."],
       userPermissions: (msg) => {
