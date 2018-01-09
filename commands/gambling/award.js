@@ -43,6 +43,7 @@ class AwardCommand extends Command {
     util.log("command." + this.id, "cmd", `Executed by ${message.author.username}#${message.author.discriminator}, with message content ${message.content}`)
     if (args.reciever.startsWith("<@&")) return message.channel.send(new Discord.RichEmbed().setTitle("Awarding to roles is not supported yet D:").setDescription("Sorry! It's coming soonTM").setColor(0xFF0000));
     try {
+      message.channel.send(args.reciever.replace("<@", "").replace(">", ""))
       await economy.award(args.reciever.replace("<@", "").replace(">", ""), args.amnt);
       message.channel.send(
         new Discord.RichEmbed()
