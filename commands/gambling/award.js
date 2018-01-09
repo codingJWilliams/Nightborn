@@ -44,6 +44,7 @@ class AwardCommand extends Command {
     if (args.reciever.startsWith("<@&")) return message.channel.send(new Discord.RichEmbed().setTitle("Awarding to roles is not supported yet D:").setDescription("Sorry! It's coming soonTM").setColor(0xFF0000));
     try {
       var user = message.guild.fetchMember(args.reciever.replace("<@", "").replace(">", ""));
+      message.channel.send(user.id)
       await economy.award(user.id, args.amnt);
       message.channel.send(
         new Discord.RichEmbed()
