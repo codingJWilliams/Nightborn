@@ -17,7 +17,7 @@ class AwardCommand extends Command {
           "303672545335312396"
         ];
         var whitelistedIds = [
-
+          "102791315690901504"
         ];
         var blacklistedIds = [
 
