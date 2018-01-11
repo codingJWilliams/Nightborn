@@ -5,10 +5,10 @@ var economy = require("../../helpers/economy");
 var Discord = require("discord.js");
 var util = require("../../helpers/util");
 
-class AwardCommand extends Command {
+class TakeCommand extends Command {
   constructor() {
-    super('award', {
-      aliases: ['award'],
+    super('take', {
+      aliases: ['take'],
       prefix: ["$", ",", "nb."],
       userPermissions: (msg) => {
         var whitelistedRoles = [
@@ -44,10 +44,10 @@ class AwardCommand extends Command {
     if (args.amnt < 1) return;
     if (args.reciever.startsWith("<@&")) return message.channel.send(new Discord.RichEmbed().setTitle("Awarding to roles is not supported yet D:").setDescription("Sorry! It's coming soonTM").setColor(0xFF0000));
     try {
-      await economy.award(args.reciever.replace("<@", "").replace(">", "").replace("!", ""), args.amnt);
+      await economy.take(args.reciever.replace("<@", "").replace(">", "").replace("!", ""), args.amnt);
       message.channel.send(
         new Discord.RichEmbed()
-        .setDescription(`<@${message.author.id}> has awarded ${args.amnt}:ghost: to <@${args.reciever.replace("<@", "").replace(">", "").replace("!", "")}>`)
+        .setDescription(`<@${message.author.id}> has took ${args.amnt}:ghost: from <@${args.reciever.replace("<@", "").replace(">", "").replace("!", "")}>`)
         .setColor(0x71cd40)
       )
     } catch (e) {
@@ -56,4 +56,4 @@ class AwardCommand extends Command {
     }
   }
 }
-module.exports = AwardCommand;
+module.exports = TakeCommand;
