@@ -1,4 +1,4 @@
-module.exports = async(g, u) => {
+module.exports = async (g, u) => {
   try {
     dogapi.metric.send("server.ban", [
       1

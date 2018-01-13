@@ -11,11 +11,13 @@ class StreamerCommand extends Command {
       aliases: ['streamer'],
       userPermissions: (msg) => (msg.author.id === "101493361067704320") || (msg.author.id === "173378944375062528") || bpf(["owner", "dons", "techies"])(msg),
       category: "utility",
-      args: [ {
-          id: "action",
-          type: "string" }, {
-          id: "person",
-          type: "memberMention" } ]
+      args: [{
+        id: "action",
+        type: "string"
+      }, {
+        id: "person",
+        type: "memberMention"
+      }]
     });
   }
   async exec(message, args) {
@@ -23,10 +25,14 @@ class StreamerCommand extends Command {
     var streamerRole = "361591270759596043";
     if (args.action === "add") {
       args.person.addRole(streamerRole);
-      message.channel.send(new Discord.RichEmbed().setColor(0x4286f4).setDescription("**:white_check_mark: Successfully added Streamer role to <@" + args.person.id + ">**"));
+      message.channel.send(new Discord.RichEmbed()
+        .setColor(0x4286f4)
+        .setDescription("**:white_check_mark: Successfully added Streamer role to <@" + args.person.id + ">**"));
     } else {
       args.person.removeRole(streamerRole);
-      message.channel.send(new Discord.RichEmbed().setColor(0x4286f4).setDescription("**:white_check_mark: Successfully removed Streamer role from <@" + args.person.id + ">**"));
+      message.channel.send(new Discord.RichEmbed()
+        .setColor(0x4286f4)
+        .setDescription("**:white_check_mark: Successfully removed Streamer role from <@" + args.person.id + ">**"));
     }
   }
 }

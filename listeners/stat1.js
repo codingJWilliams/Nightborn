@@ -11,7 +11,9 @@ class StatListener extends Listener {
   }
   exec(message) {
     //global.dogstatsd.increment("bot.messages.seen");
-    dogapi.metric.send("bot.messages.seen", 1, {type: "count"}, function(err, results){
+    dogapi.metric.send("bot.messages.seen", 1, {
+      type: "count"
+    }, function (err, results) {
       //console.dir(results);
     });
     //console.log("Seen messgae")

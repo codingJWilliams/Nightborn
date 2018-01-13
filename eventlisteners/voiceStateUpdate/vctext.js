@@ -1,4 +1,4 @@
-module.exports = async(o, n) => {
+module.exports = async (o, n) => {
   console.log("voiceStateUpdate")
   if (n.voiceChannel && !o.voiceChannel) {
     n.addRole("397769917555933185");
