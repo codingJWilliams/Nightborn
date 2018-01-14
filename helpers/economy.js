@@ -17,7 +17,8 @@ async function getBal(uid) {
   try {
     var resp = await axios.get(baseURL + "/getbal/" + token);
   } catch (e) {
-    throw Error("That user ID could not be found")
+    // ooo idk throw Error("That user ID could not be found")
+    return 0
   }
   /**
    * @type {Number}
