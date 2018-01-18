@@ -2,8 +2,8 @@ module.exports.build = (client) => {
   var express = require("express");
   const app = express();
   var jwt = require("jsonwebtoken");
-  var secrets = require("./apiconfig.json")
-    .secrets;
+  //var secrets = require("./apiconfig.json")
+  //  .secrets;
   /*app.get("/api/:clientid/:token", function (req, res) {
     var token = jwt.verify(req.params.token, secrets[req.params.clientid]);
     switch (token.action) {

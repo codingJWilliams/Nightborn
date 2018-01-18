@@ -1,4 +1,4 @@
-var everyone = "<@&396612395239473153>";
+var everyone = "@everyone";
 const {
   Listener
 } = require('discord-akairo');

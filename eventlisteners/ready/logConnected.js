@@ -1,0 +1,1 @@
+module.exports = () => require("../../helpers/log")("proccess.main", "info", "Connected to discord")

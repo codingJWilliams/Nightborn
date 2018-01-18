@@ -11,7 +11,7 @@ class GeneralListener extends Listener {
   async exec(message, command, reason) {
     //console.log(`${message.author.username} was blocked from using ${command.id} because of ${reason}!`);
     if (reason !== "commandInGeneral") return
-    var m = await message.channel.send("No motherfuckin commands in general, have a motherfuckin warning you worthless cunt");
+    var m = await message.channel.send("No motherfuckin commands in general, have a motherfuckin warning :rage:");
     //global.dogstatsd.increment("bot.commandblocked.general");
     message.delete();
     setTimeout(() => m.delete(), 2500);
