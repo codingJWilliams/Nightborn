@@ -7,6 +7,7 @@ yarn-error.log*
 config.json
 google_api_key.json
 dump.txt
+aws.json
 
 # Runtime data
 pids
