@@ -11,6 +11,9 @@ module.exports = async(message) => {
       });
     if (!linkedMc) return;
     var linkedMember = message.guild.members.get(linkedMc.discordID);
+    var perms = message.channel.permissionsFor(linkedMember);
+    if (!perms) return;
+    if (!perms.has("READ_MESSAGES")) return;
     var mentionsThem = message.mentions.everyone || message.mentions.roles.some(r => linkedMember.roles.has(r.id)) || message.mentions.users.has(linkedMember.id);
     if (!mentionsThem) return;
     var t = message.author.username + ": " + (message.content.substring(0, 80).length < message.content.length ? message.content.substring(0, 80) + "..." : message.content);
