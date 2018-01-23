@@ -10,6 +10,7 @@ const {
 const path = require('path');
 var Discord = require("discord.js")
 var dogapi = require("dogapi");
+var EventEmitter = require("events");
 var options = {
   api_key: config.datadog.apikey,
   app_key: config.datadog.appkey,
@@ -29,6 +30,7 @@ const client = new AkairoClient({
   disableEveryone: false
 });
 global.client = client
+client.setMaxListeners(60);
 const isDirectory = source => lstatSync(source)
   .isDirectory()
 const getDirectories = srcPath => fs.readdirSync(srcPath)
