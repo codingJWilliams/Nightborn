@@ -1,5 +1,13 @@
 var minecraft = require("../../helpers/minecraft");
+const Discord = require("discord.js");
+const Message = Discord.Message;
+
+/**
+ * 
+ * @param {Message} message 
+ */
 module.exports = async(message) => {
+  if (message.channel.type !== "text") return;
   if (!global.mongo) return;
   var online = (await minecraft.easyCall("players.online.names", []))
     .success;
