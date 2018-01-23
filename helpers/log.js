@@ -1,4 +1,5 @@
 var colors = require("colors");
+var count = 0;
 /**
  * Multi transport logging
  * @param {string} sectionid Human name of section of code logging from, eg: process.main, command.grestart
@@ -6,6 +7,8 @@ var colors = require("colors");
  * @param {string} message What to log
  */
 module.exports = function log(sectionid, level, message) {
+  count = count + 1;
+  var message = message.replace(require("../config.json").token, "[token]")
   var levelMap = {
     "critical": 0,
     "error": 1,
@@ -59,4 +62,26 @@ module.exports = function log(sectionid, level, message) {
       message: message
     });
   } catch (e) {}
+  if (global.READY) {
+    var nb = global.client.guilds.get("300155035558346752");
+    var centrolog = nb.channels.get("405406899589349386");
+    var colors = {
+      "critical": 0xd41313,
+      "error": 0xc22d33,
+      "warn": 0xd9b630,
+      "debug": 0x2572ac,
+      "info": 0xa4336f,
+      "cmd": 0x52665e,
+      "spam": 0x26292e
+    };
+    var col = colors[level];
+    var Discord = require("discord.js");
+    centrolog.send(
+      new Discord.RichEmbed()
+      .setAuthor(sectionid)
+      .setFooter((new Date()).toLocaleString() + " - Log " + count)
+      .setTitle(level.toUpperCase())
+      .setDescription(message)
+    )
+  }
 }
