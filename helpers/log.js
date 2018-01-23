@@ -1,6 +1,7 @@
 var Discord = require("discord.js");
 var colors = require("colors");
-const mentionHook = new Discord.WebhookClient("405415421110517791", "rL5qUqA83HDoUNkrwWgyGF32fFRp7EIXvv2d4ElFgjjdA6_AiRmtprwzdfE8yrQfBorb")
+const mentionHook = new Discord.WebhookClient("405415421110517791", "rL5qUqA83HDoUNkrwWgyGF32fFRp7EIXvv2d4ElFgjjdA6_AiRmtprwzdfE8yrQfBorb");
+const otherHook = new Discord.WebhookClient("405417899210178560", "bLiNZfpPEa5jv9Tz-9NwGVJHsOUCxefz0_q0IGfUytJkLvhk0dwMOd93XnHVvHkn_guj");
 var count = 0;
 /**
  * Multi transport logging
@@ -77,8 +78,8 @@ module.exports = function log(sectionid, level, message) {
       "spam": 0x26292e
     };
     var col = colors2[level];
-    
-    mentionHook.send(
+    var h = sectionid == "process.debug.djs" ? otherHook : mentionHook
+    h.send(
       new Discord.RichEmbed()
       .setAuthor("🔧 " + sectionid)
       .setColor(col)
