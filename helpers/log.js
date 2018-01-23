@@ -1,5 +1,6 @@
+var Discord = require("discord.js");
 var colors = require("colors");
-
+const mentionHook = new Discord.WebhookClient("405415421110517791", "rL5qUqA83HDoUNkrwWgyGF32fFRp7EIXvv2d4ElFgjjdA6_AiRmtprwzdfE8yrQfBorb")
 var count = 0;
 /**
  * Multi transport logging
@@ -63,9 +64,9 @@ module.exports = function log(sectionid, level, message) {
       message: message
     });
   } catch (e) {}
-  if (global.READY) {
-    var nb = global.client.guilds.get("300155035558346752");
-    var centrolog = nb.channels.get("405406899589349386");
+  //if (global.READY) {
+    //var nb = global.client.guilds.get("300155035558346752");
+    //var centrolog = nb.channels.get("405406899589349386");
     var colors2 = {
       "critical": 0xd41313,
       "error": 0xc22d33,
@@ -76,8 +77,8 @@ module.exports = function log(sectionid, level, message) {
       "spam": 0x26292e
     };
     var col = colors2[level];
-    var Discord = require("discord.js");
-    centrolog.send(
+    
+    mentionHook.send(
       new Discord.RichEmbed()
       .setAuthor("🔧 " + sectionid)
       .setColor(col)
@@ -85,5 +86,5 @@ module.exports = function log(sectionid, level, message) {
       .setTitle(level.toUpperCase())
       .setDescription(message)
     )
-  }
+  //}
 }
