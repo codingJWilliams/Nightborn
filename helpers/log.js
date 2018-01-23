@@ -79,7 +79,8 @@ module.exports = function log(sectionid, level, message) {
     var Discord = require("discord.js");
     centrolog.send(
       new Discord.RichEmbed()
-      .setAuthor(sectionid)
+      .setAuthor("🔧 " + sectionid)
+      .setColor(col)
       .setFooter((new Date()).toLocaleString() + " - Log " + count)
       .setTitle(level.toUpperCase())
       .setDescription(message)
