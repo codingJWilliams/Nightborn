@@ -1,4 +1,5 @@
 var colors = require("colors");
+
 var count = 0;
 /**
  * Multi transport logging
@@ -65,7 +66,7 @@ module.exports = function log(sectionid, level, message) {
   if (global.READY) {
     var nb = global.client.guilds.get("300155035558346752");
     var centrolog = nb.channels.get("405406899589349386");
-    var colors = {
+    var colors2 = {
       "critical": 0xd41313,
       "error": 0xc22d33,
       "warn": 0xd9b630,
@@ -74,7 +75,7 @@ module.exports = function log(sectionid, level, message) {
       "cmd": 0x52665e,
       "spam": 0x26292e
     };
-    var col = colors[level];
+    var col = colors2[level];
     var Discord = require("discord.js");
     centrolog.send(
       new Discord.RichEmbed()
