@@ -24,7 +24,7 @@ class ReadyListener extends Listener {
         })
         .length > 0 && message.channel.name !== "staff") {
         var sObj = staffQuotes.filter(s => {
-          return s.trigger === message.content
+          return s.trigger.toLowerCase() === message.content.toLowerCase()
         })[0];
         var sMember = message.guild.members.find("id", sObj.staffid);
         if (sObj.trigger === "bob") {
