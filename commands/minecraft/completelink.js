@@ -51,7 +51,8 @@ class PingCommand extends Command {
         "303356068334010370": "eventorg", // Event orgs
         "301870138573979658": "don", // Dons
         "312455922721095682": "owner", // Bobfather
-        "362965292843925506": "don" // Consligiere
+        "362965292843925506": "don", // Consligiere
+        "405748052721401856": "builder" // MC Builder
       }
       var roleNeeded = roleMapping[message.member.colorRole.id];
       if (!roleNeeded) {
