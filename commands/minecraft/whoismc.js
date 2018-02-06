@@ -23,7 +23,7 @@ class PingCommand extends Command {
         });
     }
     async exec(message, args) {
-        var person = await global.mongo.findOne({
+        var person = await global.mongo.collection("link").findOne({
             mcUsername: args.mcName
         });
         if (!person) return message.channel.send(new Discord.RichEmbed().setTitle("I couldn't find that username. Make sure it's got capitals in the right place"))
