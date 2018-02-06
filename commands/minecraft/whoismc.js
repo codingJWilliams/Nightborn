@@ -31,7 +31,7 @@ class PingCommand extends Command {
             new Discord.RichEmbed()
             .setTitle("Got it!")
             .setColor(0x00FF00)
-            .setDescription(args.mcName + " is <@" + person.discordOD + ">")
+            .setDescription(args.mcName + " is <@" + person.discordID + ">")
         )
     }
 }
