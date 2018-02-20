@@ -35,7 +35,8 @@ Each rule has a route next to it's rule number. This is how you'll be punished. 
 ### B
 | Offence | Punishment |
 | --- | --- |
-| 1 | Permanant Ban |
+| 1 | 7 day ban |
+| 2 | Permanant Ban |
 
 ## Contact
 If you feel any of these rules aren't clear or could be improved in any way, let me know :smile: I'm @VoidCrafted#2483
