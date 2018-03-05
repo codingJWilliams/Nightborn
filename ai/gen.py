@@ -11,6 +11,6 @@ text_model = markovify.NewlineText(text)
 t = ""
 
 while len(t) < 400:
-    t += text_model.make_short_sentence(400)
+    t += text_model.make_short_sentence(400) + " "
 
 print(t)
