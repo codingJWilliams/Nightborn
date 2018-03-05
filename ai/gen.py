@@ -8,5 +8,9 @@ with open("./storage/nlp-training.massiveassfile.txt") as f:
 text_model = markovify.NewlineText(text)
 
 # Print five randomly-generated sentences
+t = ""
 
-print(text_model.make_short_sentence(400))
+while len(t) < 400:
+    t += text_model.make_short_sentence(400)
+
+print(t)
