@@ -9,4 +9,4 @@ text_model = markovify.NewlineText(text)
 
 # Print five randomly-generated sentences
 
-print(text_model.make_sentence(tries=1000))
+print(text_model.make_short_sentence(400))

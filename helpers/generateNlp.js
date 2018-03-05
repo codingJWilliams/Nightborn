@@ -4,5 +4,5 @@ const exec = util_.promisify(require('child_process')
 
 module.exports = async function() {
     var { stdout, stderr } = await exec("python3 ai/gen.py");
-    return stdout
+    return stdout.replace("@everyone", "@not everyone").replace("@here", "@not here").replace(/<@[0-9]+>/g, "")
 }
