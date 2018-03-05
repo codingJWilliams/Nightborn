@@ -10,7 +10,7 @@ text_model = markovify.NewlineText(text)
 # Print five randomly-generated sentences
 t = ""
 
-while len(t) < 400:
+while len(t) < 140:
     t += text_model.make_short_sentence(400) + " "
 
 print(t)

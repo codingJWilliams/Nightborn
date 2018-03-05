@@ -15,7 +15,7 @@ class NlpListener extends Listener {
     exec(message) {
         if (message.channel.name != "general") return;
         messagesPerMin += 1;
-        setTimeout(() => { messagesPerMin -= 1 }, 120 * 1000);
+        setTimeout(() => { messagesPerMin -= 1 }, 430 * 1000);
     }
 }
 setInterval(() => {
