@@ -20,11 +20,11 @@ class NlpListener extends Listener {
 }
 setInterval(() => {
     if (messagesPerMin == 0) {
-        generateNlp({
+        /*generateNlp({
             len: 300
         }).then(x =>
-            global.client.guilds.get("300155035558346752").channels.get("300155035558346752").send(x)
-        )
+            //global.client.guilds.get("300155035558346752").channels.get("300155035558346752").send(x)
+        )*/
     }
 }, 111 * 1000)
 module.exports = NlpListener;
