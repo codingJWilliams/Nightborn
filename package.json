@@ -37,6 +37,7 @@
         "jsonwebtoken": "^8.1.0",
         "mocha": "^4.0.1",
         "mongodb": "^2.2.33",
+        "node-cron": "^1.2.1",
         "phonetic": "^0.1.1",
         "profanity-cleanser": "^1.0.1",
         "random-weighted-choice": "^0.1.3",
